@@ -16,6 +16,8 @@ import { ExportComponent } from './pages/export/export.component';
 import { SettingsComponent } from './pages/settings/settings.component';
 import { DiagnosisComponent } from './pages/diagnosis/diagnosis.component';
 import { DetailsComponent } from './pages/settings/details/details.component';
+import { DiagnosisDetailsComponent } from './pages/diagnosis/diagnosis-details/diagnosis-details.component';
+import { SettingsDetailsComponent } from './pages/settings/settings-details/settings-details.component';
 
 
 @NgModule({
@@ -30,7 +32,8 @@ import { DetailsComponent } from './pages/settings/details/details.component';
     ExportComponent,
     SettingsComponent,
     DiagnosisComponent,
-    DetailsComponent
+    SettingsDetailsComponent,
+    DiagnosisDetailsComponent
   ],
   imports: [
     BrowserModule,
