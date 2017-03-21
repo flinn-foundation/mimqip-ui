@@ -1,0 +1,32 @@
+<table width="100%" border="0" cellspacing="0" cellpadding="0">
+  <tr bgcolor="#CAD8DF">
+    <td nowrap>
+      <p class='tableHeader'>
+        Name
+      </p>
+    </td>
+    <td nowrap>
+      <p class='tableHeader'>
+        Value
+      </p>
+    </td>
+  </tr>
+  <tr *ngFor="let setting of settings">
+    <td width="20%">
+      <p class="tableText">
+        {{ setting.name }}
+      </p>
+    </td>
+    <td width="70%">
+      <p class="tableText">
+        {{ setting.value }}
+      </p>
+    </td>
+    <td width="10%">
+      <a href="/settings/details/{{ setting.id }}" class="subLink">
+        <img src="/assets/images/admin/images/blue_arrow.gif" width=5 height=10 alt="" border="0">
+        detail
+      </a>
+    </td>
+  </tr>
+</table>

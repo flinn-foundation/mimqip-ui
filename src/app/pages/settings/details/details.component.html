@@ -1,0 +1,59 @@
+<table width="100%" border="0" cellspacing="0" cellpadding="0" bgcolor="#CAD8DF">
+  <input type="hidden" name="id" value="settingid">
+  <tr>
+    <td nowrap><p class="formText">Name</p></td>
+    <td align="right">
+      <p class="formText" style="text-align:left;">
+        <input type='text' name='Name' maxlength='50' value='{{ name }}'>
+      </p>
+    </td>
+  </tr>
+
+  <tr>
+    <td nowrap><p class="formText">Value</p></td>
+    <td align="right">
+      <p class="formText" style="text-align:left;">
+        <input type='text' name='Value' maxlength='50' value='{{ value }}'>
+        </p>
+    </td>
+  </tr>
+  <tr>
+    <td>
+      <table border="0" cellspacing="0" cellpadding="4">
+        <tr>
+          <td>
+            <div class="updateText">
+              <button (click)="editSettings()" class="updateText">
+                <img src="/assets/images/admin/update_arrow.gif" width=5 height=10 alt="" border="0">Edit
+              </button>
+            </div>
+          </td>
+        </tr>
+      </table>
+    </td>
+  </tr>
+  <tr>
+    <td>
+      <table border="0" cellspacing="0" cellpadding="4">
+        <tr>
+          <td>
+            <div class="updateText">
+              <button (click)="updateSettings()" class="updateText">
+                <img src="/admin/images/update_arrow.gif" width=5 height=10 alt="" border="0">
+                Save Updates
+              </button>
+            </div>
+          </td>
+          <td>
+            <div class="updateText">
+              <a href="settings" class="updateText">
+                <img src="/admin/images/update_arrow.gif" width=5 height=10 alt="" border="0">Cancel Updates
+              </a>
+            </div>
+          </td>
+        </tr>
+      </table>
+    </td>
+    <td>&nbsp;</td>
+  </tr>
+</table>

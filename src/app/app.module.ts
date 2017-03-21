@@ -6,13 +6,31 @@ import { HttpModule } from '@angular/http';
 import { AppRoutingModule } from './app-routing.module';
 
 import { AppComponent } from './app.component';
-import { AboutComponent } from './about/about.component';
+import { AboutComponent } from './pages/about/about.component';
+import { RulesComponent } from './pages/rules/rules.component';
+import { HeaderComponent } from './components/header/header.component';
+import { FooterComponent } from './components/footer/footer.component';
+import { NavComponent } from './components/nav/nav.component';
+import { MessagesComponent } from './pages/messages/messages.component';
+import { ExportComponent } from './pages/export/export.component';
+import { SettingsComponent } from './pages/settings/settings.component';
+import { DiagnosisComponent } from './pages/diagnosis/diagnosis.component';
+import { DetailsComponent } from './pages/settings/details/details.component';
 
 
 @NgModule({
   declarations: [
     AppComponent,
-    AboutComponent
+    AboutComponent,
+    RulesComponent,
+    HeaderComponent,
+    FooterComponent,
+    NavComponent,
+    MessagesComponent,
+    ExportComponent,
+    SettingsComponent,
+    DiagnosisComponent,
+    DetailsComponent
   ],
   imports: [
     BrowserModule,
