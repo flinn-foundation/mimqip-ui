@@ -15,4 +15,20 @@ export class DiagnosisDetailsComponent implements OnInit {
   ngOnInit() {
   }
 
+  updateDiagnosis() {
+
+  }
+
+  addTreatment() {
+
+  }
+
+  editTreatment() {
+
+  }
+
+  removeTreatment() {
+
+  }
+
 }
