@@ -1,165 +1,64 @@
 <table width="100%" border="0" cellspacing="0" cellpadding="0" bgcolor="#CAD8DF">
-  <% if (editable) {%>
-  <script type="text/javascript" language="JavaScript" src="common/js/form_validate.js"></script>
-  <FORM method="POST" action="<% out.print(jspSelf);%>" name="adminform">
-    <input type="hidden" name="id" value="<% if (messageid > 0) {
-                 out.print(messageid);
-             } else {
-                 out.print(0);
-             }%>">
-    <% }%>
-    <tr>
-      <td width="12" align="left"><img src="/recommend/images/s.gif" width=12 height=1 alt="" border="0"></td>
-      <td nowrap><p class="formText">Message Tag</p></td>
-      <td align="right">
-        <p class="formText" style="text-align:left;">
-          <% if (editable) {
-          out.print("<input type='text' name='MessageTag' maxlength='50' value='");
-                                }%><% if (messageid > 0) {
-                                                out.print(messagetag.replace("&","&amp;").replace("'", "&#039;"));
-          }%><% if (editable) {
-          out.print("'>");
-          }%></p></td>
-      <td>&nbsp;</td>
-    </tr>
 
-    <tr>
-      <td><img src="/recommend/images/s.gif" width=1 height=1 alt="" border="0"></td>
-      <td colspan="2" background="/admin/images/row_separator.gif" style="background-repeat: repeat-x;"></td>
-      <td><img src="/recommend/images/s.gif" width=1 height=1 alt="" border="0"></td>
-    </tr>
-    <tr>
-      <td width="12" align="left"><img src="/recommend/images/s.gif" width=12 height=1 alt="" border="0"></td>
-      <td nowrap><p class="formText">Message</p></td>
-      <td align="right">
-        <p class="formText" style="text-align:left;">
-          <% if (editable) {
-          out.print("<textarea rows='6' cols='80' name='Message'>");
-                                }
-                                if (messageid > 0) {
-                                    out.print(message.replace("&","&amp;").replace("'", "&#039;"));
-                                }
-                                if (editable) {
-                                                    out.print("</textarea>");
-          }%></p></td>
-      <td>&nbsp;</td>
-    </tr>
+  <input type="hidden" name="id" value="{{ message.id }}">
+  <tr>
+    <td nowrap><p class="formText">Message Tag</p></td>
+    <td align="right">
+      <p class="formText" style="text-align:left;">
+        <input type='text' name='MessageTag' maxlength='50' value="{{ message.tag }}"></p></td>
+  </tr>
+  <tr>
+    <td nowrap><p class="formText">Message</p></td>
+    <td align="right">
+      <p class="formText" style="text-align:left;">
+        <textarea rows='6' cols='80' name='Message'>{{ message.text }}</textarea>
+      </p></td>
+  </tr>
+  <tr>
+    <td nowrap><p class="formText">Priority</p></td>
+    <td align="right">
+      <p class="formText" style="text-align:left;">
+        <input type='text' name='Priority' maxlength='30' value="{{ message.priority }}">
+      </p>
+    </td>
+  </tr>
 
-    <tr>
-      <td><img src="/recommend/images/s.gif" width=1 height=1 alt="" border="0"></td>
-      <td colspan="2" background="/admin/images/row_separator.gif" style="background-repeat: repeat-x;"></td>
-      <td><img src="/recommend/images/s.gif" width=1 height=1 alt="" border="0"></td>
-    </tr>
-    <tr>
-      <td width="12" align="left"><img src="/recommend/images/s.gif" width=12 height=1 alt="" border="0"></td>
-      <td nowrap><p class="formText">Priority</p></td>
-      <td align="right">
-        <p class="formText" style="text-align:left;">
-          <% if (editable) {
-          out.print("<input type='text' name='Priority' maxlength='30' value='");
-                                }%><% if (messageid > 0) {
-                                                                    out.print(priority);
-                                                                }%><% if (editable) {
-                                                            out.print("'>");
-          }%></p></td>
-      <td>&nbsp;</td>
-    </tr>
+  <tr>
+    <td>
+      <table border="0" cellspacing="0" cellpadding="4">
+        <tr>
+          <td>
+            <div class="updateText">
+              <button (click)="editMessage(message.id)" class="updateText">
+                <img src="/src/assets/images/admin/update_arrow.gif" width=5 height=10 alt="" border="0">Edit
+              </button>
+            </div>
+          </td>
+        </tr>
+      </table>
+    </td>
+  </tr>
 
-
-    <tr>
-      <td><img src="/recommend/images/s.gif" width=1 height=1 alt="" border="0"></td>
-      <td colspan="2" background="/admin/images/row_separator.gif" style="background-repeat: repeat-x;"></td>
-      <td><img src="/recommend/images/s.gif" width=1 height=1 alt="" border="0"></td>
-    </tr>
-
-    <% if (!editable) {%>
-    <tr>
-      <td><img src="/recommend/images/s.gif" width=1 height=1 alt="" border="0"></td>
-      <td colspan="2" background="/admin/images/row_separator.gif" style="background-repeat: repeat-x;"></td>
-      <td><img src="/recommend/images/s.gif" width=1 height=1 alt="" border="0"></td>
-    </tr>
-
-    <%            }
-
-    if (isAdmin && !editable) {
-    %>
-    <tr>
-      <td><img src="/recommend/images/s.gif" width=1 height=1 alt="" border="0"></td>
-      <td colspan="2" background="/admin/images/row_separator.gif" style="background-repeat: repeat-x;"></td>
-      <td><img src="/recommend/images/s.gif" width=1 height=1 alt="" border="0"></td>
-    </tr>
-    <tr>
-      <td><img src="/recommend/images/s.gif" width=1 height=37 alt="" border="0"></td>
-      <td>&nbsp;</td>
-      <td>
-        <table border="0" cellspacing="0" cellpadding="4">
-          <tr>
-            <td>
-              <div class="updateText"><a href="/recommend/message_detail.jsp?id=<% out.print(messageid);%>&edit=y" class="updateText"><img src="/admin/images/update_arrow.gif" width=5 height=10 alt="" border="0">&nbsp;&nbsp;Edit</a></div>
-            </td>
-          </tr>
-        </table>
-      </td>
-      <td>&nbsp;</td>
-    </tr>
-    <%
-    }
-    if (editable) {
-    %>
-    <tr>
-      <td><img src="/recommend/images/s.gif" width=1 height=1 alt="" border="0"></td>
-      <td colspan="2" background="/admin/images/row_separator.gif" style="background-repeat: repeat-x;"></td>
-      <td><img src="/recommend/images/s.gif" width=1 height=1 alt="" border="0"></td>
-    </tr>
-    <tr>
-      <td><img src="/recommend/images/s.gif" width=1 height=37 alt="" border="0"></td>
-      <td>&nbsp;</td>
-      <td>
-        <table border="0" cellspacing="0" cellpadding="4">
-          <tr>
-            <td>
-              <div class="updateText"><a href="javascript:formsubmit('adminform')" class="updateText"><img src="/admin/images/update_arrow.gif" width=5 height=10 alt="" border="0">&nbsp;&nbsp;Save Updates</a></div>
-            </td>
-            <td>
-              <div class="updateText"><a href="<%
-                                             if (messageid > 0) {
-                                                 out.print(jspSelf);
-                                                 out.print("?id=" + messageid);
-                                             } else {
-                                                 out.print("/recommend/message.jsp");
-                }
-
-                %>" class="updateText"><img src="/admin/images/update_arrow.gif" width=5 height=10 alt="" border="0">&nbsp;&nbsp;Cancel Updates</a></div></td>
-          </tr>
-        </table>
-      </td>
-      <td>&nbsp;</td>
-    </tr>
-    <%
-    }
-    %>
-    <%
-    dm.disposeConnection("message_detail");
-    if (editable) {%>
-  </FORM>
-  <script language="JavaScript" type="text/javascript">
-    function formsubmit(frmname) {
-      if(document.forms[frmname]) {
-        if (document.forms[frmname].onsubmit()) {
-          document.forms[frmname].submit();
-        }
-      }
-    }
-
-
-    var frmvalidator  = new Validator("adminform");
-    <% if (editable) {%>
-      frmvalidator.addValidation("MessageTag","req","Please enter a name for the message tag");
-      frmvalidator.addValidation("MessageTag","maxlen=50","Max length for message is 50");
-      frmvalidator.addValidation("Message","req","Please enter a message");
-      frmvalidator.addValidation("Message","maxlen=50000","Max length for message is 50000");
-    <% }%>
-
-  </script>
-  <% }%>
+  <tr>
+    <td>
+      <table border="0" cellspacing="0" cellpadding="4">
+        <tr>
+          <td>
+            <div class="updateText">
+              <button (click)="saveUpdates()" class="updateText">
+                <img src="/src/assets/images/admin/update_arrow.gif" width=5 height=10 alt="" border="0">Save Updates
+              </button>
+            </div>
+          </td>
+          <td>
+            <div class="updateText">
+              <button (click)="cancelUpdates()" class="updateText">
+                <img src="/src/assets/images/admin/update_arrow.gif" width=5 height=10 alt="" border="0">Cancel Updates
+              </button>
+            </div>
+          </td>
+        </tr>
+      </table>
+    </td>
+  </tr>
 </table>

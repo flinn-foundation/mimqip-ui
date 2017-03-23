@@ -1,49 +1,40 @@
 <table width="100%" border="0" cellspacing="0" cellpadding="0">
   <tr>
-    <td colspan="3" width="30%" bgcolor="#CAD8DF"><img src="/recommend/images/s.gif" width=1 height=1 alt="" border="0"></td>
-    <td width="1" bgcolor="#FFFFFF"><img src="/recommend/images/s.gif" width="1" height="1" alt="" border="0"></td>
-    <td colspan="2" width="30%"><img src="/recommend/images/s.gif" width="1" height="1" alt="" border="0"></td>
-    <td colspan="2" width="40%"><img src="/recommend/images/s.gif" width="1" height="1" alt="" border="0"></td>
-  </tr>
-  <tr>
-    <td width="1" nowrap bgcolor="#CAD8DF"><img src="/recommend/images/s.gif" width="1" height="1" alt="" border="0"></td>
-    <td width="13" nowrap bgcolor="#CAD8DF"><img src="/recommend/images/s.gif" width="13" height="1" alt="" border="0"></td>
-    <td width="168" nowrap bgcolor="#CAD8DF"><a href="/recommend/message_detail.jsp?id=0&edit=y" class="subLink"><img src="/admin/images/blue_arrow.gif" width=5 height=10 alt="" border="0">&nbsp;&nbsp;Add Message</a></td>
+    <td width="168" nowrap bgcolor="#CAD8DF">
+      <a href="/recommend/message_detail.jsp?id=0&edit=y" class="subLink">
+        <img src="/src/assets/images/admin/blue_arrow.gif" width=5 height=10 alt="" border="0">Add Message
+      </a>
+    </td>
   </tr>
 </table>
 <table width="100%" border="0" cellspacing="0" cellpadding="0">
   <tr bgcolor="#CAD8DF">
-    <td><img src="/recommend/images/s.gif" width="1" height="1" alt="" border="0"></td>
-    <td>&nbsp;</td>
-    <% out.print(WriteTableHeader("Message Tag", qsOrder, jspSelf, "0")); %>
-    <% out.print(WriteTableHeader("Message", qsOrder1, jspSelf, "1")); %>
-    <% out.print(WriteTableHeader("Priority", qsOrder2, jspSelf, "2")); %>
-    <td nowrap><p class="tableHeader">&nbsp;</p></td>
-    <td>&nbsp;</td>
-    <td nowrap><p class="tableHeader">&nbsp;</p></td>
-    <td colspan="2">&nbsp;&nbsp;</td>
-  </tr>
-  <tr bgcolor="#CAD8DF">
-    <td colspan="13"><img src="/recommend/images/s.gif" width="1" height="1" alt="" border="0"></td>
+    <td nowrap>
+      <p class='tableHeader'>
+        Messsage Tag
+      </p>
+    </td>
+    <td nowrap>
+      <p class='tableHeader'>
+        Message
+      </p>
+    </td>
+    <td nowrap>
+      <p class='tableHeader'>
+        Priority
+      </p>
+    </td>
   </tr>
 
-  <tr>
+  <tr *ngFor="let message of messages">
     <td bgcolor="#CAD8DF"><img src="/recommend/images/s.gif" width="1" height="1" alt="" border="0"></td>
-    <td>&nbsp;&nbsp;</td>
-    <td width="10%"><p class="tableText"><%= messageList.get(i).getMessagetag()%></p></td>
-    <td>&nbsp;&nbsp;</td>
-    <td width="70%"><p class="tableText"><%= messageList.get(i).getMessage()%></p></td>
-    <td>&nbsp;&nbsp;</td>
-    <td width="10%"><p class="tableText"><%= messageList.get(i).getPriority()%></p></td>
-    <td>&nbsp;&nbsp;</td>
-    <td width="10%"><a href="/recommend/message_detail.jsp?id=<% out.print(messageList.get(i).getMessageid());%>" class="subLink"><img src="/admin/images/blue_arrow.gif" width=5 height=10 alt="" border="0">&nbsp;detail</a></td>
-  </tr>
-
-  <%
-  }
-  }
-  %>
-  <tr bgcolor="#CAD8DF">
-    <td colspan="13"><img src="/recommend/images/s.gif" width="1" height="1" alt="" border="0"></td>
+    <td width="10%"><p class="tableText">{{ message.tag }}</p></td>
+    <td width="70%"><p class="tableText">{{ message.text }}</p></td>
+    <td width="10%"><p class="tableText">{{ message.priority }}</p></td>
+    <td width="10%">
+      <a href="/messages/details?id={{ message.id }}" class="subLink">
+        <img src="/src/assets/images/admin/blue_arrow.gif" width=5 height=10 alt="" border="0">detail
+      </a>
+    </td>
   </tr>
 </table>
