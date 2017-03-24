@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { Setting } from "../../models/setting";
+import {Setting} from "../../../models/setting";
 
 @Component({
   selector: 'app-settings',

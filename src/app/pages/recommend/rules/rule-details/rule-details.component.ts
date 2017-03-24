@@ -1,7 +1,7 @@
 import {Component, OnInit} from '@angular/core';
-import {Rule} from "../../../models/rule";
-import {Diagnosis} from "../../../models/diagnosis";
-import {Message} from "../../../models/message";
+import {Rule} from "../../../../models/rule";
+import {Diagnosis} from "../../../../models/diagnosis";
+import {Message} from "../../../../models/message";
 
 @Component({
   selector: 'app-rule-details',

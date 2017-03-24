@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import {Diagnosis} from "../../../models/diagnosis";
+import {Diagnosis} from "../../../../models/diagnosis";
 
 @Component({
   selector: 'app-diagnosis-details',

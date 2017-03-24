@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import {Rule} from "../../models/rule";
+import {Rule} from "../../../models/rule";
 
 @Component({
   selector: 'app-rules',
