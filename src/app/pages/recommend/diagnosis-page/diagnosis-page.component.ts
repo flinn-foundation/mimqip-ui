@@ -2,11 +2,11 @@ import { Component, OnInit } from '@angular/core';
 import {Diagnosis} from "../../../models/diagnosis";
 
 @Component({
-  selector: 'app-diagnosis',
-  templateUrl: './diagnosis.component.html',
-  styleUrls: ['./diagnosis.component.scss']
+  selector: 'app-diagnosis-page',
+  templateUrl: './diagnosis-page.component.html',
+  styleUrls: ['./diagnosis-page.component.scss']
 })
-export class DiagnosisComponent implements OnInit {
+export class DiagnosisPageComponent implements OnInit {
 
   diagnoses : Diagnosis[];
 

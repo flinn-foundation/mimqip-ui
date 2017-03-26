@@ -2,11 +2,11 @@ import { Component, OnInit } from '@angular/core';
 import {Rule} from "../../../models/rule";
 
 @Component({
-  selector: 'app-rules',
-  templateUrl: 'rules.component.html',
-  styleUrls: ['rules.component.scss']
+  selector: 'app-rules-page',
+  templateUrl: 'rules-page.component.html',
+  styleUrls: ['rules-page.component.scss']
 })
-export class RulesComponent implements OnInit {
+export class RulesPageComponent implements OnInit {
 
   rules: Rule[];
 

@@ -2,11 +2,11 @@ import { Component, OnInit } from '@angular/core';
 import {Setting} from "../../../models/setting";
 
 @Component({
-  selector: 'app-settings',
-  templateUrl: './settings.component.html',
-  styleUrls: ['./settings.component.scss']
+  selector: 'app-settings-page',
+  templateUrl: './settings-page.component.html',
+  styleUrls: ['./settings-page.component.scss']
 })
-export class SettingsComponent implements OnInit {
+export class SettingsPageComponent implements OnInit {
 
   settings : Setting[];
 

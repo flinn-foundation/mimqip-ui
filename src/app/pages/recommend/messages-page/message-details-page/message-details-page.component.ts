@@ -2,11 +2,11 @@ import { Component, OnInit } from '@angular/core';
 import {Message} from "../../../../models/message";
 
 @Component({
-  selector: 'app-message-details',
-  templateUrl: './message-details.component.html',
-  styleUrls: ['./message-details.component.scss']
+  selector: 'app-message-details-page',
+  templateUrl: './message-details-page.component.html',
+  styleUrls: ['./message-details-page.component.scss']
 })
-export class MessageDetailsComponent implements OnInit {
+export class MessageDetailsPageComponent implements OnInit {
 
   message: Message;
 
