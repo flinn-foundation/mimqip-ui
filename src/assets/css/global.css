@@ -53,7 +53,7 @@ body{
 #top{
 	width:990px;
 	margin:0 auto;
-}	
+}
 
 #patientSelect #topWrapper,
 #patientSelect #top{height:34px;}
@@ -82,10 +82,10 @@ body{
 
 #utilityBar h1{
 	display:inline;
-	font-size:16px; 
-	text-transform:uppercase; 
-	color:#e3e4e5; 
-	font-weight:normal; 
+	font-size:16px;
+	text-transform:uppercase;
+	color:#e3e4e5;
+	font-weight:normal;
 	line-height:19px;
 	padding:0 2px;
 }
@@ -260,14 +260,14 @@ div.fieldWrapper p{
 	height:27px;
 	width:265px;
 	-moz-box-shadow: 2px 1px 5px #999;
-    -webkit-box-shadow: 2px 1px 5px #999; 
-    box-shadow: #999 2px 1px 7px;     
+    -webkit-box-shadow: 2px 1px 5px #999;
+    box-shadow: #999 2px 1px 7px;
 	padding:0 10px;
 	z-index:10;
 	margin:3px 20px 0 0;
 }
 
-textarea{ 
+textarea{
 	border:1px solid #eaf1ce;
 	background:#eaf1ce;
 	position:relative;
@@ -276,16 +276,16 @@ textarea{
 	height:45px;
 	width:485px;
 	-moz-box-shadow: 2px 1px 5px #999;
-    -webkit-box-shadow: 2px 1px 5px #999; 
-    box-shadow: #999 2px 1px 7px;     
+    -webkit-box-shadow: 2px 1px 5px #999;
+    box-shadow: #999 2px 1px 7px;
 	padding:2px 5px;
 	z-index:10;
 	margin:3px 20px 0 0;
 }
 
-.ie7 .greenInput, 
+.ie7 .greenInput,
 .ie8 .greenInput,
-.ie7 textarea, 
+.ie7 textarea,
 .ie8 textarea{ behavior: url(pie.htc);}
 
 .dropdown{
@@ -297,7 +297,7 @@ textarea{
 }
 
 .dropdown a.pullDown{
-	background: #eaf1ce url(../../images/dropdownArrowBg.gif) no-repeat top right;
+	background: #eaf1ce url(../images/dropdownArrowBg.gif) no-repeat top right;
 	height:30px;
 	display:block;
 	position:absolute;
@@ -311,8 +311,8 @@ textarea{
 	color:#3e3e3e;
 	padding-left:10px;
 	-moz-box-shadow: 2px 1px 5px #999;
-    -webkit-box-shadow: 2px 1px 5px #999; 
-    box-shadow: #999 2px 1px 5px;     	
+    -webkit-box-shadow: 2px 1px 5px #999;
+    box-shadow: #999 2px 1px 5px;
 }
 
 .dropdown.disabled a.pullDown{color:#A8B0B5;}
@@ -326,8 +326,8 @@ textarea{
 
 .dropdown ul{
 	-moz-box-shadow: 2px 3px 5px #999;
-    -webkit-box-shadow: 2px 3px 5px #999; 
-    box-shadow: #999 2px 3px 5px;     
+    -webkit-box-shadow: 2px 3px 5px #999;
+    box-shadow: #999 2px 3px 5px;
 	overflow:auto;
 	position:absolute;
 	top:0px;
@@ -338,15 +338,15 @@ textarea{
 	max-height:175px;
 }
 
-.ie7 .dropdown ul, 
+.ie7 .dropdown ul,
 .ie8 .dropdown ul{behavior: url(pie.htc);}
 
 .dropdown ul.showTop{
 	bottom:30px;
 	top:auto;
 	-moz-box-shadow: 2px -3px 5px #999;
-    -webkit-box-shadow: 2px -3px 5px #999; 
-    box-shadow: #999 2px -3px 5px;  
+    -webkit-box-shadow: 2px -3px 5px #999;
+    box-shadow: #999 2px -3px 5px;
 }
 
 .ie7 .dropdown ul.showTop,
@@ -382,7 +382,7 @@ textarea{
 	line-height:24px;
 	padding-left:10px;
 }
-.dropdown li a:hover, 
+.dropdown li a:hover,
 .dropdown li a.selected{background:#75848c; color:#fff;}
 
 .error > label{color:#c74c4c;}
@@ -405,8 +405,8 @@ textarea{
 	float:right;
 	text-decoration:none;
 	-moz-box-shadow: 0px 0px 4px #8c8c8c;
-    -webkit-box-shadow: 0px 0px 4px #8c8c8c; 
-    box-shadow: #8c8c8c 0px 0px 4px;         
+    -webkit-box-shadow: 0px 0px 4px #8c8c8c;
+    box-shadow: #8c8c8c 0px 0px 4px;
 	position:relative;
 	font:bold 14px/28px arial, sans-serif;
 	background: url(../images/global/orangeBtnBg.png) repeat-x;
