@@ -24,34 +24,8 @@
   <div id="topWrapper">
     <div id="top">
       <div id="boxes">
-        <div id="boxInformation" class="box">
-          <div class="headingBar">
-            <h2>Patient Information</h2>
-          </div>
-          <div class="fieldBox" id="first">
-            <span class="title">First</span>
-            <span class="content"></span>
-          </div>
-          <div class="fieldBox" id="last">
-            <span class="title">Last</span>
-            <span class="content"></span>
-          </div>
-          <div class="fieldBox" id="id">
-            <span class="title">ID #</span>
-            <span class="content"></span>
-          </div>
-          <div class="fieldBox" id="sex">
-            <span class="title">Sex</span>
-            <span class="content"></span>
-          </div>
-          <div class="fieldBox" id="age">
-            <span class="title">Age</span>
-            <span class="content"></span>
-          </div>
-          <div class="fieldBox" id="dob">
-            <span class="title">Dob</span>
-            <span class="content"></span>
-          </div>
+        <div *ngIf="patient">
+          <app-patient-information [patient]="patient"></app-patient-information>
         </div>
         <div id="boxDiagnosisStage" class="box">
           <div class="headingBar">

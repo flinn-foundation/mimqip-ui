@@ -26,6 +26,7 @@ import { PatientSearchPageComponent } from './pages/patient/patient-search-page/
 import { NewPatientFormComponent } from './components/new-patient-form/new-patient-form.component';
 import { PatientDetailsPageComponent } from './pages/patient/patient-details-page/patient-details-page.component';
 import { PatientCreationPageComponent } from './pages/patient/patient-creation-page/patient-creation-page.component';
+import { PatientInformationComponent } from './pages/patient/patient-details-page/patient-information/patient-information.component';
 
 
 @NgModule({
@@ -47,7 +48,8 @@ import { PatientCreationPageComponent } from './pages/patient/patient-creation-p
     PatientSearchPageComponent,
     NewPatientFormComponent,
     PatientDetailsPageComponent,
-    PatientCreationPageComponent
+    PatientCreationPageComponent,
+    PatientInformationComponent
   ],
   imports: [
     BrowserModule,
