@@ -27,6 +27,16 @@ import { NewPatientFormComponent } from './components/new-patient-form/new-patie
 import { PatientDetailsPageComponent } from './pages/patient/patient-details-page/patient-details-page.component';
 import { PatientCreationPageComponent } from './pages/patient/patient-creation-page/patient-creation-page.component';
 import { PatientInformationComponent } from './pages/patient/patient-details-page/patient-information/patient-information.component';
+import { PatientDiagnosisComponent } from './pages/patient/patient-details-page/patient-diagnosis/patient-diagnosis.component';
+import { CurrentMediciationsComponent } from './pages/patient/patient-details-page/current-mediciations/current-mediciations.component';
+import { ProgressNotesComponent } from './pages/patient/patient-details-page/progress-notes/progress-notes.component';
+import { EvaluationsComponent } from './pages/patient/patient-details-page/evaluations/evaluations.component';
+import { MedicationsComponent } from './pages/patient/patient-details-page/medications/medications.component';
+import { RecommendationsComponent } from './pages/patient/patient-details-page/recommendations/recommendations.component';
+import { ProgressComponent } from './pages/patient/patient-details-page/progress/progress.component';
+import { LabsComponent } from './pages/patient/patient-details-page/labs/labs.component';
+import { InformationComponent } from './pages/patient/patient-details-page/information/information.component';
+import { ReportsComponent } from './pages/patient/patient-details-page/reports/reports.component';
 
 
 @NgModule({
@@ -49,7 +59,17 @@ import { PatientInformationComponent } from './pages/patient/patient-details-pag
     NewPatientFormComponent,
     PatientDetailsPageComponent,
     PatientCreationPageComponent,
-    PatientInformationComponent
+    PatientInformationComponent,
+    PatientDiagnosisComponent,
+    CurrentMediciationsComponent,
+    ProgressNotesComponent,
+    EvaluationsComponent,
+    MedicationsComponent,
+    RecommendationsComponent,
+    ProgressComponent,
+    LabsComponent,
+    InformationComponent,
+    ReportsComponent
   ],
   imports: [
     BrowserModule,

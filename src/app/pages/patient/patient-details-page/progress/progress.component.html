@@ -1,0 +1,33 @@
+<div id="progress" class="tabBox">
+  <div id="searchBar">
+    <h2>Search Notes</h2>
+    <div id="searchBoxesWrapper">
+      <div class="fieldWrapper" id="searchKeywords">
+        <form action="" id="keywordSearchForm">
+          <p>Enter a search term:</p>
+          <input type="text" disabled="disabled" rel="Enter keyword(s)" id="noteKeywords" class="greenInput" value="Enter keyword(s)" />
+          <input type="submit" class="orangeBtn" id="searchNotesKeyword" value="Search" disabled="disabled" />
+        </form>
+      </div>
+      <div class="fieldWrapper" id="tagHolder">
+        <p>Select a tag to filter:</p>
+        <div class="dropdown disabled" id="tagDropdown">
+          <a href="#" class="pullDown">Select</a>
+          <ul></ul>
+        </div>
+      </div>
+      <a href="#" class="clearNoteSearch">Clear All</a>
+      <div class="clear"></div>
+    </div>
+  </div>
+  <div id="searchContent">
+    <div id="noteSamples">
+      <div class="pagination topPagination"></div>
+      <ul></ul>
+      <div class="pagination bottomPagination"></div>
+    </div>
+    <div id="noteContent"></div>
+  </div>
+  <div id="noNotesWritten" class="noresults"><p>No progress notes have been written for this patient.</p><p>Click the Create Note button in the upper right to create a note.</p></div>
+  <div id="noNotesSearch" class="noresults">Your search did not match any progress notes. <a href="#" class="clearNoteSearch">Clear your search</a></div>
+</div>
