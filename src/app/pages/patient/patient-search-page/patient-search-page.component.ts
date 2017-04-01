@@ -10,7 +10,7 @@ import {PatientDto} from "../../../swagger/model/PatientDto";
 })
 export class PatientSearchPageComponent implements OnInit {
 
-  patients: PatientDto[];
+  private patients: PatientDto[];
 
   constructor(private patientService: PatientService) {
   }

@@ -9,7 +9,7 @@ import {PatientDto} from "../../../../swagger/model/PatientDto";
 export class PatientInformationComponent implements OnInit {
 
   @Input()
-  patient: PatientDto;
+  private patient: PatientDto;
 
   constructor() {
   }
@@ -18,8 +18,6 @@ export class PatientInformationComponent implements OnInit {
   }
 
   calculateAge(dateOfBirth: Date) { // birthday is a date
-    console.log(dateOfBirth);
-    console.log(new Date());
     const ageDiffMs = Date.now() - dateOfBirth.getTime();
     const ageDate = new Date(ageDiffMs);
     return Math.abs(ageDate.getUTCFullYear() - 1970);

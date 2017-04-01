@@ -30,55 +30,18 @@
           <app-current-mediciations></app-current-mediciations>
           <app-progress-notes></app-progress-notes>
         </div>
-        <div id="createProgressNote">
-          <div id="selectTags">
-            <h3>Select Tag(s)</h3>
-            <div id="tagSelectList">
-              <ul></ul>
-            </div>
-          </div>
-          <div id="writeNote">
-            <div id="topToolBar">
-              <h3>Progress Notes</h3>
-              <a href="#" class="disabled" id="saveNote">Save</a>
-              <a href="#" id="cancelNote">Cancel</a>
-            </div>
-            <textarea id="noteTextarea" cols="10" rel="Enter text..." rows="10">Enter text...
-						</textarea>
-          </div>
-        </div>
       </div>
     </div>
   </div>
-  <div id="tabsOuterWrapper">
-    <div id="tabs">
-      <div id="ajaxLoader"><img src="images/global/ajax-loader.gif" alt="" /></div>
-      <div id="tabWrapper">
-        <ul>
-          <li id="tabEvaluations">
-            <a href="#evaluations"><span>Patient Evaluations</span></a>
-          </li>
-          <li id="tabMedications" class="on">
-            <a href="#medications"><span>Medications</span></a>
-          </li>
-          <li id="tabRecommendations">
-            <a href="#recommendations"><span>Decision Support</span></a>
-          </li>
-          <li id="tabProgress">
-            <a href="#progress"><span>Progress Notes</span></a>
-          </li>
-          <li id="tabLabs">
-            <a href="#labs"><span>Patient Labs</span></a>
-          </li>
-          <li id="tabInformation">
-            <a href="#information"><span>Patient Information</span></a>
-          </li>
-          <li id="tabReports">
-            <a href="#reports"><span>Reports</span></a>
-          </li>
-        </ul>
-      </div>
-    </div>
+  <p-tabMenu [model]="items"></p-tabMenu>
+  <div [ngSwitch]="tab">
+    <app-evaluations *ngSwitchCase="1"></app-evaluations>
+    <app-medications *ngSwitchCase="2"></app-medications>
+    <app-recommendations *ngSwitchCase="3"></app-recommendations>
+    <app-progress *ngSwitchCase="4"></app-progress>
+    <app-labs *ngSwitchCase="5"></app-labs>
+    <app-information *ngSwitchCase="6"></app-information>
+    <app-reports *ngSwitchCase="7"></app-reports>
   </div>
 </div>
 

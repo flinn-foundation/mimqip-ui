@@ -7,8 +7,8 @@ import { Component, OnInit } from '@angular/core';
 })
 export class FooterComponent implements OnInit {
 
-  userName: string = "Gerg";
-  role: string = "Bossman";
+  private userName: string = "Gerg";
+  private role: string = "Bossman";
 
   constructor() { }
 

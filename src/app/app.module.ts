@@ -4,6 +4,7 @@ import { FormsModule } from '@angular/forms';
 import { HttpModule } from '@angular/http';
 
 import {DataTableModule,SharedModule} from 'primeng/primeng';
+import {TabMenuModule} from 'primeng/primeng';
 
 
 import { AppRoutingModule } from './app-routing.module';
@@ -37,6 +38,7 @@ import { ProgressComponent } from './pages/patient/patient-details-page/progress
 import { LabsComponent } from './pages/patient/patient-details-page/labs/labs.component';
 import { InformationComponent } from './pages/patient/patient-details-page/information/information.component';
 import { ReportsComponent } from './pages/patient/patient-details-page/reports/reports.component';
+import { NewProgressNoteComponent } from './pages/patient/patient-details-page/new-progress-note/new-progress-note.component';
 
 
 @NgModule({
@@ -69,7 +71,8 @@ import { ReportsComponent } from './pages/patient/patient-details-page/reports/r
     ProgressComponent,
     LabsComponent,
     InformationComponent,
-    ReportsComponent
+    ReportsComponent,
+    NewProgressNoteComponent
   ],
   imports: [
     BrowserModule,
@@ -77,6 +80,7 @@ import { ReportsComponent } from './pages/patient/patient-details-page/reports/r
     HttpModule,
     AppRoutingModule,
     DataTableModule,
+    TabMenuModule,
     SharedModule
   ],
   providers: [],
