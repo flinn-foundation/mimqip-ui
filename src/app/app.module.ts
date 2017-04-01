@@ -12,9 +12,9 @@ import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { AboutPageComponent } from './pages/recommend/about-page/about-page.component';
 import { RulesPageComponent } from './pages/recommend/rules-page/rules-page.component';
-import { HeaderComponent } from './components/header/header.component';
-import { FooterComponent } from './components/footer/footer.component';
-import { NavComponent } from './components/nav/nav.component';
+import { HeaderComponent } from './shared/header/header.component';
+import { FooterComponent } from './shared/footer/footer.component';
+import { NavComponent } from './shared/nav/nav.component';
 import { MessagesPageComponent } from './pages/recommend/messages-page/messages-page.component';
 import { ExportComponent } from './pages/recommend/export/export.component';
 import { SettingsPageComponent } from './pages/recommend/settings-page/settings-page.component';
@@ -24,21 +24,22 @@ import { SettingsDetailsComponent } from './pages/recommend/settings-page/settin
 import { RuleDetailsComponent } from './pages/recommend/rules-page/rule-details/rule-details.component';
 import { MessageDetailsPageComponent } from './pages/recommend/messages-page/message-details-page/message-details-page.component';
 import { PatientSearchPageComponent } from './pages/patient/patient-search-page/patient-search-page.component';
-import { NewPatientFormComponent } from './components/new-patient-form/new-patient-form.component';
+import { NewPatientFormComponent } from './shared/new-patient-form/new-patient-form.component';
 import { PatientDetailsPageComponent } from './pages/patient/patient-details-page/patient-details-page.component';
 import { PatientCreationPageComponent } from './pages/patient/patient-creation-page/patient-creation-page.component';
-import { PatientInformationComponent } from './pages/patient/patient-details-page/patient-information/patient-information.component';
-import { PatientDiagnosisComponent } from './pages/patient/patient-details-page/patient-diagnosis/patient-diagnosis.component';
-import { CurrentMediciationsComponent } from './pages/patient/patient-details-page/current-mediciations/current-mediciations.component';
-import { ProgressNotesComponent } from './pages/patient/patient-details-page/progress-notes/progress-notes.component';
-import { EvaluationsComponent } from './pages/patient/patient-details-page/evaluations/evaluations.component';
-import { MedicationsComponent } from './pages/patient/patient-details-page/medications/medications.component';
-import { RecommendationsComponent } from './pages/patient/patient-details-page/recommendations/recommendations.component';
-import { ProgressComponent } from './pages/patient/patient-details-page/progress/progress.component';
-import { LabsComponent } from './pages/patient/patient-details-page/labs/labs.component';
-import { InformationComponent } from './pages/patient/patient-details-page/information/information.component';
-import { ReportsComponent } from './pages/patient/patient-details-page/reports/reports.component';
-import { NewProgressNoteComponent } from './pages/patient/patient-details-page/new-progress-note/new-progress-note.component';
+import { PatientInformationComponent } from './pages/patient/patient-details-page/boxes/patient-information/patient-information.component';
+import { PatientDiagnosisComponent } from './pages/patient/patient-details-page/boxes/patient-diagnosis/patient-diagnosis.component';
+import { CurrentMediciationsComponent } from './pages/patient/patient-details-page/boxes/current-mediciations/current-mediciations.component';
+import { ProgressNotesComponent } from './pages/patient/patient-details-page/boxes/progress-notes/progress-notes.component';
+import { EvaluationsComponent } from './pages/patient/patient-details-page/tabs/evaluations/evaluations.component';
+import { MedicationsComponent } from './pages/patient/patient-details-page/tabs/medications/medications.component';
+import { RecommendationsComponent } from './pages/patient/patient-details-page/tabs/recommendations/recommendations.component';
+import { ProgressComponent } from './pages/patient/patient-details-page/tabs/progress/progress.component';
+import { LabsComponent } from './pages/patient/patient-details-page/tabs/labs/labs.component';
+import { InformationComponent } from './pages/patient/patient-details-page/tabs/information/information.component';
+import { ReportsComponent } from './pages/patient/patient-details-page/tabs/reports/reports.component';
+import { NewProgressNoteComponent } from './pages/patient/patient-details-page/boxes/new-progress-note/new-progress-note.component';
+import { InstructionsComponent } from './pages/patient/patient-details-page/tabs/instructions/instructions.component';
 
 
 @NgModule({
@@ -72,7 +73,8 @@ import { NewProgressNoteComponent } from './pages/patient/patient-details-page/n
     LabsComponent,
     InformationComponent,
     ReportsComponent,
-    NewProgressNoteComponent
+    NewProgressNoteComponent,
+    InstructionsComponent
   ],
   imports: [
     BrowserModule,

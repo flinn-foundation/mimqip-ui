@@ -1,5 +1,5 @@
 import {Component, Input, OnInit} from '@angular/core';
-import {PatientDto} from "../../../../swagger/model/PatientDto";
+import {PatientDto} from "../../../../../swagger/model/PatientDto";
 
 @Component({
   selector: 'app-patient-information',
