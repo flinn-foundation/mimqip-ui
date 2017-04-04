@@ -6,6 +6,8 @@ import { HttpModule } from '@angular/http';
 import {DataTableModule,SharedModule} from 'primeng/primeng';
 import {TabMenuModule} from 'primeng/primeng';
 
+import {NgPipesModule} from "angular2-pipes";
+
 
 import { AppRoutingModule } from './app-routing.module';
 
@@ -24,7 +26,7 @@ import { SettingsDetailsComponent } from './pages/recommend/settings-page/settin
 import { RuleDetailsComponent } from './pages/recommend/rules-page/rule-details/rule-details.component';
 import { MessageDetailsPageComponent } from './pages/recommend/messages-page/message-details-page/message-details-page.component';
 import { PatientSearchPageComponent } from './pages/patient/patient-search-page/patient-search-page.component';
-import { NewPatientFormComponent } from './shared/new-patient-form/new-patient-form.component';
+import { NewPatientFormComponent } from './pages/patient/patient-creation-page/new-patient-form/new-patient-form.component';
 import { PatientDetailsPageComponent } from './pages/patient/patient-details-page/patient-details-page.component';
 import { PatientCreationPageComponent } from './pages/patient/patient-creation-page/patient-creation-page.component';
 import { PatientInformationComponent } from './pages/patient/patient-details-page/boxes/patient-information/patient-information.component';
@@ -40,6 +42,15 @@ import { InformationComponent } from './pages/patient/patient-details-page/tabs/
 import { ReportsComponent } from './pages/patient/patient-details-page/tabs/reports/reports.component';
 import { NewProgressNoteComponent } from './pages/patient/patient-details-page/boxes/new-progress-note/new-progress-note.component';
 import { InstructionsComponent } from './pages/patient/patient-details-page/tabs/instructions/instructions.component';
+import { DepressionPhq9Component } from './pages/patient/patient-details-page/tabs/evaluations/depression-phq9/depression-phq9.component';
+import { PsychiatricComponent } from './pages/patient/patient-details-page/tabs/evaluations/psychiatric/psychiatric.component';
+import { SubstanceAbuseComponent } from './pages/patient/patient-details-page/tabs/evaluations/substance-abuse/substance-abuse.component';
+import { MentalStatusComponent } from './pages/patient/patient-details-page/tabs/evaluations/mental-status/mental-status.component';
+import { VitalSignsComponent } from './pages/patient/patient-details-page/tabs/evaluations/vital-signs/vital-signs.component';
+import { GlobalRatingsComponent } from './pages/patient/patient-details-page/tabs/evaluations/global-ratings/global-ratings.component';
+import { BipolarBbdssComponent } from './pages/patient/patient-details-page/tabs/evaluations/bipolar-bbdss/bipolar-bbdss.component';
+import { SchizophreniaPsrsComponent } from './pages/patient/patient-details-page/tabs/evaluations/schizophrenia-psrs/schizophrenia-psrs.component';
+import { SumImpurePipe } from './pipes/sum-impure/sum-impure.pipe';
 
 
 @NgModule({
@@ -74,7 +85,16 @@ import { InstructionsComponent } from './pages/patient/patient-details-page/tabs
     InformationComponent,
     ReportsComponent,
     NewProgressNoteComponent,
-    InstructionsComponent
+    InstructionsComponent,
+    DepressionPhq9Component,
+    PsychiatricComponent,
+    SubstanceAbuseComponent,
+    MentalStatusComponent,
+    VitalSignsComponent,
+    GlobalRatingsComponent,
+    BipolarBbdssComponent,
+    SchizophreniaPsrsComponent,
+    SumImpurePipe
   ],
   imports: [
     BrowserModule,
@@ -83,7 +103,8 @@ import { InstructionsComponent } from './pages/patient/patient-details-page/tabs
     AppRoutingModule,
     DataTableModule,
     TabMenuModule,
-    SharedModule
+    SharedModule,
+    NgPipesModule
   ],
   providers: [],
   bootstrap: [AppComponent]
