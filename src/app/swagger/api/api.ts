@@ -1,5 +1,5 @@
+export * from './EvaluationApi';
+import { EvaluationApi }  from './EvaluationApi';
 export * from './PatientApi';
 import { PatientApi }  from './PatientApi';
-export * from './RuleApi';
-import { RuleApi }  from './RuleApi';
-export const APIS = [ PatientApi, RuleApi, ];
+export const APIS = [ EvaluationApi, PatientApi, ];

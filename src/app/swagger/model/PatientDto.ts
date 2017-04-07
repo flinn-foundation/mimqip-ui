@@ -25,10 +25,64 @@ export interface PatientDto {
 
     valid?: boolean;
 
+    zipCode?: string;
+
+    race?: Array<PatientDto.RaceEnum>;
+
+    ethnicity?: PatientDto.EthnicityEnum;
+
+    marital?: PatientDto.MaritalEnum;
+
+    living?: PatientDto.LivingEnum;
+
+    employment?: PatientDto.EmploymentEnum;
+
+    primaryCarePhysicianName?: string;
+
+    primaryCarePhysicianEmail?: string;
+
+    startDate?: Date;
+
 }
 export namespace PatientDto {
     export enum SexEnum {
-        MALE = <any> 'MALE',
-        FEMALE = <any> 'FEMALE'
+        Male = <any> 'Male',
+        Female = <any> 'Female'
+    }
+    export enum RaceEnum {
+        White = <any> 'White',
+        Black = <any> 'Black',
+        IndianAmerican = <any> 'Indian American',
+        Asian = <any> 'Asian',
+        PacificIslander = <any> 'Pacific Islander',
+        NoResponse = <any> 'No Response'
+    }
+    export enum EthnicityEnum {
+        Hispanic = <any> 'Hispanic',
+        NonHispanic = <any> 'Non Hispanic',
+        NoResponse = <any> 'No Response'
+    }
+    export enum MaritalEnum {
+        Married = <any> 'Married',
+        Single = <any> 'Single',
+        Separated = <any> 'Separated',
+        Divorced = <any> 'Divorced',
+        Widowed = <any> 'Widowed'
+    }
+    export enum LivingEnum {
+        Alone = <any> 'Alone',
+        WithRoommates = <any> 'With Roommates',
+        WithSpouse = <any> 'With Spouse',
+        WithSpouseAndChildren = <any> 'With Spouse And Children',
+        WithParents = <any> 'With Parents',
+        GroupHome = <any> 'Group Home'
+    }
+    export enum EmploymentEnum {
+        Unemployed = <any> 'Unemployed',
+        FullTimeSalaried = <any> 'Full Time Salaried',
+        PartTimeSalaried = <any> 'Part Time Salaried',
+        FullTimeNonSalaried = <any> 'Full Time Non-Salaried',
+        PartTimeNonSalaried = <any> 'Part Time Non-Salaried',
+        SelfEmployed = <any> 'Self Employed'
     }
 }

@@ -15,8 +15,8 @@ export class PatientService extends PatientApi {
   }
 
 
-  public patientsGet(extraHttpRequestParams?: any): Observable<Array<PatientDto>> {
-    return super.patientsGetWithHttpInfo(extraHttpRequestParams)
+  public getPatients(extraHttpRequestParams?: any): Observable<Array<PatientDto>> {
+    return super.getPatientsWithHttpInfo(extraHttpRequestParams)
       .map((response: Response) => {
         if (response.status === 204) {
           return undefined;
@@ -26,8 +26,8 @@ export class PatientService extends PatientApi {
       });
   }
 
-  public patientsIdGet(id: number, extraHttpRequestParams?: any): Observable<PatientDto> {
-    return this.patientsIdGetWithHttpInfo(id, extraHttpRequestParams)
+  public getPatientById(id: number, extraHttpRequestParams?: any): Observable<PatientDto> {
+    return this.getPatientByIdWithHttpInfo(id, extraHttpRequestParams)
       .map((response: Response) => {
         if (response.status === 204) {
           return undefined;

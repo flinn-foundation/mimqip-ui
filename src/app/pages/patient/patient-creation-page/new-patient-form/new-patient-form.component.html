@@ -1,26 +1,18 @@
 <div class="floatLeft">
   <div class="fieldWrapper">
     <label for="fNameInput">First Name:</label>
-    <input type="text" class="greenInput" id="fNameInput"/>
+    <input type="text" class="greenInput" id="fNameInput" [(ngModel)]="patient.firstName"/>
   </div>
   <div class="fieldWrapper">
     <label for="lNameInput">Last Name:</label>
-    <input type="text" class="greenInput" id="lNameInput"/>
+    <input type="text" class="greenInput" id="lNameInput" [(ngModel)]="patient.lastName"/>
   </div>
   <div class="fieldWrapper" id="raceField">
-    <label for="raceWhite">Race:</label>
+    <label for="raceList">Race:</label>
     <ul id="raceList" class="inputList">
-      <li><input type="checkbox" value="White" id="raceWhite"/> <label for="raceWhite">White</label></li>
-      <li><input type="checkbox" value="African-American, Black" id="raceBlack"/> <label for="raceBlack">African-American,
-        Black</label></li>
-      <li><input type="checkbox" value="American Indian" id="raceIndian"/> <label for="raceIndian">American
-        Indian</label></li>
-      <li><input type="checkbox" value="Asian (Indian, Chinese, Filipino, Japanese, Korean, or other)" id="raceAsian"/>
-        <label for="raceAsian">Asian <br/><span>(Indian, Chinese, Filipino, Japanese, Korean, or other)</span></label>
+      <li *ngFor="let race of raceOptions">
+        <label><input type="checkbox" [(ngModel)]="race.checked"/>{{ race.name }}</label>
       </li>
-      <li><input type="checkbox" value="Pacific Islander (Hawaiian, Samoan, or other)" id="racePacific"/> <label
-        for="racePacific">Pacific Islander <span>(Hawaiian, Samoan, or other)</span></label></li>
-      <li><input type="checkbox" value="No response" id="raceNone"/> <label for="raceNone">No response</label></li>
     </ul>
   </div>
   <div class="fieldWrapper" id="ethnicityField">
@@ -46,99 +38,40 @@
 </div>
 <div class="floatLeft right">
   <div class="fieldWrapper">
-    <label for="patientIdInput">ID #:</label>
-    <input type="text" class="greenInput" id="patientIdInput"/>
-  </div>
-  <div class="fieldWrapper">
     <label for="zipCodeInput">ZIP Code:</label>
-    <input type="text" maxlength="6" class="greenInput" id="zipCodeInput"/>
+    <input type="text" maxlength="5" class="greenInput" id="zipCodeInput" [(ngModel)]="patient.zipCode"/>
   </div>
   <div class="fieldWrapper">
     <label for="employmentDropdown" class="noPadding">Employment Status:</label>
-    <div class="dropdown" id="employmentDropdown">
-      <a href="#" class="pullDown">Select</a>
-      <ul>
-        <li class="odd"><a href="#" class="selected">Select</a></li>
-        <li><a href="#Unemployed">Unemployed</a></li>
-        <li class="odd"><a href="#Full time salaried">Full time salaried</a></li>
-        <li><a href="#Part time salaried">Part time salaried</a></li>
-        <li class="odd"><a href="#Full time non-salaried">Full time non-salaried</a></li>
-        <li><a href="#Part time non-salaried">Part time non-salaried</a></li>
-        <li class="odd"><a href="#Self employed">Self employed</a></li>
-      </ul>
-    </div>
+    <select class="form-control" required id="employmentDropdown" [(ngModel)]="patient.employment">
+      <option *ngFor="let option of employmentOptions | enumKeys " [value]="option">{{option | uncamelize}}</option>
+    </select>
   </div>
   <div class="fieldWrapper">
     <label for="sexDropdown">Sex:</label>
-    <div class="dropdown" id="sexDropdown">
-      <a href="#" class="pullDown">Select</a>
-      <ul>
-        <li class="odd"><a href="#" class="selected">Select</a></li>
-        <li><a href="#M">Male</a></li>
-        <li class="odd"><a href="#F">Female</a></li>
-      </ul>
+    <select class="form-control" required id="sexDropdown" [(ngModel)]="patient.sex">
+      <option *ngFor="let option of sex | enumKeys " [value]="option">{{option | uncamelize}}</option>
+    </select>
+    <div class="fieldWrapper">
+      <label for="dateOfBirth">Date of Birth:</label>
+      <p-calendar id="dateOfBirth" [(ngModel)]="patient.dateOfBirth" [defaultDate]="defaultDate" [monthNavigator]="true"
+                  [yearNavigator]="true" [yearRange]="yearRange"></p-calendar>
     </div>
-  </div>
-  <div class="fieldWrapper">
-    <label for="mmDropdown">Date of Birth:</label>
-    <div class="dropdown dob" id="mmDropdown">
-      <a href="#" class="pullDown">MM</a>
-      <ul>
-        <li class="odd"><a href="#" class="selected">MM</a></li>
-        <%out.print(computeLi(1,13,false));%>
-      </ul>
-    </div>
-    <div class="dropdown dob" id="ddDropdown">
-      <a href="#" class="pullDown">DD</a>
-      <ul>
-        <li class="odd"><a href="#" class="selected">DD</a></li>
-        <%out.print(computeLi(1,32,false));%>
-      </ul>
-    </div>
-    <div class="dropdown dob" id="yyyyDropdown">
-      <a href="#" class="pullDown">YYYY</a>
-      <ul>
-        <li class="odd"><a href="#" class="selected">YYYY</a></li>
-        <%
-        GregorianCalendar cal = new GregorianCalendar();
-        Date date1 = new Date();
-        cal.setTime(date1);
-        int year = cal.get(GregorianCalendar.YEAR);
-        out.print(computeLi(year-100,year,true));
-        %>
-      </ul>
-    </div>
-  </div>
 
 
-  <div class="fieldWrapper">
-    <label for="maritalDropdown">Marital Status:</label>
-    <div class="dropdown" id="maritalDropdown">
-      <a href="#" class="pullDown">Select</a>
-      <ul>
-        <li class="odd"><a href="#" class="selected">Select</a></li>
-        <li><a href="#Single">Single</a></li>
-        <li class="odd"><a href="#Married">Married</a></li>
-        <li><a href="#Separated">Separated</a></li>
-        <li class="odd"><a href="#Divorced">Divorced</a></li>
-        <li><a href="#Widowed">Widowed</a></li>
-      </ul>
+    <div class="fieldWrapper">
+      <label for="maritalDropdown">Marital Status:</label>
+      <select class="form-control" required id="maritalDropdown" [(ngModel)]="patient.marital">
+        <option *ngFor="let option of maritalOptions | enumKeys " [value]="option">{{option | uncamelize}}</option>
+      </select>
     </div>
-  </div>
 
-  <div class="fieldWrapper">
-    <label for="livingDropdown" class="noPadding">Living Arrangement:</label>
-    <div class="dropdown" id="livingDropdown">
-      <a href="#" class="pullDown">Select</a>
-      <ul>
-        <li class="odd"><a href="#" class="selected">Select</a></li>
-        <li><a href="#Alone">Alone</a></li>
-        <li class="odd"><a href="#With roommates">With roommates</a></li>
-        <li><a href="#With spouse">With spouse</a></li>
-        <li class="odd"><a href="#With spouse and children">With spouse and children</a></li>
-        <li><a href="#With parents">With parents</a></li>
-        <li class="odd"><a href="#Group home">Group home</a></li>
-      </ul>
+    <div class="fieldWrapper">
+      <label for="livingDropdown" class="noPadding">Living Arrangement:</label>
+      <select class="form-control" required id="livingDropdown" [(ngModel)]="patient.living">
+        <option *ngFor="let option of livingOptions | enumKeys " [value]="option">{{option | uncamelize}}</option>
+      </select>
     </div>
   </div>
+  <button (click)="saveNewPatient()" class="orangeBtn" id="savePatient">Save</button>
 </div>

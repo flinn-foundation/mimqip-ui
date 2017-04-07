@@ -29,7 +29,7 @@ export class PatientDetailsPageComponent implements OnInit {
       if (patientId == null) {
         this.location.go("/about");
       } else {
-        this.patientService.patientsIdGet(patientId).subscribe(
+        this.patientService.getPatientById(patientId).subscribe(
           (patient: PatientDto) => this.patient = patient,
           error => console.log(error)
         );

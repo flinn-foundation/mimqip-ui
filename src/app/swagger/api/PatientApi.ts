@@ -41,11 +41,12 @@ export class PatientApi {
     }
 
     /**
-     * Patients
-     * Endpoint returns a list of patients
+     * Patient by ID
+     * Access a single patient by ID
+     * @param patientId ID of patient to fetch
      */
-    public patientsGet(extraHttpRequestParams?: any): Observable<Array<models.PatientDto>> {
-        return this.patientsGetWithHttpInfo(extraHttpRequestParams)
+    public getPatientById(patientId: number, extraHttpRequestParams?: any): Observable<models.PatientDto> {
+        return this.getPatientByIdWithHttpInfo(patientId, extraHttpRequestParams)
             .map((response: Response) => {
                 if (response.status === 204) {
                     return undefined;
@@ -54,33 +55,37 @@ export class PatientApi {
                 }
             });
     }
+
+    /**
+     * Patients
+     * Endpoint returns a list of patients
+     */
+    public getPatients(extraHttpRequestParams?: any): Observable<Array<models.PatientDto>> {
+        return this.getPatientsWithHttpInfo(extraHttpRequestParams)
+            .map((response: Response) => {
+                if (response.status === 204) {
+                    return undefined;
+                } else {
+                    return response.json();
+                }
+            });
+    }
+
 
     /**
      * Patient by ID
      * Access a single patient by ID
-     * @param id ID of rule to fetch
+     * @param patientId ID of patient to fetch
      */
-    public patientsIdGet(id: number, extraHttpRequestParams?: any): Observable<models.PatientDto> {
-        return this.patientsIdGetWithHttpInfo(id, extraHttpRequestParams)
-            .map((response: Response) => {
-                if (response.status === 204) {
-                    return undefined;
-                } else {
-                    return response.json();
-                }
-            });
-    }
-
-
-    /**
-     * Patients
-     * Endpoint returns a list of patients
-     */
-    public patientsGetWithHttpInfo(extraHttpRequestParams?: any): Observable<Response> {
-        const path = this.basePath + `/patients`;
+    public getPatientByIdWithHttpInfo(patientId: number, extraHttpRequestParams?: any): Observable<Response> {
+        const path = this.basePath + `/patients/${patientId}`;
 
         let queryParameters = new URLSearchParams();
         let headers = new Headers(this.defaultHeaders.toJSON()); // https://github.com/angular/angular/issues/6845
+        // verify required parameter 'patientId' is not null or undefined
+        if (patientId === null || patientId === undefined) {
+            throw new Error('Required parameter patientId was null or undefined when calling getPatientById.');
+        }
         // to determine the Content-Type header
         let consumes: string[] = [
         ];
@@ -105,19 +110,14 @@ export class PatientApi {
     }
 
     /**
-     * Patient by ID
-     * Access a single patient by ID
-     * @param id ID of rule to fetch
+     * Patients
+     * Endpoint returns a list of patients
      */
-    public patientsIdGetWithHttpInfo(id: number, extraHttpRequestParams?: any): Observable<Response> {
-        const path = this.basePath + `/patients/${id}`;
+    public getPatientsWithHttpInfo(extraHttpRequestParams?: any): Observable<Response> {
+        const path = this.basePath + `/patients`;
 
         let queryParameters = new URLSearchParams();
         let headers = new Headers(this.defaultHeaders.toJSON()); // https://github.com/angular/angular/issues/6845
-        // verify required parameter 'id' is not null or undefined
-        if (id === null || id === undefined) {
-            throw new Error('Required parameter id was null or undefined when calling patientsIdGet.');
-        }
         // to determine the Content-Type header
         let consumes: string[] = [
         ];
