@@ -165,7 +165,7 @@ body{
 #colorboxForm.login .facilityName,
 #colorboxForm.login .uName{padding-top:11px; clear:right; float:left; font-size:14px;}
 #colorboxForm.login .uName{font-weight:bold; font-size:16px; padding-top:9px;}
-#colorboxForm.login .orangeBtn{margin:20px 45px 0 200px; }
+#colorboxForm.login .orange-btn{margin:20px 45px 0 200px; }
 #colorboxForm.login #newUser{display:block; visibility:hidden; text-align:center;padding-bottom:20px;}
 
 #login #openPopup{position:absolute;left:-9000px; width:100%; top:0px;  padding-top:120px; text-align:center;}
@@ -375,7 +375,7 @@ textarea{
 
 .errorMsg{color:#c74c4c; clear:both; font-weight:bold; text-align:center;}
 
-.orangeBtn{
+.orange-btn{
 	width:120px;
 	height:30px;
 	text-align:center;
@@ -392,11 +392,11 @@ textarea{
 	background: url(../images/global/orangeBtnBg.png) repeat-x;
 }
 
-.ie7 .orangeBtn, .ie8 .orangeBtn{behavior: url(/pie.htc);}
+.ie7 .orange-btn, .ie8 .orange-btn{behavior: url(/pie.htc);}
 
 .orangeBtnContainer{position:relative;}
-.orangeBtn:hover{background-position: bottom left;}
-input.orangeBtn{padding-bottom:5px;}
+.orange-btn:hover{background-position: bottom left;}
+input.orange-btn{padding-bottom:5px;}
 
 .pagination{padding:10px 0; float:right;}
 .pagination a{

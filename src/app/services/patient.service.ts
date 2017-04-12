@@ -15,42 +15,42 @@ export class PatientService extends PatientApi {
   }
 
 
-  public getPatients(extraHttpRequestParams?: any): Observable<Array<PatientDto>> {
-    return super.getPatientsWithHttpInfo(extraHttpRequestParams)
-      .map((response: Response) => {
-        if (response.status === 204) {
-          return undefined;
-        } else {
-          return this.extractDataArray(response)
-        }
-      });
-  }
-
-  public getPatientById(id: number, extraHttpRequestParams?: any): Observable<PatientDto> {
-    return this.getPatientByIdWithHttpInfo(id, extraHttpRequestParams)
-      .map((response: Response) => {
-        if (response.status === 204) {
-          return undefined;
-        } else {
-          return this.extractData(response);
-        }
-      });
-  }
-
-  private extractDataArray(res: Response) {
-    let patients: PatientDto[] = res.json() || [];
-    patients.forEach((patient) => {
-      patient.dateOfBirth = new Date(patient.dateOfBirth);
-    });
-
-    return patients;
-  }
-
-  private extractData(res: Response) {
-    let patient: PatientDto = res.json();
-    patient.dateOfBirth = new Date(patient.dateOfBirth);
-
-    return patient;
-  }
+  // public getPatients(extraHttpRequestParams?: any): Observable<Array<PatientDto>> {
+  //   return super.getPatientsWithHttpInfo(extraHttpRequestParams)
+  //     .map((response: Response) => {
+  //       if (response.status === 204) {
+  //         return undefined;
+  //       } else {
+  //         return this.extractDataArray(response)
+  //       }
+  //     });
+  // }
+  //
+  // public getPatientById(id: number, extraHttpRequestParams?: any): Observable<PatientDto> {
+  //   return this.getPatientByIdWithHttpInfo(id, extraHttpRequestParams)
+  //     .map((response: Response) => {
+  //       if (response.status === 204) {
+  //         return undefined;
+  //       } else {
+  //         return this.extractData(response);
+  //       }
+  //     });
+  // }
+  //
+  // private extractDataArray(res: Response) {
+  //   let patients: PatientDto[] = res.json() || [];
+  //   patients.forEach((patient) => {
+  //     patient.dateOfBirth = new Date(patient.dateOfBirth);
+  //   });
+  //
+  //   return patients;
+  // }
+  //
+  // private extractData(res: Response) {
+  //   let patient: PatientDto = res.json();
+  //   patient.dateOfBirth = new Date(patient.dateOfBirth);
+  //
+  //   return patient;
+  // }
 
 }

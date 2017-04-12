@@ -16,7 +16,7 @@ export class PatientSearchPageComponent implements OnInit {
   }
 
   ngOnInit() {
-    this.patientService.getPatients().subscribe(
+    this.patientService.getPatientsSimple().subscribe(
       (patients:PatientDto[]) => this.patients = patients,
       error => console.log(error)
     );

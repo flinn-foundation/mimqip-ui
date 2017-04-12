@@ -1,110 +1,22 @@
-<div id="container">
-  <div id="utilityBarWrapper" class="tall">
-    <div id="utilityBar">
-      <h1></h1>
-      <span class="welcome"></span>
-      <a href="#" id="logoutBtn" class="roundedBtn">Logout</a>
-      <div class="buttons">
-        <a href="/admin/" id="adminBtn" class="roundedBtn">Administration</a>
-      </div>
-      <div class="utilityLinks">
-        <a href="#" id="drFirstMessageBtn">DrFirst Messages</a>
-        <a href="#" id="drFirstReportBtn">DrFirst Reports</a>
-      </div>
-    </div>
-  </div>
-  <div id="patientSelectWrapper">
-    <div id="topHeadingWrapper">
-      <div id="topHeading">
-        <h1>Patient Search</h1>
-        <a href="patient/create" class="orangeBtn" id="enterNewPatient">Enter New Patient</a>
-      </div>
-    </div>
-    <div id="searchFieldsWrapper">
-      <form id="patientSearchForm" action="">
-        <div id="searchFields" class="patientForm">
-          <div class="fieldWrapper">
-            <label for="fName">First Name:</label>
-            <input type="text" class="greenInput" id="fName" />
-          </div>
-          <div class="fieldWrapper floatRight">
-            <label for="sex">Sex:</label>
-            <div class="dropdown" id="sexDropdown">
-              <a href="#" class="pullDown">Select</a>
-              <ul>
-                <li class="odd"><a href="#" class="selected">Select</a></li>
-                <li><a href="#M">Male</a></li>
-                <li class="odd"><a href="#F">Female</a></li>
-              </ul>
-            </div>
-          </div>
-          <div class="fieldWrapper">
-            <label for="lName">Last Name:</label>
-            <input type="text" class="greenInput" id="lName" />
-          </div>
-          <div class="fieldWrapper floatRight">
-            <label for="dob">Date of Birth:</label>
-            <div class="dropdown dob" id="mmDropdown">
-              <a href="#" class="pullDown">MM</a>
-              <ul>
-                <li class="odd"><a href="#" class="selected">MM</a></li>
-                <!--PUT MONTHS HERE OR USE A DATE PICKER-->
-              </ul>
-            </div>
-            <div class="dropdown dob" id="ddDropdown">
-              <a href="#" class="pullDown">DD</a>
-              <ul>
-                <li class="odd"><a href="#" class="selected">DD</a></li>
-                <!--PUT DAYS HERE OR USE A DATE PICKER-->
-              </ul>
-            </div>
-            <div class="dropdown dob" id="yyyyDropdown">
-              <a href="#" class="pullDown">YYYY</a>
-              <ul>
-                <li class="odd"><a href="#" class="selected">YYYY</a></li>
-                <!--PUT YEARS HERE OR USE A DATE PICKER-->
-              </ul>
-            </div>
-          </div>
-          <div class="fieldWrapper">
-            <label for="patientId">ID #:</label>
-            <input type="text" class="greenInput" id="patientId" />
-          </div>
-          <input type="submit" value="Search" class="orangeBtn" id="loginBtn" />
-          <div class="clear"></div>
-        </div>
-      </form>
-    </div>
-    <!--<div id="patientTable">-->
-      <!--<h2>Search Results:</h2>-->
-      <!--<div class="pagination" id="topPagination"></div>-->
-      <!--<table>-->
-        <!--<thead>-->
-        <!--<tr>-->
-          <!--<th class="lName">Last Name</th>-->
-          <!--<th class="fName">First Name</th>-->
-          <!--<th class="pID">ID #</th>-->
-          <!--<th class="dob">Date Of Birth</th>-->
-          <!--<th class="sex">Sex</th>-->
-        <!--</tr>-->
-        <!--</thead>-->
-        <!--<tbody></tbody>-->
-      <!--</table>-->
-      <!--<div class="pagination" id="bottomPagination"></div>-->
-      <!--<div id="noSearchResults">No patient records match your search. Please try again.</div>-->
-    <!--</div>-->
-    <div class="ui-widget-header" style="padding:4px 10px;border-bottom: 0 none">
-      <i class="fa fa-search" style="margin:4px 4px 0 0"></i>
-      <input #gb type="text" pInputText size="50" placeholder="Global Filter">
-    </div>
-    <p-dataTable [value]="patients" [rows]="10" [paginator]="true" [pageLinks]="3" [rowsPerPageOptions]="[5,10,20]" [globalFilter]="gb">
-      <p-column field="lastName" header="Last Name" [sortable]="true" [filter]="true"></p-column>
-      <p-column field="firstName" header="First Name" [sortable]="true" [filter]="true"></p-column>
-      <p-column field="id" header="ID" [sortable]="true" [filter]="true"></p-column>
-      <p-column field="dateOfBirth" header="Date Of Birth" [sortable]="true" [filter]="true"></p-column>
-      <p-column field="sex" header="Sex" [sortable]="true" [filter]="true"></p-column>
-    </p-dataTable>
+<div class="page-title">
+  <div class="content">Patient Search</div>
+</div>
+<div class="content">
 
+  <a href="patient/create" class="orange-btn" id="enterNewPatient">Enter New Patient</a>
+
+  <div class="ui-widget-header" style="padding:4px 10px;border-bottom: 0 none">
+    <i class="fa fa-search" style="margin:4px 4px 0 0"></i>
+    <input #gb type="text" pInputText size="50" placeholder="Global Filter">
   </div>
+  <p-dataTable [value]="patients" [rows]="10" [paginator]="true" [pageLinks]="3" [rowsPerPageOptions]="[5,10,20]"
+               [globalFilter]="gb">
+    <p-column field="lastName" header="Last Name" [sortable]="true" [filter]="true"></p-column>
+    <p-column field="firstName" header="First Name" [sortable]="true" [filter]="true"></p-column>
+    <p-column field="id" header="ID" [sortable]="true" [filter]="true"></p-column>
+    <p-column field="dateOfBirth" header="Date Of Birth" [sortable]="true" [filter]="true"></p-column>
+    <p-column field="sex" header="Sex" [sortable]="true" [filter]="true"></p-column>
+  </p-dataTable>
+
 </div>
 

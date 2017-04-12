@@ -56,7 +56,7 @@
 	margin-left:3px;
 	height:100%;
 	background:#fff;
-}	
+}
 #top .box:first-child{margin:0px;}
 #top #boxInformation{width:210px;}
 #top #boxDiagnosisStage{width:172px;}
@@ -145,7 +145,7 @@
 	line-height:27px;
 	text-transform:capitalize;
 }
- 
+
 #first .content, #id .content, #last .content{
 	float:left;
 	overflow:hidden;
@@ -168,7 +168,7 @@
 .box .floatWrapper{float:left;}
 #meds .content,
 #diagnosis .content{
-	display:block; 
+	display:block;
 	clear:both;
 	font-size:12px;
 	line-height:14px;
@@ -187,8 +187,8 @@
 	right:-9000px;
 	background:#5eb6dc;
 	-moz-box-shadow: 0px 0px 6px #454545;
-    -webkit-box-shadow: 0px 0px 6px #454545; 
-    box-shadow: #454545 0px 0px 6px;     
+    -webkit-box-shadow: 0px 0px 6px #454545;
+    box-shadow: #454545 0px 0px 6px;
 	padding:5px 4px;
 }
 
@@ -204,7 +204,7 @@
 #createProgressNote.show .jHtmlArea{display:block;}
 
 #createProgressNote h3{
-	color:#fff; 
+	color:#fff;
 	font-weight:normal;
 	font-size:16px;
 	line-height:24px;
@@ -220,7 +220,7 @@
 	right:0px;
 }
 
-#topToolBar #saveNote{	
+#topToolBar #saveNote{
 	background: url(../images/saveBtn.png) no-repeat 0 -24px;
 	height:24px;
 	width:94px;
@@ -418,11 +418,11 @@ div.jHtmlArea .ToolBar ul li a.underline { background-position: -32px 0; }
 
 /* recommendations */
 #recommendations.tabBox{
-	padding:15px 0;	
+	padding:15px 0;
 }
 #recommendations.tabBox h2{
-	font-size:20px; 
-	font-weight: normal; 
+	font-size:20px;
+	font-weight: normal;
 	margin-bottom:5px;
 	line-height:22px;
 }
@@ -432,9 +432,9 @@ div.jHtmlArea .ToolBar ul li a.underline { background-position: -32px 0; }
 #recommendations.tabBox p{margin-bottom:10px;}
 
 #recommendations dt{
-	color:#5eb6dc; 
+	color:#5eb6dc;
 	color:#4A96B6;
-	font-weight:bold; 
+	font-weight:bold;
 	font-size:14px;
 	margin-top:18px;
 }
@@ -447,7 +447,7 @@ div.jHtmlArea .ToolBar ul li a.underline { background-position: -32px 0; }
 
 .right{width:470px;}
 
-#recommendations table{	
+#recommendations table{
 	border-spacing:2px;
 	border-collapse: expression('separate', cellSpacing = '2px');
 	color:#3e3e3e;
@@ -469,18 +469,18 @@ div.jHtmlArea .ToolBar ul li a.underline { background-position: -32px 0; }
 	vertical-align:top;
 }
 #recommendations table th{
-	font-weight:bold; 
+	font-weight:bold;
 	font-size:12px;
 	text-transform:uppercase;
 }
 #recommendations table th.narrow,
 #recommendations table td.narrow{
-	width:40px; 
-	padding:6px 5px; 
+	width:40px;
+	padding:6px 5px;
 	font-weight:bold;
 }
 #recommendations table td.narrow{
-	text-align:center; 
+	text-align:center;
 	vertical-align:middle;
 }
 #recommendations table .odd{background:#dae6a9;}
@@ -619,8 +619,8 @@ div.jHtmlArea .ToolBar ul li a.underline { background-position: -32px 0; }
 	height:20%;
 	border:1px solid #fff;
 	-moz-box-shadow: 2px -1px 5px #bdbcbc;
-    -webkit-box-shadow: 2px -1px 5px #bdbcbc; 
-    box-shadow: #bdbcbc 2px -1px 7px;     
+    -webkit-box-shadow: 2px -1px 5px #bdbcbc;
+    box-shadow: #bdbcbc 2px -1px 7px;
 }
 
 .ie7 #graph li .bar,
@@ -647,7 +647,7 @@ div.jHtmlArea .ToolBar ul li a.underline { background-position: -32px 0; }
 #graph li .amount{
 	position:absolute;
 	top:-18px;
-	color:#3e3e3e;	
+	color:#3e3e3e;
 	font-size:12px;
 	line-height:12px;
 	font-weight:bold;
@@ -664,7 +664,7 @@ div.jHtmlArea .ToolBar ul li a.underline { background-position: -32px 0; }
 }
 
 #medications .innerTable{
-	overflow:auto; 
+	overflow:auto;
 	width:926px;
 	margin-left:42px;
 }
@@ -683,7 +683,7 @@ div.jHtmlArea .ToolBar ul li a.underline { background-position: -32px 0; }
 
 #medications thead th{
 	height:20px;
-	border-right:1px solid #fff; 
+	border-right:1px solid #fff;
 	color:#fff;
 	padding:5px 6px 5px;
 	width:79px;
@@ -692,24 +692,24 @@ div.jHtmlArea .ToolBar ul li a.underline { background-position: -32px 0; }
 }
 
 #medications #weekH{
-	float:left; 
-	color:#cdd3d6; 
+	float:left;
+	color:#cdd3d6;
 	line-height:14px;
 	padding-left:5px;
 }
 
 #medications thead .appt{
-	width:174px; 
+	width:174px;
 	border-left:0px;
 	margin-left:1px;
-	border-right:0px; 
+	border-right:0px;
 	padding:0;
 	height:45px;
 	vertical-align:top;
 }
 
 #medications thead .appt span{
-	display:block; 
+	display:block;
 	text-align:right;
 	line-height:14px;
 	color:#fff;
@@ -721,16 +721,16 @@ div.jHtmlArea .ToolBar ul li a.underline { background-position: -32px 0; }
 #medications thead .appt .date{padding-top:8px;}
 
 #medications th .date{
-	font-size:13px; 
-	display:block; 
+	font-size:13px;
+	display:block;
 	padding-top:5px;
 	line-height:12px;
 	clear:both;
 }
 
 #medications th .week{
-	color:#dee1e3;	
-	float:left; 
+	color:#dee1e3;
+	float:left;
 	height:14px;
 	font-size:14px;
 	line-height:14px;
@@ -739,7 +739,7 @@ div.jHtmlArea .ToolBar ul li a.underline { background-position: -32px 0; }
 
 #medications th .stage{
 	float:right;
-	color:#dee1e3;	
+	color:#dee1e3;
 	padding-right:2px;
 	line-height:14px;
 }
@@ -759,14 +759,14 @@ div.jHtmlArea .ToolBar ul li a.underline { background-position: -32px 0; }
 
 #medications tbody .heading{
 	height:30px;
-	border-bottom:1px solid #fff; 	
+	border-bottom:1px solid #fff;
 	border-top:1px solid #fff;
 	text-align:left;
 	vertical-align:middle;
 	padding:0 0 0 7px;
-	width:167px; 
+	width:167px;
 	font-weight:normal;
-	border-right:0px; 
+	border-right:0px;
 	border-left:0px;
 }
 #medications tbody .discontinued .heading a{color:#3e3e3e;}
@@ -790,11 +790,11 @@ div.jHtmlArea .ToolBar ul li a.underline { background-position: -32px 0; }
 #medications .discontinued td{color:#646464;}
 
 #medications .discontinuedDivider td{
-	text-align:left; 
+	text-align:left;
 	height:20px;
-	font-size:12px; 
+	font-size:12px;
 	width:auto;
-	padding:1px 0 2px 7px; 
+	padding:1px 0 2px 7px;
 }
 
 #medications .heading .dcWrapper{
@@ -806,7 +806,7 @@ div.jHtmlArea .ToolBar ul li a.underline { background-position: -32px 0; }
 }
 
 #medications .navArrow{
-	width:45px; 
+	width:45px;
 	height:45px;
 	float:left;
 	z-index:30;
@@ -864,9 +864,9 @@ div.jHtmlArea .ToolBar ul li a.underline { background-position: -32px 0; }
 #searchKeywords input[disabled="disabled"]:hover{background-position:top left;}
 #noteKeywords[disabled="disabled"]{color:#A8B0B5;}
 
-.ie7 #noteKeywords, 
+.ie7 #noteKeywords,
 .ie8 #noteKeywords,
-.ie7 #searchKeywords input, 
+.ie7 #searchKeywords input,
 .ie8 #searchKeywords input,
 .ie7 #tagDropdown .pullDown,
 .ie8 #tagDropdown .pullDown{-pie-watch-ancestors: 6;}
@@ -886,8 +886,8 @@ div.jHtmlArea .ToolBar ul li a.underline { background-position: -32px 0; }
 
 #searchContent h3,
 #searchContent h2{
-	font-weight:bold; 
-	font-size:14px; 
+	font-weight:bold;
+	font-size:14px;
 	margin-bottom:5px;
 	overflow:hidden;
 }
@@ -939,8 +939,8 @@ div.jHtmlArea .ToolBar ul li a.underline { background-position: -32px 0; }
 }
 
 #noteSamples li .overflowContainer div.noteText{
-	white-space: nowrap;  
-    overflow: hidden;  
+	white-space: nowrap;
+    overflow: hidden;
 	height:19px;
 	width:450px;
 	text-overflow:ellipsis;
@@ -988,15 +988,15 @@ div.jHtmlArea .ToolBar ul li a.underline { background-position: -32px 0; }
 
 #labs table .odd td{background:#dae6a9;}
 #labs table th:first-child{padding:12px 21px 10px;}
-#labs table .labName{width:162px;}	
-#labs table .date{width:72px;}	
+#labs table .labName{width:162px;}
+#labs table .date{width:72px;}
 #labs table td:first-child{background:#75848C; color:#fff; padding-left:21px;}
 #labs table .odd  td:first-child{background: #acb5ba;}
 
 #labs .pagination{margin-right:55px;}
 #labs .topPagination{margin:25px 0 0 20px; padding-bottom:0px;}
 
-#labs .noresults{	
+#labs .noresults{
 	padding:25px 0;
 	width:889px;
 	margin:0 auto;
@@ -1011,9 +1011,9 @@ div.jHtmlArea .ToolBar ul li a.underline { background-position: -32px 0; }
 	margin:0 auto;
 }
 
-#labs #labsTopBar .orangeBtn{top:25px;}
+#labs #labsTopBar .orange-btn{top:25px;}
 
-#colorboxForm .orangeBtn{margin-right:40px;}
+#colorboxForm .orange-btn{margin-right:40px;}
 #colorboxForm.enterLabs #labFields{position:absolute;left:-9000px; top:-9000px;}
 #colorboxForm.enterLabs #labFields.show{left:0px; top:auto;}
 #colorboxForm.enterLabs{width:700px; height:550px;}
@@ -1031,14 +1031,14 @@ div.jHtmlArea .ToolBar ul li a.underline { background-position: -32px 0; }
 .ie7 #colorboxForm.enterLabs .dob .pullDown,
 .ie8 #colorboxForm.enterLabs .dob .pullDown{-pie-watch-ancestors: 2;}
 #colorboxForm.enterLabs #savedLab{
-	position:absolute;  
-	left:-9000px; 
+	position:absolute;
+	left:-9000px;
 	font-size:16px;
 	text-align:center;
 	width:100%;
 }
 #colorboxForm.enterLabs #savedLab.show{left:0px;}
-#colorboxForm.enterLabs #savedLab .orangeBtn{width:135px;}
+#colorboxForm.enterLabs #savedLab .orange-btn{width:135px;}
 #colorboxForm.enterLabs #savedLab p.buttons{width:225px;	float:left;	line-height:28px;margin:20px 0 0 250px;}
 #colorboxForm.enterLabs #savedLab p.buttons *{float:left; margin-right:9px;}
 
@@ -1047,7 +1047,7 @@ div.jHtmlArea .ToolBar ul li a.underline { background-position: -32px 0; }
 #colorboxForm .diagnosis .errorMsg{padding:0 0 5px 10px; display:none;}
 #colorboxForm .diagnosis .instructions{font-weight:normal;padding:15px 0 5px;}
 #colorboxForm .diagnosis .pullDown{font-size:12px;}
-#colorboxForm .stage label, 
+#colorboxForm .stage label,
 #colorboxForm .stage .dropdown,
 #colorboxForm #stageSelectedDropdown{float:left;}
 #colorboxForm .diagnosis .symptom{margin-bottom:10px;}
@@ -1060,9 +1060,9 @@ div.jHtmlArea .ToolBar ul li a.underline { background-position: -32px 0; }
 #colorboxForm .diagnosis textarea{margin-right:0;width:542px; height:65px}
 #colorboxForm .diagnosis ul label{width:auto; padding-top:5px; font-weight:bold; float:none;}
 #colorboxForm .diagnosis ul.stage label,
-#colorboxForm .diagnosis ul:first-child, 
+#colorboxForm .diagnosis ul:first-child,
 #colorboxForm .diagnosis ul.stage{float:left;}
-#colorboxForm .diagnosis .orangeBtn{clear:both; margin-top:20px;}
+#colorboxForm .diagnosis .orange-btn{clear:both; margin-top:20px;}
 #colorboxForm.diagnosisStage h1{overflow:hidden;}
 #colorboxForm.diagnosisStage h1 .viewPast{margin-left:20px;}
 #colorboxForm.diagnosisStage .line{border-left:1px solid #fff; height:34px; float:left;}
@@ -1076,7 +1076,7 @@ div.jHtmlArea .ToolBar ul li a.underline { background-position: -32px 0; }
 #colorboxForm #viewPastDiagnosis table{
 	border-collapse:collapse;
 	width:620px;
-	margin:30px auto 0; 
+	margin:30px auto 0;
 	font-size:14px;
 }
 #colorboxForm #viewPastDiagnosis th{
@@ -1155,11 +1155,11 @@ div.jHtmlArea .ToolBar ul li a.underline { background-position: -32px 0; }
 /* patient information */
 #createFields{position:relative;}
 #information {
-	padding-top:15px;	
+	padding-top:15px;
 }
 #information.tabBox h2{
-	font-size:20px; 
-	font-weight: normal; 
+	font-size:20px;
+	font-weight: normal;
 	margin-bottom:27px;
 	line-height:22px;
 	padding-left:20px;
@@ -1215,7 +1215,7 @@ div.jHtmlArea .ToolBar ul li a.underline { background-position: -32px 0; }
 #displayInfo .paddingTop{padding-top:30px;}
 
 #displayInfo #raceText li{
-	padding:2px 0;	
+	padding:2px 0;
 	line-height:16px;
 }
 
@@ -1285,10 +1285,10 @@ div.jHtmlArea .ToolBar ul li a.underline { background-position: -32px 0; }
 	padding:20px 24px;;
 	background:#e6e9eb;
 	-moz-box-shadow: 0px 0px 6px #454545;
-    -webkit-box-shadow: 0px 0px 6px #454545; 
-    box-shadow: #454545 0px 0px 6px;     
+    -webkit-box-shadow: 0px 0px 6px #454545;
+    box-shadow: #454545 0px 0px 6px;
 	position:absolute;
-	top:0px;	
+	top:0px;
 	font-size:12px;
 	width:340px;
 }
@@ -1307,7 +1307,7 @@ div.jHtmlArea .ToolBar ul li a.underline { background-position: -32px 0; }
 
 #evaluations .popupScale h2{
 	font-weight:bold;
-	font-size:14px;	
+	font-size:14px;
 	line-height:14px;
 	margin-bottom:7px;
 	text-transform:uppercase;
@@ -1333,7 +1333,7 @@ div.jHtmlArea .ToolBar ul li a.underline { background-position: -32px 0; }
 
 #evaluations .questionList{float:left; width:555px;}
 #evaluations .questionList li{
-	position:relative; 
+	position:relative;
 	width:545px;
 	padding:5px;
 	margin-bottom:15px;
@@ -1346,7 +1346,7 @@ div.jHtmlArea .ToolBar ul li a.underline { background-position: -32px 0; }
 #evaluations .questionList .title{text-transform:uppercase;color:#1389b8;font-weight:bold;}
 #evaluations .evaluatedBy{
 	margin-top:20px;
-	display:none;	
+	display:none;
 	float:left;
 }
 #evaluations .evaluatedBy span{font-weight:bold;}
@@ -1376,7 +1376,7 @@ div.jHtmlArea .ToolBar ul li a.underline { background-position: -32px 0; }
 #evaluations .buttons.bottom .cancelEval{margin-top:4px;}
 #evaluations .evalNav{
 	display:none;
-	position:relative; 
+	position:relative;
 	float:left;
 	width:555px;
 	height:20px;
@@ -1391,7 +1391,7 @@ div.jHtmlArea .ToolBar ul li a.underline { background-position: -32px 0; }
 #evaluations .past .greenInput,
 #evaluations .past .instructions,
 #evaluations .past textarea,
-#evaluations .past .dropdown{display:none;} 
+#evaluations .past .dropdown{display:none;}
 
 #evaluations .past .prevEval{float:left;}
 #evaluations .past .nextEval{float:right;}
@@ -1400,7 +1400,7 @@ div.jHtmlArea .ToolBar ul li a.underline { background-position: -32px 0; }
 #evaluations .phq9  li{overflow:hidden; margin:0; padding:5px 0; width:555px;}
 #evaluations .phq9 .questionList li.top{margin-top:-28px;}
 
-#evaluations .radiolist, 
+#evaluations .radiolist,
 #evaluations .phq9 label,
 #evaluations .phq9 label span,
 #evaluations .phq9 .radiolist li,
@@ -1411,7 +1411,7 @@ div.jHtmlArea .ToolBar ul li a.underline { background-position: -32px 0; }
 
 #evaluations .phq9 .radiolist li:first-child{width:39px; text-align:left;}
 #evaluations .phq9 .radiolist li.score{ width:35px; padding-top:2px;}
-#evaluations .phq9 .radiolist .score .inputVal{display:block; font-size:14px; margin:0 0 0 10px;} 
+#evaluations .phq9 .radiolist .score .inputVal{display:block; font-size:14px; margin:0 0 0 10px;}
 #evaluations .phq9 .radiolist li input{float:none;}
 
 #evaluations .phq9 .lastQuestion{float:left; width:555px;}
@@ -1422,7 +1422,7 @@ div.jHtmlArea .ToolBar ul li a.underline { background-position: -32px 0; }
 #evaluations .scoreTitles{overflow:hidden; font-weight:bold; padding-left:252px; float:left; width:303px;}
 #evaluations .scoreTitles li{width:67px; line-height:13px;}
 #evaluations .scoreTitles li.score{width:35px; padding-right:0px;}
-#evaluations .phq9 .lastQuestion label span{width:245px;} 
+#evaluations .phq9 .lastQuestion label span{width:245px;}
 
 #evaluations #scoreInterpretation{padding-top:20px; float:left;}
 #evaluations #scoreInterpretation ul{width:450px;}
@@ -1477,7 +1477,7 @@ div.jHtmlArea .ToolBar ul li a.underline { background-position: -32px 0; }
 	font-weight:bold;
 	width:52px;
 	text-align:center;
-}	
+}
 
 #evaluations .grsEval .scale li:first-child{text-align:left; width:35px;}
 #evaluations .grsEval .scale li:first-child input{margin:0;}

@@ -73,11 +73,42 @@ export class PatientApi {
   }
 
   /**
+   * Patient Simple
+   * Patient Simple
+   * @param patientId ID of patient to fetch
+   */
+  public getPatientSimpleById(patientId: number, extraHttpRequestParams?: any): Observable<models.PatientSimpleDto> {
+    return this.getPatientSimpleByIdWithHttpInfo(patientId, extraHttpRequestParams)
+      .map((response: Response) => {
+        if (response.status === 204) {
+          return undefined;
+        } else {
+          return response.json();
+        }
+      });
+  }
+
+  /**
    * Patients
    * Endpoint returns a list of patients
    */
   public getPatients(extraHttpRequestParams?: any): Observable<Array<models.PatientDto>> {
     return this.getPatientsWithHttpInfo(extraHttpRequestParams)
+      .map((response: Response) => {
+        if (response.status === 204) {
+          return undefined;
+        } else {
+          return response.json();
+        }
+      });
+  }
+
+  /**
+   * Patients Simple
+   * Patients Simple
+   */
+  public getPatientsSimple(extraHttpRequestParams?: any): Observable<Array<models.PatientSimpleDto>> {
+    return this.getPatientsSimpleWithHttpInfo(extraHttpRequestParams)
       .map((response: Response) => {
         if (response.status === 204) {
           return undefined;
@@ -181,11 +212,78 @@ export class PatientApi {
   }
 
   /**
+   * Patient Simple
+   * Patient Simple
+   * @param patientId ID of patient to fetch
+   */
+  public getPatientSimpleByIdWithHttpInfo(patientId: number, extraHttpRequestParams?: any): Observable<Response> {
+    const path = this.basePath + `/patients/${patientId}/simple`;
+
+    let queryParameters = new URLSearchParams();
+    let headers = new Headers(this.defaultHeaders.toJSON()); // https://github.com/angular/angular/issues/6845
+    // verify required parameter 'patientId' is not null or undefined
+    if (patientId === null || patientId === undefined) {
+      throw new Error('Required parameter patientId was null or undefined when calling getPatientSimpleById.');
+    }
+    // to determine the Content-Type header
+    let consumes: string[] = [];
+
+    // to determine the Accept header
+    let produces: string[] = [
+      'application/json'
+    ];
+
+    let requestOptions: RequestOptionsArgs = new RequestOptions({
+      method: RequestMethod.Get,
+      headers: headers,
+      search: queryParameters
+    });
+
+    // https://github.com/swagger-api/swagger-codegen/issues/4037
+    if (extraHttpRequestParams) {
+      requestOptions = (<any>Object).assign(requestOptions, extraHttpRequestParams);
+    }
+
+    return this.http.request(path, requestOptions);
+  }
+
+  /**
    * Patients
    * Endpoint returns a list of patients
    */
   public getPatientsWithHttpInfo(extraHttpRequestParams?: any): Observable<Response> {
     const path = this.basePath + `/patients`;
+
+    let queryParameters = new URLSearchParams();
+    let headers = new Headers(this.defaultHeaders.toJSON()); // https://github.com/angular/angular/issues/6845
+    // to determine the Content-Type header
+    let consumes: string[] = [];
+
+    // to determine the Accept header
+    let produces: string[] = [
+      'application/json'
+    ];
+
+    let requestOptions: RequestOptionsArgs = new RequestOptions({
+      method: RequestMethod.Get,
+      headers: headers,
+      search: queryParameters
+    });
+
+    // https://github.com/swagger-api/swagger-codegen/issues/4037
+    if (extraHttpRequestParams) {
+      requestOptions = (<any>Object).assign(requestOptions, extraHttpRequestParams);
+    }
+
+    return this.http.request(path, requestOptions);
+  }
+
+  /**
+   * Patients Simple
+   * Patients Simple
+   */
+  public getPatientsSimpleWithHttpInfo(extraHttpRequestParams?: any): Observable<Response> {
+    const path = this.basePath + `/patients/simple`;
 
     let queryParameters = new URLSearchParams();
     let headers = new Headers(this.defaultHeaders.toJSON()); // https://github.com/angular/angular/issues/6845
@@ -232,7 +330,6 @@ export class PatientApi {
     }
     if (diagnosis !== undefined) {
       queryParameters.set('diagnosis', <any>diagnosis);
-
     }
 
     // to determine the Content-Type header
