@@ -981,7 +981,7 @@ var patient = {
 		if(patient.raceVal != ""){detailsObj += '"race":"' + patient.raceVal + '",';}
 		if(patient.ethnicityVal != ""){detailsObj += '"ethnicity":"' + patient.ethnicityVal + '",';}
 		if(patient.maritalVal != ""){detailsObj += '"marital":"' + patient.maritalVal + '",';}
-		if(patient.employmentVal != ""){detailsObj += '"employment":"' + patient.employmentVal + '",';}
+		if(patient.employmentVal != ""){detailsObj += '"employmentOptions":"' + patient.employmentVal + '",';}
 		if(patient.livingVal != ""){detailsObj += '"living":"' + patient.livingVal + '",';}
 		if(patient.pIdentifierVal != ""){detailsObj += '"patientidentifier":"' + utils.encode(patient.pIdentifierVal) + '",';}
 		if(detailsObj.charAt(detailsObj.length - 1) == ","){detailsObj = detailsObj.substring(0, detailsObj.length - 1);}

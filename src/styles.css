@@ -1,1 +1,27 @@
 /* You can add global styles to this file, and also import other style files */
+
+body {
+  font-family: sans-serif;
+}
+
+.content {
+  width: 980px;
+  margin: 0px auto;
+}
+
+.orangeBtn {
+  width: 120px;
+  height: 30px;
+  text-align: center;
+  color: #a15d06;
+  border: none;
+  cursor: pointer;
+  float: right;
+  text-decoration: none;
+  -moz-box-shadow: 0px 0px 4px #8c8c8c;
+  -webkit-box-shadow: 0px 0px 4px #8c8c8c;
+  box-shadow: #8c8c8c 0px 0px 4px;
+  position: relative;
+  font: bold 14px/28px arial, sans-serif;
+  background: url(assets/images/global/orangeBtnBg.png) repeat-x;
+}

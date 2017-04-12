@@ -12,9 +12,9 @@
 
 import * as models from './models';
 
-export interface QuestionDto {
+export interface EvaluationResponseDto {
     prompt?: string;
 
-    response?: string;
+    answer?: string;
 
 }

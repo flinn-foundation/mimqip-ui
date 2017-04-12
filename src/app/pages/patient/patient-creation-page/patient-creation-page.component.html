@@ -1,30 +1,78 @@
-<div id="container">
-  <div id="utilityBarWrapper">
-    <div id="utilityBar">
-      <h1></h1>
-      <span class="welcome"></span>
-      <a href="#" id="logoutBtn" class="roundedBtn">Logout</a>
-      <div class="buttons">
-        <a href="patient/search" id="patientSearchBtn" class="roundedBtn">Patient Search</a>
-        <a href="/admin/" id="adminBtn" class="roundedBtn">Administration</a>
+<div class="create-patient-title"><div class="content">Create New Patient</div></div>
+<div class="content">
+  <div class="ui-g">
+    <div class="ui-g-6">
+      <div class="form-field ui-g-12">
+        <div class="ui-g-4 label-text">First Name:</div>
+        <input type="text" class="ui-g-8" [(ngModel)]="patient.firstName"/>
+      </div>
+      <div class="form-field ui-g-12">
+        <div class="ui-g-4 label-text">Last Name:</div>
+        <input type="text" class="ui-g-8" [(ngModel)]="patient.lastName"/>
+      </div>
+      <div class="form-field ui-g-12">
+        <div class="ui-g-4 label-text">Race:</div>
+        <div class="ui-g-8">
+          <p-checkbox *ngFor="let race of raceOptions" name="raceGroup" [label]="race.label" [value]="race.value"
+                      [(ngModel)]="selectedRaces" class="patient-checkbox"></p-checkbox>
+        </div>
+      </div>
+      <div class="form-field ui-g-12">
+        <div class="ui-g-4 label-text">Ethnicity:</div>
+        <div class="ui-g-8">
+          <p-radioButton *ngFor="let ethnicity of ethnicityOptions" name="ethnicityGroup" [label]="ethnicity.label"
+                         [value]="ethnicity.value" [(ngModel)]="patient.ethnicity"
+                         class="patient-radio-button"></p-radioButton>
+        </div>
+      </div>
+      <div class="form-field ui-g-12">
+        <div class="ui-g-4 label-text">Primary Care Physician Name:</div>
+        <input type="text" class="ui-g-8"/>
+      </div>
+      <div class="form-field ui-g-12">
+        <div class="ui-g-4 label-text">Primary Care Physician Email:</div>
+        <input type="text" class="ui-g-8"/>
+      </div>
+    </div>
+
+    <div class="ui-g-6">
+      <div class="form-field ui-g-12">
+        <div class="ui-g-4 label-text">ZIP Code:</div>
+        <input type="text" maxlength="5" class="ui-g-8" [(ngModel)]="patient.zipCode"/>
+      </div>
+
+
+      <div class="form-field ui-g-12">
+        <div class="ui-g-4 label-text">Employment Status:</div>
+        <p-dropdown class="ui-g-8" [options]="employmentOptions" [(ngModel)]="patient.employment"></p-dropdown>
+      </div>
+
+      <div class="form-field ui-g-12">
+        <div class="ui-g-4 label-text">Sex:</div>
+        <p-dropdown class="ui-g-8" [options]="sexOptions" [(ngModel)]="patient.sex"></p-dropdown>
+      </div>
+
+      <div class="form-field ui-g-12">
+        <div class="ui-g-4 label-text">Date of Birth:</div>
+        <p-calendar class="ui-g-8" [(ngModel)]="patient.dateOfBirth" [defaultDate]="defaultDate"
+                    [monthNavigator]="true" [yearNavigator]="true" [yearRange]="yearRange"
+                    [showIcon]="true"></p-calendar>
+      </div>
+
+
+      <div class="form-field ui-g-12">
+        <div class="ui-g-4 label-text">Marital Status:</div>
+        <p-dropdown class="ui-g-8" [options]="maritalOptions" [(ngModel)]="patient.marital"></p-dropdown>
+      </div>
+
+      <div class="form-field ui-g-12">
+        <div class="ui-g-4 label-text">Living Arrangement:</div>
+        <p-dropdown class="ui-g-8" [options]="livingOptions" [(ngModel)]="patient.living"></p-dropdown>
       </div>
     </div>
   </div>
-  <div id="patientSelectWrapper">
-    <div id="topHeadingWrapper">
-      <div id="topHeading">
-        <h1>Create New Patient</h1>
-      </div>
-    </div>
-    <form id="newPatientForm" action="">
-      <div id="createFields" class="patientForm">
-        <app-new-patient-form></app-new-patient-form>
-        <p id="patientErrorMsg" class="errorMsg">Please complete all fields.</p>
-        <div class="clear"></div>
-        <input type="submit" value="Save" class="orangeBtn" id="savePatient" />
-      </div>
-    </form>
-  </div>
+  <button (click)="saveNewPatient()" class="orangeBtn" id="savePatient">Save</button>
 </div>
+
 
 

@@ -17,6 +17,22 @@ export interface EvaluationDto {
 
     patientId?: number;
 
-    questions?: Array<models.QuestionDto>;
+    evaluationResponses?: Array<models.EvaluationResponseDto>;
 
+    created?: Date;
+
+    evaluationType?: EvaluationDto.EvaluationTypeEnum;
+
+}
+export namespace EvaluationDto {
+    export enum EvaluationTypeEnum {
+        BBDSS = <any> 'BBDSS',
+        PHQ9 = <any> 'PHQ9',
+        GLOBAL = <any> 'GLOBAL',
+        MENTALSTATUS = <any> 'MENTAL_STATUS',
+        PSRS = <any> 'PSRS',
+        SUBSTANCEABUSE = <any> 'SUBSTANCE_ABUSE',
+        VITALSIGNS = <any> 'VITAL_SIGNS',
+        PSYCHIATRIC = <any> 'PSYCHIATRIC'
+    }
 }

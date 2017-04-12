@@ -41,28 +41,13 @@ export class EvaluationApi {
   }
 
   /**
-   * Post new patient
-   * Post new patient
-   * @param patient Patient to add
-   */
-  public createPatient(patient: models.PatientDto, extraHttpRequestParams?: any): Observable<models.EvaluationDto> {
-    return this.createPatientWithHttpInfo(patient, extraHttpRequestParams)
-      .map((response: Response) => {
-        if (response.status === 204) {
-          return undefined;
-        } else {
-          return response.json();
-        }
-      });
-  }
-
-  /**
-   * Post results of new psychiatric evaluations
-   * Post results of new psychiatric evaluations
+   * Post results of new evaluation
+   * Post results of new evaluation
+   * @param patientId Id of patient evaluations to fetch
    * @param evaluation Evaluation to submit
    */
-  public createPatientPsychEvaluation(evaluation: models.EvaluationDto, extraHttpRequestParams?: any): Observable<models.EvaluationDto> {
-    return this.createPatientPsychEvaluationWithHttpInfo(evaluation, extraHttpRequestParams)
+  public createPatientEvaluation(patientId: number, evaluation: models.EvaluationDto, extraHttpRequestParams?: any): Observable<models.EvaluationDto> {
+    return this.createPatientEvaluationWithHttpInfo(patientId, evaluation, extraHttpRequestParams)
       .map((response: Response) => {
         if (response.status === 204) {
           return undefined;
@@ -73,43 +58,13 @@ export class EvaluationApi {
   }
 
   /**
-   * Get blank psychiatric evaluation
-   * Get blank psychiatric evaluation
-   */
-  public getBlankPsychEvaluation(extraHttpRequestParams?: any): Observable<models.EvaluationDto> {
-    return this.getBlankPsychEvaluationWithHttpInfo(extraHttpRequestParams)
-      .map((response: Response) => {
-        if (response.status === 204) {
-          return undefined;
-        } else {
-          return response.json();
-        }
-      });
-  }
-
-  /**
-   * Get all evaluations for patient
-   * Get all evaluations for patient
-   * @param patientId Id of patient to fetch
-   */
-  public getEvaluationsByPatientId(patientId: number, extraHttpRequestParams?: any): Observable<Array<models.EvaluationDto>> {
-    return this.getEvaluationsByPatientIdWithHttpInfo(patientId, extraHttpRequestParams)
-      .map((response: Response) => {
-        if (response.status === 204) {
-          return undefined;
-        } else {
-          return response.json();
-        }
-      });
-  }
-
-  /**
-   * Get psychiatric evaluation by id
-   * Get psychiatric evaluation by id
+   * Get evaluation by id
+   * Get evaluation by id
+   * @param patientId Id of patient evaluations to fetch
    * @param evaluationId Id of evaluation to fetch
    */
-  public getPsychEvaluationById(evaluationId: number, extraHttpRequestParams?: any): Observable<models.EvaluationDto> {
-    return this.getPsychEvaluationByIdWithHttpInfo(evaluationId, extraHttpRequestParams)
+  public getEvaluationById(patientId: number, evaluationId: number, extraHttpRequestParams?: any): Observable<models.EvaluationDto> {
+    return this.getEvaluationByIdWithHttpInfo(patientId, evaluationId, extraHttpRequestParams)
       .map((response: Response) => {
         if (response.status === 204) {
           return undefined;
@@ -120,12 +75,13 @@ export class EvaluationApi {
   }
 
   /**
-   * Get psychiatric evaluations for patient
-   * Get psychiatric evaluations for patient
-   * @param patientId Id of patient to fetch
+   * Get all evaluations for patient
+   * Get all evaluations for patient
+   * @param patientId Id of patient evaluations to fetch
+   * @param evaluationType type of evaluation to pull
    */
-  public getPsychEvaluationsByPatientId(patientId: number, extraHttpRequestParams?: any): Observable<Array<models.EvaluationDto>> {
-    return this.getPsychEvaluationsByPatientIdWithHttpInfo(patientId, extraHttpRequestParams)
+  public getEvaluationsByPatientId(patientId: number, evaluationType?: string, extraHttpRequestParams?: any): Observable<Array<models.EvaluationDto>> {
+    return this.getEvaluationsByPatientIdWithHttpInfo(patientId, evaluationType, extraHttpRequestParams)
       .map((response: Response) => {
         if (response.status === 204) {
           return undefined;
@@ -137,57 +93,23 @@ export class EvaluationApi {
 
 
   /**
-   * Post new patient
-   * Post new patient
-   * @param patient Patient to add
-   */
-  public createPatientWithHttpInfo(patient: models.PatientDto, extraHttpRequestParams?: any): Observable<Response> {
-    const path = this.basePath + `/patients`;
-
-    let queryParameters = new URLSearchParams();
-    let headers = new Headers(this.defaultHeaders.toJSON()); // https://github.com/angular/angular/issues/6845
-    // verify required parameter 'patient' is not null or undefined
-    if (patient === null || patient === undefined) {
-      throw new Error('Required parameter patient was null or undefined when calling createPatient.');
-    }
-    // to determine the Content-Type header
-    let consumes: string[] = [];
-
-    // to determine the Accept header
-    let produces: string[] = [
-      'application/json'
-    ];
-
-    headers.set('Content-Type', 'application/json');
-
-    let requestOptions: RequestOptionsArgs = new RequestOptions({
-      method: RequestMethod.Post,
-      headers: headers,
-      body: patient == null ? '' : JSON.stringify(patient), // https://github.com/angular/angular/issues/10612
-      search: queryParameters
-    });
-
-    // https://github.com/swagger-api/swagger-codegen/issues/4037
-    if (extraHttpRequestParams) {
-      requestOptions = (<any>Object).assign(requestOptions, extraHttpRequestParams);
-    }
-
-    return this.http.request(path, requestOptions);
-  }
-
-  /**
-   * Post results of new psychiatric evaluations
-   * Post results of new psychiatric evaluations
+   * Post results of new evaluation
+   * Post results of new evaluation
+   * @param patientId Id of patient evaluations to fetch
    * @param evaluation Evaluation to submit
    */
-  public createPatientPsychEvaluationWithHttpInfo(evaluation: models.EvaluationDto, extraHttpRequestParams?: any): Observable<Response> {
-    const path = this.basePath + `/evaluations/psychiatric`;
+  public createPatientEvaluationWithHttpInfo(patientId: number, evaluation: models.EvaluationDto, extraHttpRequestParams?: any): Observable<Response> {
+    const path = this.basePath + `/patients/${patientId}/evaluations`;
 
     let queryParameters = new URLSearchParams();
     let headers = new Headers(this.defaultHeaders.toJSON()); // https://github.com/angular/angular/issues/6845
+    // verify required parameter 'patientId' is not null or undefined
+    if (patientId === null || patientId === undefined) {
+      throw new Error('Required parameter patientId was null or undefined when calling createPatientEvaluation.');
+    }
     // verify required parameter 'evaluation' is not null or undefined
     if (evaluation === null || evaluation === undefined) {
-      throw new Error('Required parameter evaluation was null or undefined when calling createPatientPsychEvaluation.');
+      throw new Error('Required parameter evaluation was null or undefined when calling createPatientEvaluation.');
     }
     // to determine the Content-Type header
     let consumes: string[] = [];
@@ -215,14 +137,24 @@ export class EvaluationApi {
   }
 
   /**
-   * Get blank psychiatric evaluation
-   * Get blank psychiatric evaluation
+   * Get evaluation by id
+   * Get evaluation by id
+   * @param patientId Id of patient evaluations to fetch
+   * @param evaluationId Id of evaluation to fetch
    */
-  public getBlankPsychEvaluationWithHttpInfo(extraHttpRequestParams?: any): Observable<Response> {
-    const path = this.basePath + `/evaluations/blank/psychiatric`;
+  public getEvaluationByIdWithHttpInfo(patientId: number, evaluationId: number, extraHttpRequestParams?: any): Observable<Response> {
+    const path = this.basePath + `/patients/${patientId}/evaluations/${evaluationId}`;
 
     let queryParameters = new URLSearchParams();
     let headers = new Headers(this.defaultHeaders.toJSON()); // https://github.com/angular/angular/issues/6845
+    // verify required parameter 'patientId' is not null or undefined
+    if (patientId === null || patientId === undefined) {
+      throw new Error('Required parameter patientId was null or undefined when calling getEvaluationById.');
+    }
+    // verify required parameter 'evaluationId' is not null or undefined
+    if (evaluationId === null || evaluationId === undefined) {
+      throw new Error('Required parameter evaluationId was null or undefined when calling getEvaluationById.');
+    }
     // to determine the Content-Type header
     let consumes: string[] = [];
 
@@ -248,10 +180,11 @@ export class EvaluationApi {
   /**
    * Get all evaluations for patient
    * Get all evaluations for patient
-   * @param patientId Id of patient to fetch
+   * @param patientId Id of patient evaluations to fetch
+   * @param evaluationType type of evaluation to pull
    */
-  public getEvaluationsByPatientIdWithHttpInfo(patientId: number, extraHttpRequestParams?: any): Observable<Response> {
-    const path = this.basePath + `/evaluations`;
+  public getEvaluationsByPatientIdWithHttpInfo(patientId: number, evaluationType?: string, extraHttpRequestParams?: any): Observable<Response> {
+    const path = this.basePath + `/patients/${patientId}/evaluations`;
 
     let queryParameters = new URLSearchParams();
     let headers = new Headers(this.defaultHeaders.toJSON()); // https://github.com/angular/angular/issues/6845
@@ -259,85 +192,9 @@ export class EvaluationApi {
     if (patientId === null || patientId === undefined) {
       throw new Error('Required parameter patientId was null or undefined when calling getEvaluationsByPatientId.');
     }
-    if (patientId !== undefined) {
+    if (evaluationType !== undefined) {
 
-      queryParameters.set('patientId', <any>patientId);
-    }
-
-    // to determine the Content-Type header
-    let consumes: string[] = [];
-
-    // to determine the Accept header
-    let produces: string[] = [
-      'application/json'
-    ];
-
-    let requestOptions: RequestOptionsArgs = new RequestOptions({
-      method: RequestMethod.Get,
-      headers: headers,
-      search: queryParameters
-    });
-
-    // https://github.com/swagger-api/swagger-codegen/issues/4037
-    if (extraHttpRequestParams) {
-      requestOptions = (<any>Object).assign(requestOptions, extraHttpRequestParams);
-    }
-
-    return this.http.request(path, requestOptions);
-  }
-
-  /**
-   * Get psychiatric evaluation by id
-   * Get psychiatric evaluation by id
-   * @param evaluationId Id of evaluation to fetch
-   */
-  public getPsychEvaluationByIdWithHttpInfo(evaluationId: number, extraHttpRequestParams?: any): Observable<Response> {
-    const path = this.basePath + `/evaluations/psychiatric/${evaluationId}`;
-
-    let queryParameters = new URLSearchParams();
-    let headers = new Headers(this.defaultHeaders.toJSON()); // https://github.com/angular/angular/issues/6845
-    // verify required parameter 'evaluationId' is not null or undefined
-    if (evaluationId === null || evaluationId === undefined) {
-      throw new Error('Required parameter evaluationId was null or undefined when calling getPsychEvaluationById.');
-    }
-    // to determine the Content-Type header
-    let consumes: string[] = [];
-
-    // to determine the Accept header
-    let produces: string[] = [
-      'application/json'
-    ];
-
-    let requestOptions: RequestOptionsArgs = new RequestOptions({
-      method: RequestMethod.Get,
-      headers: headers,
-      search: queryParameters
-    });
-
-    // https://github.com/swagger-api/swagger-codegen/issues/4037
-    if (extraHttpRequestParams) {
-      requestOptions = (<any>Object).assign(requestOptions, extraHttpRequestParams);
-    }
-
-    return this.http.request(path, requestOptions);
-  }
-
-  /**
-   * Get psychiatric evaluations for patient
-   * Get psychiatric evaluations for patient
-   * @param patientId Id of patient to fetch
-   */
-  public getPsychEvaluationsByPatientIdWithHttpInfo(patientId: number, extraHttpRequestParams?: any): Observable<Response> {
-    const path = this.basePath + `/evaluations/psychiatric`;
-
-    let queryParameters = new URLSearchParams();
-    let headers = new Headers(this.defaultHeaders.toJSON()); // https://github.com/angular/angular/issues/6845
-    // verify required parameter 'patientId' is not null or undefined
-    if (patientId === null || patientId === undefined) {
-      throw new Error('Required parameter patientId was null or undefined when calling getPsychEvaluationsByPatientId.');
-    }
-    if (patientId !== undefined) {
-      queryParameters.set('patientId', <any>patientId);
+      queryParameters.set('evaluationType', <any>evaluationType);
     }
 
     // to determine the Content-Type header
