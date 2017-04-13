@@ -3,20 +3,22 @@
 </div>
 <div class="content">
 
-  <a href="patient/create" class="orange-btn" id="enterNewPatient">Enter New Patient</a>
+  <a routerLink="/patient/create" class="orange-btn" id="enterNewPatient">Enter New Patient</a>
 
-  <div class="ui-widget-header" style="padding:4px 10px;border-bottom: 0 none">
-    <i class="fa fa-search" style="margin:4px 4px 0 0"></i>
-    <input #gb type="text" pInputText size="50" placeholder="Global Filter">
+  <div class="data-table">
+    <div class="ui-widget-header" style="padding:4px 10px;border-bottom: 0 none">
+      <i class="fa fa-search" style="margin:4px 4px 0 0"></i>
+      <input #gb type="text" pInputText size="50" placeholder="Global Filter">
+    </div>
+    <p-dataTable [value]="patients" [rows]="15" [paginator]="true" [pageLinks]="3" [rowsPerPageOptions]="[15,30,60]"
+                 [globalFilter]="gb" selectionMode="single" (onRowSelect)="onRowSelect($event)">
+      <p-column field="lastName" header="Last Name" [sortable]="true" [filter]="true"></p-column>
+      <p-column field="firstName" header="First Name" [sortable]="true" [filter]="true"></p-column>
+      <p-column field="id" header="ID" [sortable]="true" [filter]="true"></p-column>
+      <p-column field="dateOfBirth" header="Date Of Birth" [sortable]="true" [filter]="true"></p-column>
+      <p-column field="sex" header="Sex" [sortable]="true" [filter]="true"></p-column>
+    </p-dataTable>
   </div>
-  <p-dataTable [value]="patients" [rows]="10" [paginator]="true" [pageLinks]="3" [rowsPerPageOptions]="[5,10,20]"
-               [globalFilter]="gb">
-    <p-column field="lastName" header="Last Name" [sortable]="true" [filter]="true"></p-column>
-    <p-column field="firstName" header="First Name" [sortable]="true" [filter]="true"></p-column>
-    <p-column field="id" header="ID" [sortable]="true" [filter]="true"></p-column>
-    <p-column field="dateOfBirth" header="Date Of Birth" [sortable]="true" [filter]="true"></p-column>
-    <p-column field="sex" header="Sex" [sortable]="true" [filter]="true"></p-column>
-  </p-dataTable>
 
 </div>
 

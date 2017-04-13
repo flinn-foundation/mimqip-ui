@@ -1,49 +1,4 @@
 /* app styles */
-#instructionsWrapper{background: url(../images/global/instructionBandBg.png) repeat-x;}
-#instructions{
-	width:990px;
-	margin:0 auto;
-	padding-top:2px;
-	height:58px;
-}
-#instructions p{
-	padding-left:3px;
-	height:20px;
-	width:987px;
-	position:relative;
-	line-height:21px;
-	padding-bottom:3px;
-}
-
-#instructions p .heading{font-size:13px;}
-#hideInstructions{position:absolute; right:10px; top:0px;}
-#hideInstructions span{background: url(../images/global/hideShowH.png) no-repeat center 4px; }
-#instructions.hide span{background-position: center -11px;}
-#instructions.hide {height:25px;}
-#instructions.hide ul,
-#instructions.hide .pleaseRemember{display:none}
-#instructions ul{
-	background: url(../images/global/arrowsBg.png) no-repeat;
-	height:30px;
-	line-height:30px;
-	padding-left:20px;
-}
-#instructions ul li{
-	float:left;
-	width:235px;
-}
-#instructions #firstStep{width:250px;}
-#instructions #secondStep{width:236px;}
-#instructions #thirdStep{width:245px;}
-#instructions ul li a{
-	margin-left:12px;
-	font-size:11px;
-	color:#3B3B3B;
-	text-transform:uppercase;
-}
-#instructions ul li.disabled,
-#instructions ul li.disabled a{text-decoration:none;color:#75848C;}
-
 #boxes{
 	padding:8px 5px 10px;
 	overflow:hidden;

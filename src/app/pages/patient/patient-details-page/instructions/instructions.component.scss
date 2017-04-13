@@ -1,0 +1,84 @@
+.instructions-wrapper {
+  background: #CE9FD1;
+  background: -webkit-linear-gradient(#D2AAD4, #ECD1EE);
+  background: -o-linear-gradient(#D2AAD4, #ECD1EE);
+  background: -moz-linear-gradient(#D2AAD4, #ECD1EE);
+  background: linear-gradient(#D2AAD4, #ECD1EE);
+  font-size: 12px;
+  padding: 5px 0;
+
+  .hide-instructions-button {
+    background: #D0D0D0;
+    background: -webkit-linear-gradient(#D0D0D0, #999999);
+    background: -o-linear-gradient(#D0D0D0, #999999);
+    background: -moz-linear-gradient(#D0D0D0, #999999);
+    background: linear-gradient(#D0D0D0, #999999);
+
+    border: 1px solid #7E7E7E;
+    width: 90px;
+    font-weight: bold;
+    margin: 5px 0;
+  }
+}
+
+.breadcrumb {
+  list-style: none;
+  overflow: hidden;
+  font: 12px Helvetica, Arial, Sans-Serif;
+  padding: 0;
+}
+
+.breadcrumb li {
+  float: left;
+  color: white;
+  text-decoration: none;
+  padding: 5px 0 5px 20px;
+  background: #DADADA;
+  position: relative;
+  display: block;
+  float: left;
+  border-top: 1px solid #B3B3B3;
+  border-bottom: 1px solid #B3B3B3;
+}
+
+.breadcrumb li:after {
+  content: " ";
+  display: block;
+  width: 0;
+  height: 0;
+  border-top: 13px solid transparent; /* Go big on the size, and let overflow hide */
+  border-bottom: 13px solid transparent;
+  border-left: 7px solid #DADADA;
+  position: absolute;
+  top: 50%;
+  margin-top: -13px;
+  left: 100%;
+  z-index: 2;
+}
+
+.breadcrumb li:before {
+  content: " ";
+  display: block;
+  width: 0;
+  height: 0;
+  border-top: 13px solid transparent; /* Go big on the size, and let overflow hide */
+  border-bottom: 13px solid transparent;
+  border-left: 7px solid #B3B3B3;
+  position: absolute;
+  top: 50%;
+  margin-top: -13px;
+  margin-left: 1px;
+  left: 100%;
+  z-index: 1;
+}
+
+.breadcrumb li:first-child {
+  padding-left: 15px;
+  border-left: 1px solid #B3B3B3;
+}
+
+.breadcrumb li a {
+  cursor: pointer;
+  margin: 0 15px;
+  text-decoration: underline;
+}

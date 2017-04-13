@@ -44,7 +44,7 @@ import {LabsComponent} from './pages/patient/patient-details-page/tabs/labs/labs
 import {InformationComponent} from './pages/patient/patient-details-page/tabs/information/information.component';
 import {ReportsComponent} from './pages/patient/patient-details-page/tabs/reports/reports.component';
 import {NewProgressNoteComponent} from './pages/patient/patient-details-page/boxes/new-progress-note/new-progress-note.component';
-import {InstructionsComponent} from './pages/patient/patient-details-page/tabs/instructions/instructions.component';
+import {InstructionsComponent} from './pages/patient/patient-details-page/instructions/instructions.component';
 import {DepressionPhq9Component} from './pages/patient/patient-details-page/tabs/evaluations/depression-phq9/depression-phq9.component';
 import {PsychiatricComponent} from './pages/patient/patient-details-page/tabs/evaluations/psychiatric/psychiatric.component';
 import {SubstanceAbuseComponent} from './pages/patient/patient-details-page/tabs/evaluations/substance-abuse/substance-abuse.component';

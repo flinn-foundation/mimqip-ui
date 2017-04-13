@@ -6,8 +6,9 @@ body {
 }
 
 .content {
-  width: 980px;
+  width: 1000px;
   margin: 0px auto;
+
 }
 
 .orange-btn {
@@ -35,3 +36,17 @@ body {
   line-height: 50px;
   height: 50px;
 }
+
+.ui-menuitem-text {
+  font-size: 15px;
+}
+
+.ui-tabmenu {
+  border: none;
+}
+
+.ui-tabmenu-nav {
+  border: none !important;
+}
+
+

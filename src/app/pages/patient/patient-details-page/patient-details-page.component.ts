@@ -37,13 +37,13 @@ export class PatientDetailsPageComponent implements OnInit {
     });
 
     this.items = [
-      {label: 'Patient Evaluations', icon: 'fa-bar-chart', command: () => { this.tab = 1; }},
-      {label: 'Medications', icon: 'fa-calendar', command: () => { this.tab = 2; }},
-      {label: 'Decision Support', icon: 'fa-book', command: () => { this.tab = 3; }},
-      {label: 'Progress Notes', icon: 'fa-support', command: () => { this.tab = 4; }},
-      {label: 'Patient Labs', icon: 'fa-twitter', command: () => { this.tab = 5; }},
-      {label: 'Patient Information', icon: 'fa-twitter', command: () => { this.tab = 6; }},
-      {label: 'Reports', icon: 'fa-twitter', command: () => { this.tab = 7; }}
+      {label: 'Patient Evaluations', command: () => { this.tab = 1; }},
+      {label: 'Medications', command: () => { this.tab = 2; }},
+      {label: 'Decision Support', command: () => { this.tab = 3; }},
+      {label: 'Progress Notes', command: () => { this.tab = 4; }},
+      {label: 'Patient Labs', command: () => { this.tab = 5; }},
+      {label: 'Patient Information', command: () => { this.tab = 6; }},
+      {label: 'Reports', command: () => { this.tab = 7; }}
     ];
   }
 
