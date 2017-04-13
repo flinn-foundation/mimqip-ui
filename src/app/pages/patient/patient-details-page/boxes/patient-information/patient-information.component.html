@@ -1,29 +1,29 @@
-<div id="boxInformation" class="box">
-  <div class="headingBar">
-    <h2>Patient Information</h2>
+<div class="information-box ui-g-nopad" *ngIf="patient">
+  <div class="header-bar">
+    Patient Information
   </div>
-  <div class="fieldBox" id="first">
+  <div class="field-box ui-g-12" id="first">
     <span class="title">First</span>
-    <span class="content">{{ patient.firstName }}</span>
+    <span class="data">{{ patient.firstName }}</span>
   </div>
-  <div class="fieldBox" id="last">
+  <div class="field-box ui-g-12" id="last">
     <span class="title">Last</span>
-    <span class="content">{{ patient.lastName }}</span>
+    <span class="data">{{ patient.lastName }}</span>
   </div>
-  <div class="fieldBox" id="id">
+  <div class="field-box ui-g-12" id="id">
     <span class="title">ID #</span>
-    <span class="content">{{ patient.id }}</span>
+    <span class="data">{{ patient.id }}</span>
   </div>
-  <div class="fieldBox" id="sex">
+  <div class="field-box ui-g-3" id="sex">
     <span class="title">Sex</span>
-    <span class="content">{{ patient.sex }}</span>
+    <span class="data">{{ patient.sex | sexShort }}</span>
   </div>
-  <div class="fieldBox" id="age">
+  <div class="field-box ui-g-3" id="age" style="border: 1px #C7D1D7; border-style:solid solid none;">
     <span class="title">Age</span>
-    <span class="content">{{ calculateAge(patient.dateOfBirth) }}</span>
+    <span class="data">{{ calculateAge(patient.dateOfBirth) }}</span>
   </div>
-  <div class="fieldBox" id="dob">
+  <div class="field-box ui-g-6" id="dob">
     <span class="title">Dob</span>
-    <span class="content">{{ patient.dateOfBirth }}</span>
+    <span class="data">{{ patient.dateOfBirth | date:'yMd' }}</span>
   </div>
 </div>

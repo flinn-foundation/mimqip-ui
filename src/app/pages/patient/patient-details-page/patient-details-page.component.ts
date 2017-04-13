@@ -1,6 +1,6 @@
 import {Component, OnInit} from '@angular/core';
 import {PatientService} from "../../../services/patient.service";
-import {ActivatedRoute, Params} from "@angular/router";
+import {ActivatedRoute, Params, Router} from "@angular/router";
 import {PatientDto} from "../../../swagger/model/PatientDto";
 import {Location} from "@angular/common";
 import {MenuItem} from "primeng/primeng";
@@ -8,31 +8,24 @@ import {MenuItem} from "primeng/primeng";
 @Component({
   selector: 'app-patient-details-page',
   templateUrl: './patient-details-page.component.html',
-  styleUrls: ['./patient-details-page.component.scss'],
-  providers: [PatientService]
+  styleUrls: ['./patient-details-page.component.scss']
 })
 export class PatientDetailsPageComponent implements OnInit {
 
-  private patient: PatientDto;
-
+  private patientId: number;
   private items: MenuItem[];
+
 
   private tab: number = 1;
 
-  constructor(private patientService: PatientService, private activatedRoute: ActivatedRoute, private location: Location) {
+  constructor(private activatedRoute: ActivatedRoute, private router: Router) {
   }
 
   ngOnInit() {
     this.activatedRoute.queryParams.subscribe((params: Params) => {
-      let patientId = params['patientId'];
-
-      if (patientId == null) {
-        this.location.go("/about");
-      } else {
-        this.patientService.getPatientById(patientId).subscribe(
-          (patient: PatientDto) => this.patient = patient,
-          error => console.log(error)
-        );
+      this.patientId = params['patientId'];
+      if (this.patientId == null) {
+        this.router.navigate(["/patient/search"]);
       }
     });
 

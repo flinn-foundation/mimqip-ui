@@ -1,26 +1,26 @@
 <app-instructions></app-instructions>
-<div class="content">
-  <div id="topWrapper">
-    <div id="top">
-      <div id="boxes">
-        <div *ngIf="patient">
-          <app-patient-information [patient]="patient"></app-patient-information>
-          <app-patient-diagnosis></app-patient-diagnosis>
-          <app-current-mediciations></app-current-mediciations>
-          <app-progress-notes></app-progress-notes>
-        </div>
-      </div>
-    </div>
-  </div>
-  <p-tabMenu [model]="items"></p-tabMenu>
-  <div [ngSwitch]="tab">
-    <app-evaluations *ngSwitchCase="1"></app-evaluations>
-    <app-medications *ngSwitchCase="2"></app-medications>
-    <app-recommendations *ngSwitchCase="3"></app-recommendations>
-    <app-progress *ngSwitchCase="4"></app-progress>
-    <app-labs *ngSwitchCase="5"></app-labs>
-    <app-information *ngSwitchCase="6"></app-information>
-    <app-reports *ngSwitchCase="7"></app-reports>
+
+<div class="boxes-wrapper">
+  <div class="content">
+    <app-patient-information class="box" [patientId]="patientId"></app-patient-information>
+    <app-patient-diagnosis class="box"></app-patient-diagnosis>
+    <app-current-mediciations class="box"></app-current-mediciations>
+    <app-progress-notes class="box"></app-progress-notes>
   </div>
 </div>
+<div class="tabs-wrapper">
+  <div class="content">
+    <p-tabMenu [model]="items"></p-tabMenu>
+  </div>
+</div>
+<div class="content" [ngSwitch]="tab">
+  <app-evaluations *ngSwitchCase="1"></app-evaluations>
+  <app-medications *ngSwitchCase="2"></app-medications>
+  <app-recommendations *ngSwitchCase="3"></app-recommendations>
+  <app-progress *ngSwitchCase="4"></app-progress>
+  <app-labs *ngSwitchCase="5"></app-labs>
+  <app-information *ngSwitchCase="6"></app-information>
+  <app-reports *ngSwitchCase="7"></app-reports>
+</div>
+
 

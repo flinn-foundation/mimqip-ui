@@ -1,20 +1,31 @@
 import {Component, Input, OnInit} from '@angular/core';
 import {PatientDto} from "../../../../../swagger/model/PatientDto";
+import {PatientService} from "../../../../../services/patient.service";
+import {PatientSimpleDto} from "../../../../../swagger/model/PatientSimpleDto";
+import SexEnum = PatientDto.SexEnum;
 
 @Component({
   selector: 'app-patient-information',
   templateUrl: './patient-information.component.html',
-  styleUrls: ['./patient-information.component.scss']
+  styleUrls: ['./patient-information.component.scss'],
+  providers: [PatientService]
 })
 export class PatientInformationComponent implements OnInit {
 
   @Input()
-  private patient: PatientDto;
+  private patientId: number;
 
-  constructor() {
+  private patient: PatientSimpleDto;
+
+  constructor(private patientService: PatientService) {
+
   }
 
   ngOnInit() {
+    this.patientService.getPatientSimpleById(this.patientId).subscribe(
+      (patient: PatientSimpleDto) => this.patient = patient,
+      error => console.log(error)
+    );
   }
 
   calculateAge(dateOfBirth: Date) { // birthday is a date

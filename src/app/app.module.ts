@@ -54,8 +54,7 @@ import {GlobalRatingsComponent} from './pages/patient/patient-details-page/tabs/
 import {BipolarBbdssComponent} from './pages/patient/patient-details-page/tabs/evaluations/bipolar-bbdss/bipolar-bbdss.component';
 import {SchizophreniaPsrsComponent} from './pages/patient/patient-details-page/tabs/evaluations/schizophrenia-psrs/schizophrenia-psrs.component';
 import {SumImpurePipe} from './pipes/sum-impure/sum-impure.pipe';
-import {EnumKeysPipe} from './pipes/enum-keys/enum-keys.pipe';
-import {UncamelizePipe} from './pipes/uncamelize/uncamelize.pipe';
+import {SexShortPipe} from './pipes/sex-short/sex-short.pipe';
 
 
 @NgModule({
@@ -98,8 +97,7 @@ import {UncamelizePipe} from './pipes/uncamelize/uncamelize.pipe';
     BipolarBbdssComponent,
     SchizophreniaPsrsComponent,
     SumImpurePipe,
-    EnumKeysPipe,
-    UncamelizePipe
+    SexShortPipe
   ],
   imports: [
     BrowserModule,

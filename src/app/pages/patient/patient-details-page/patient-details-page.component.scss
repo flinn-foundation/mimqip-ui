@@ -1,1 +1,22 @@
+.tabs-wrapper {
+  background: #666666;
+  background: -webkit-linear-gradient(#666666, #A7A7A7);
+  background: -o-linear-gradient(#666666, #A7A7A7);
+  background: -moz-linear-gradient(#666666, #A7A7A7);
+  background: linear-gradient(#666666, #A7A7A7);
+}
 
+.boxes-wrapper {
+  background: #CDD7DC;
+  background: -webkit-linear-gradient(#99A6AC, #CDD7DC);
+  background: -o-linear-gradient(#99A6AC, #CDD7DC);
+  background: -moz-linear-gradient(#99A6AC, #CDD7DC);
+  background: linear-gradient(#99A6AC, #CDD7DC);
+
+  height: 140px;
+  padding: 10px 0;
+}
+
+.box {
+  float: left;
+}
