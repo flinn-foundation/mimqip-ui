@@ -2,6 +2,7 @@ import {Component, OnInit} from "@angular/core";
 import {PatientService} from "../../../services/patient.service";
 import {PatientDto} from "../../../swagger/model/PatientDto";
 import {SelectItem} from "primeng/primeng";
+import {Router} from "@angular/router";
 import RaceEnum = PatientDto.RaceEnum;
 import EthnicityEnum = PatientDto.EthnicityEnum;
 import EmploymentEnum = PatientDto.EmploymentEnum;
@@ -72,7 +73,7 @@ export class PatientCreationPageComponent implements OnInit {
   ];
 
 
-  constructor(private patientService: PatientService) {
+  constructor(private patientService: PatientService, private router: Router) {
     this.defaultDate = new Date();
     this.defaultDate.setFullYear(new Date().getFullYear() - 30);
   }
@@ -83,7 +84,10 @@ export class PatientCreationPageComponent implements OnInit {
   saveNewPatient() {
     this.patient.race = this.selectedRaces;
     console.log(this.patient);
-    this.patientService.createPatient(this.patient).subscribe();
+    this.patientService.createPatient(this.patient).subscribe(
+      (patientId: string) => this.router.navigate(['/patient/details'], { queryParams: { patientId: patientId }}),
+      error => console.log(error)
+    );
   }
 
 }

@@ -1,7 +1,7 @@
 import {Component, OnInit} from '@angular/core';
 import {PatientService} from "../../../services/patient.service";
 import {PatientDto} from "../../../swagger/model/PatientDto";
-import {ActivatedRoute, Router} from "@angular/router";
+import {Router} from "@angular/router";
 
 @Component({
   selector: 'app-patient-search-page',
@@ -24,7 +24,7 @@ export class PatientSearchPageComponent implements OnInit {
   }
 
   onRowSelect(event) {
-    this.router.navigate(['/patient/details'], { queryParams: { patientId: event.data.id }})
+    this.router.navigate(['/patient/details'], { queryParams: { patientId: event.data.id }});
 
   }
 }
