@@ -1,13 +1,8 @@
-<div id="boxNotes" class="box">
-  <div class="headingBar">
-    <h2>Progress Notes</h2>
-    <!--<a href="#" id="searchNotesBtn" class="btn"><span>Search Notes</span></a>-->
-    <a href="#" id="createNoteBtn" class="btn"><span>Create Note</span></a>
+<div class="progress-notes">
+  <div class="box-header">
+    Progress Notes
+    <button (click)="createNote()" class="patient-details-button" style="float: right">Create Note</button>
   </div>
-  <div class="noteInfoBar">
-    <span class="date"></span>
-    <span class="time"></span>
-    <span class="author"></span>
+  <div style="height: 112px;background:white">
   </div>
-  <div class="note"></div>
 </div>

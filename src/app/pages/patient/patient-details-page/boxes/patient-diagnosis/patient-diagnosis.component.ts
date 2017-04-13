@@ -12,4 +12,8 @@ export class PatientDiagnosisComponent implements OnInit {
   ngOnInit() {
   }
 
+  openDiagnosis() {
+    console.log("Open diagnosis");
+  }
+
 }

@@ -3,7 +3,9 @@
     <div><strong class="heading">Instructions:</strong> For MiMQIP to provide the best recommendation, it is important
       that all patient information be updated. <strong *ngIf="showInstructions">Please remember to do the
         following:</strong>
-      <button class="hide-instructions-button" (click)="toggleInstructions()">{{ buttonText() }}</button>
+      <button class="patient-details-button" (click)="toggleInstructions()" style="float: right">
+        {{ buttonText() }}
+      </button>
     </div>
     <div *ngIf="showInstructions" class="breadcrumb-wrapper">
       <ul class="breadcrumb">

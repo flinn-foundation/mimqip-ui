@@ -15,7 +15,11 @@
       <p-column field="lastName" header="Last Name" [sortable]="true" [filter]="true"></p-column>
       <p-column field="firstName" header="First Name" [sortable]="true" [filter]="true"></p-column>
       <p-column field="id" header="ID" [sortable]="true" [filter]="true"></p-column>
-      <p-column field="dateOfBirth" header="Date Of Birth" [sortable]="true" [filter]="true"></p-column>
+      <p-column field="dateOfBirth" header="Date Of Birth" [sortable]="true" [filter]="true" filterMatchMode="contains">
+        <ng-template let-col let-patientRow="rowData" pTemplate="body">
+          {{ patientRow[col.field] | date:'shortDate' }}
+        </ng-template>
+      </p-column>
       <p-column field="sex" header="Sex" [sortable]="true" [filter]="true"></p-column>
     </p-dataTable>
   </div>

@@ -1,16 +1,18 @@
-<div id="boxDiagnosisStage" class="box">
-  <div class="headingBar">
-    <h2>Diagnosis &amp; Stage</h2>
+<div class="diagnosis-box ui-g-nopad" id="boxDiagnosisStage">
+  <div class="box-header">
+    Diagnosis &amp; Stage
   </div>
-  <div class="floatWrapper">
-    <div class="fieldBox" id="diagnosis">
-      <span class="title">Primary Diagnosis</span>
-      <span class="content"></span>
-    </div>
-    <div class="fieldBox" id="stage">
-      <span class="title">Stage</span>
-      <span class="content"></span>
-    </div>
-    <a href="#" id="updateViewPast" class="btn"><span>Update / View Past</span></a>
+  <div class="field-box ui-g-12" id="diagnosis" style="height: 84px">
+    <span class="title">Primary Diagnosis</span>
+    <span class="data"></span>
+  </div>
+  <div class="field-box ui-g-4" id="stage" style="border-style:solid solid none none">
+    <span class="title">Stage</span>
+    <span class="data"></span>
+  </div>
+  <div class="field-box ui-g-8" style="border: none;">
+    <button class="patient-details-button" (click)="openDiagnosis()" style="top: -5px;left: 3px;">
+      Update / View Past
+    </button>
   </div>
 </div>

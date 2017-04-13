@@ -17,6 +17,11 @@
   padding: 10px 0;
 }
 
+.boxes-wrapper:last-child {
+  margin-right: 0;
+}
+
 .box {
   float: left;
+  margin-right: 5px;
 }

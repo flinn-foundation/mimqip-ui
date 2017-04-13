@@ -38,7 +38,7 @@ export class PatientCreationPageComponent implements OnInit {
     {label: "Hispanic, Latino or Spanish", value: EthnicityEnum.HISPANIC},
     {label: "Non Hispanic", value: EthnicityEnum.NONHISPANIC},
     {label: "No Response", value: EthnicityEnum.NORESPONSE}
-  ]
+  ];
 
   private employmentOptions: SelectItem[] = [
     {label: 'Select', value: null},

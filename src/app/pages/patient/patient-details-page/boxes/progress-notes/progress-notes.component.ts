@@ -12,4 +12,8 @@ export class ProgressNotesComponent implements OnInit {
   ngOnInit() {
   }
 
+  createNote() {
+    console.log("Create Note");
+  }
+
 }
