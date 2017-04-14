@@ -19,12 +19,10 @@ body {
   color: #a15d06;
   border: none;
   cursor: pointer;
-  float: right;
   text-decoration: none;
   -moz-box-shadow: 0 0 4px #8c8c8c;
   -webkit-box-shadow: 0 0 4px #8c8c8c;
   box-shadow: #8c8c8c 0 0 4px;
-  position: relative;
   font: bold 14px/28px arial, sans-serif;
   background: url(assets/images/global/orangeBtnBg.png) repeat-x;
 }
@@ -110,5 +108,20 @@ body {
   margin-top: -18px;
   margin-left: 25px;
   vertical-align: middle;
+}
+
+.tab-content {
+  padding: 15px 0;
+  overflow: scroll;
+}
+
+.ui-tabmenu .ui-tabmenu-nav > li.ui-state-default {
+  background: #DADADA !important;
+}
+
+.ui-tabmenu .ui-tabmenu-nav > li.ui-state-active {
+  background: #ffffff !important;
+  font-weight: normal;
+  color: #555555;
 }
 

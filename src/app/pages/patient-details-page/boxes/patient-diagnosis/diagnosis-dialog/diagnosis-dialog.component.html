@@ -1,0 +1,17 @@
+<p-dialog [(visible)]="display" modal="modal" width="600" (onHide)="emitHide()" [draggable]="false" [resizable]="false">
+  <p-header>
+    Update Diagnosis & Stage
+  </p-header>
+  <div class="diagnosis-dialog-content">
+    <div class="diagnosis-dialog-label">Primary DSM Axis 1 Diagnosis:</div>
+    <p-dropdown [options]="diagnoses" [(ngModel)]="diagnosis.diagnosisType" [style]="{'width':'542px','font-size':'13px'}"></p-dropdown>
+
+    <div class="diagnosis-dialog-label">Secondary and Other Diagnoses:</div>
+    <textarea class="diagnosis-secondary-textarea" pInputTextarea [(ngModel)]="diagnosis.secondaryDiagnosis"></textarea>
+    <br>
+    <div class="diagnosis-dialog-label">Stage:</div>
+    <p-dropdown [options]="stages" [(ngModel)]="diagnosis.stage" [style]="{'width':'40px','font-size':'13px'}"></p-dropdown>
+
+    <button class="orange-btn" style="display: block; margin-top: 20px" (click)="saveDiagnosis()">Save</button>
+  </div>
+</p-dialog>
