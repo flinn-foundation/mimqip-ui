@@ -1,0 +1,19 @@
+<div class="instructions-wrapper">
+  <div class="content">
+    <div><strong class="heading">Instructions:</strong> For MiMQIP to provide the best recommendation, it is important
+      that all patient information be updated. <strong *ngIf="showInstructions">Please remember to do the
+        following:</strong>
+      <button class="patient-details-button" (click)="toggleInstructions()" style="float: right">
+        {{ buttonText() }}
+      </button>
+    </div>
+    <div *ngIf="showInstructions" class="breadcrumb-wrapper">
+      <ul class="breadcrumb">
+        <li><span>Verify diagnosis &amp; stage</span><a (click)="updateDiagnosis()">Update</a></li>
+        <li><span>Verify current medications</span> <a (click)="viewMedications()">Update</a></li>
+        <li><span>Complete diagnosis-related scale</span> <a (click)="updateDiagnosisScales()">Go</a></li>
+        <li><span>Complete global rating scales</span> <a (click)="updateGlobalScales()">Go</a></li>
+      </ul>
+    </div>
+  </div>
+</div>

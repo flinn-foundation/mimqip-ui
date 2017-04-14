@@ -1,0 +1,18 @@
+<!--<div>-->
+  <!--<img src="/src/assets/images/recommend/admin_header.gif" width=670 height=96 alt="" border="0" style="float: left">-->
+  <!--<img src="/src/assets/images/recommend/logo.png" width=200 height=96 alt="Flinn Foundation" border="0"-->
+       <!--style="float: right;">-->
+<!--</div>-->
+<div class="header-bar">
+  <div class="content">
+    <div style="float:left">
+      <span class="facility">{{ facility }} facility</span>
+      <span class="doctor">Welcome, {{ doctor }} </span>
+      <button (click)="logOut()" class="header-button">LOGOUT</button>
+    </div>
+    <div style="float:right">
+
+      <button routerLink="/patient/search" class="header-button">Patient Search</button>
+    </div>
+  </div>
+</div>

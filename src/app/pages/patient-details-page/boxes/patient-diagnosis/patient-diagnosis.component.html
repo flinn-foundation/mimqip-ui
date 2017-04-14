@@ -1,0 +1,19 @@
+<div class="diagnosis-box ui-g-nopad" id="boxDiagnosisStage">
+  <div class="box-header">
+    Diagnosis &amp; Stage
+  </div>
+  <div class="field-box ui-g-12" id="diagnosis" style="height: 84px">
+    <span class="title">Primary Diagnosis</span>
+    <span class="data">{{ diagnosis.diagnosisType }}</span>
+  </div>
+  <div class="field-box ui-g-5" id="stage" style="border-style:solid solid none none">
+    <span class="title">Stage</span>
+    <span class="data">{{ diagnosis.stage }}</span>
+  </div>
+  <div class="field-box ui-g-7" style="border: none;">
+    <button class="patient-details-button" style="top:-5px; left: -5px; width: 95px;" (click)="openDiagnosis()">
+      Update / View Past
+    </button>
+  </div>
+</div>
+<app-diagnosis-dialog [(display)]="displayDialog" [patientId]="patientId" (diagnosisUpdated)="getLatestDiagnosis()"></app-diagnosis-dialog>

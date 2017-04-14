@@ -1,0 +1,78 @@
+<div class="page-title"><div class="content">Create New Patient</div></div>
+<div class="content">
+  <div class="ui-g">
+    <div class="ui-g-6">
+      <div class="form-field ui-g-12">
+        <div class="ui-g-4 label-text">First Name:</div>
+        <input type="text" class="ui-g-8" [(ngModel)]="patient.firstName"/>
+      </div>
+      <div class="form-field ui-g-12">
+        <div class="ui-g-4 label-text">Last Name:</div>
+        <input type="text" class="ui-g-8" [(ngModel)]="patient.lastName"/>
+      </div>
+      <div class="form-field ui-g-12">
+        <div class="ui-g-4 label-text">Race:</div>
+        <div class="ui-g-8">
+          <p-checkbox *ngFor="let race of raceOptions" name="raceGroup" [label]="race.label" [value]="race.value"
+                      [(ngModel)]="selectedRaces" class="patient-checkbox"></p-checkbox>
+        </div>
+      </div>
+      <div class="form-field ui-g-12">
+        <div class="ui-g-4 label-text">Ethnicity:</div>
+        <div class="ui-g-8">
+          <p-radioButton *ngFor="let ethnicity of ethnicityOptions" name="ethnicityGroup" [label]="ethnicity.label"
+                         [value]="ethnicity.value" [(ngModel)]="patient.ethnicity"
+                         class="patient-radio-button"></p-radioButton>
+        </div>
+      </div>
+      <div class="form-field ui-g-12">
+        <div class="ui-g-4 label-text" style="top: -13px;position: relative;">Primary Care Physician Name:</div>
+        <input type="text" class="ui-g-8"/>
+      </div>
+      <div class="form-field ui-g-12">
+        <div class="ui-g-4 label-text" style="top: -13px;position: relative;">Primary Care Physician Email:</div>
+        <input type="text" class="ui-g-8"/>
+      </div>
+    </div>
+
+    <div class="ui-g-6">
+      <div class="form-field ui-g-12">
+        <div class="ui-g-4 label-text">ZIP Code:</div>
+        <input type="text" maxlength="5" class="ui-g-8" [(ngModel)]="patient.zipCode"/>
+      </div>
+
+
+      <div class="form-field ui-g-12">
+        <div class="ui-g-4 label-text">Employment Status:</div>
+        <p-dropdown class="ui-g-8" [options]="employmentOptions" [(ngModel)]="patient.employment"></p-dropdown>
+      </div>
+
+      <div class="form-field ui-g-12">
+        <div class="ui-g-4 label-text">Sex:</div>
+        <p-dropdown class="ui-g-8" [options]="sexOptions" [(ngModel)]="patient.sex"></p-dropdown>
+      </div>
+
+      <div class="form-field ui-g-12">
+        <div class="ui-g-4 label-text">Date of Birth:</div>
+        <p-calendar class="ui-g-8" [(ngModel)]="patient.dateOfBirth" [defaultDate]="defaultDate"
+                    [monthNavigator]="true" [yearNavigator]="true" [yearRange]="yearRange"
+                    [showIcon]="true"></p-calendar>
+      </div>
+
+
+      <div class="form-field ui-g-12">
+        <div class="ui-g-4 label-text">Marital Status:</div>
+        <p-dropdown class="ui-g-8" [options]="maritalOptions" [(ngModel)]="patient.marital"></p-dropdown>
+      </div>
+
+      <div class="form-field ui-g-12">
+        <div class="ui-g-4 label-text">Living Arrangement:</div>
+        <p-dropdown class="ui-g-8" [options]="livingOptions" [(ngModel)]="patient.living"></p-dropdown>
+      </div>
+    </div>
+  </div>
+  <button (click)="saveNewPatient()" class="orange-btn" id="savePatient">Save</button>
+</div>
+
+
+

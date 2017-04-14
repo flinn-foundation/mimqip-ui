@@ -1,21 +1,16 @@
 import { NgModule } from '@angular/core';
 import { Routes, RouterModule } from '@angular/router';
 
-import {AboutComponent} from "./pages/about/about.component";
-import {DiagnosisComponent} from "./pages/diagnosis/diagnosis.component";
-import {RulesComponent} from "./pages/rules/rules.component";
-import {ExportComponent} from "./pages/export/export.component";
-import {MessagesComponent} from "./pages/messages/messages.component";
-import {SettingsComponent} from "./pages/settings/settings.component";
+import {PatientDetailsPageComponent} from "./pages/patient-details-page/patient-details-page.component";
+import {PatientCreationPageComponent} from "./pages/patient-creation-page/patient-creation-page.component";
+import {PatientSearchPageComponent} from "./pages/patient-search-page/patient-search-page.component";
+
 
 const routes: Routes = [
-  { path: 'about', component: AboutComponent },
-  { path: 'diagnosis', component: DiagnosisComponent },
-  { path: 'export', component: ExportComponent },
-  { path: 'messages', component: MessagesComponent },
-  { path: 'rules', component: RulesComponent },
-  { path: 'settings', component: SettingsComponent },
-  { path: '', redirectTo: '/about', pathMatch: 'full' }
+  { path: 'patient/details', component: PatientDetailsPageComponent },
+  { path: 'patient/create', component: PatientCreationPageComponent },
+  { path: 'patient/search', component: PatientSearchPageComponent },
+  { path: '', redirectTo: 'patient/search', pathMatch: 'full' }
 ];
 
 @NgModule({
