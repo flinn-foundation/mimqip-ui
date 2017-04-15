@@ -1,3 +1,34 @@
-<p>
-  global-ratings works!
-</p>
+<div>Global Rating Scales</div>
+<div class="instructions">Please note: MiMQIP requires a score on the Overall Side Effect Severity and Overall Symptom
+  Severity scales to make a clinical recommendation.
+</div>
+<!--TODO: Navigate past responses-->
+
+<div *ngFor="let question of evaluation; let i = index;">
+  <div *ngIf="i < 3">
+    <div class="errorMsg">Please select a response.</div>
+    <h2>{{ question.title }}</h2>
+    <div [innerHTML]="question.description"></div>
+    <div *ngFor="let severity of [0,1,2,3,4,5,6,7,8,9,10]" class="eval-response-rating">
+      <label for="{{i + severity }}">{{ severity }}</label>
+      <input type="radio" name="{{ i }}" id="{{i + severity }}" value="{{ severity }}"
+             [(ngModel)]="question.response"/>
+    </div>
+  </div>
+</div>
+<div class="fieldWrapper symptom">
+  <div class="errorMsg">Please select a response.</div>
+  <h2>{{ evaluation[3].title }}</h2>
+  <div>{{ evaluation[3].description }}</div>
+  <div *ngFor="let compliance of ['Yes', 'No', 'Unknown/ Unsure']" class="eval-response-rating compliance">
+    <label for="{{ compliance }}">{{ compliance }}</label>
+    <input type="radio" name="compliance" id="{{ compliance }}" value="{{ compliance }}"
+           [(ngModel)]="evaluation[3].response"/>
+  </div>
+</div>
+
+<div class="evaluatedBy">Evaluated By: <span></span></div>
+<div class="buttons bottom">
+  <input type="submit" class="orangeBtn" value="Save"/>
+</div>
+

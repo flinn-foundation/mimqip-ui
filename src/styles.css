@@ -125,3 +125,20 @@ body {
   color: #555555;
 }
 
+.evaluation-title {
+  font-weight: normal;
+  font-size: 18px;
+  float: left;
+  margin-bottom: 10px;
+}
+
+.eval-response-rating {
+  display: inline-block;
+  width: 30px;
+  text-align: center;
+  padding: 0 14px;
+}
+
+.eval-response-rating label {
+  display: block;
+}
