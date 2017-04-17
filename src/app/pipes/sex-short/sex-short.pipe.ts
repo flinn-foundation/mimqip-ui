@@ -1,5 +1,5 @@
 import { Pipe, PipeTransform } from '@angular/core';
-import {PatientDto} from "../../swagger/model/PatientDto";
+import {PatientDto} from "../../swagger-patient-service/model/PatientDto";
 import SexEnum = PatientDto.SexEnum;
 
 @Pipe({

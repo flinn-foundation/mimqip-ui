@@ -1,6 +1,6 @@
 import {AfterViewInit, Component, EventEmitter, Input, OnChanges, OnInit, Output} from '@angular/core';
 import {SelectItem} from "primeng/primeng";
-import {DiagnosisDto} from "../../../../../swagger/model/DiagnosisDto";
+import {DiagnosisDto} from "../../../../../swagger-patient-service/model/DiagnosisDto";
 import DiagnosisTypeEnum = DiagnosisDto.DiagnosisTypeEnum;
 import {DiagnosisService} from "../../../../../services/diagnosis/diagnosis.service";
 
@@ -24,7 +24,7 @@ export class DiagnosisDialogComponent implements OnInit, OnChanges {
   @Output()
   private diagnosisUpdated = new EventEmitter<boolean>();
 
-  private diagnosis: DiagnosisDto = {};
+  private diagnosis: DiagnosisDto = {stage:1};
   private diagnosisOriginal: DiagnosisDto;
 
   private diagnoses : SelectItem[] = [
@@ -113,15 +113,16 @@ export class DiagnosisDialogComponent implements OnInit, OnChanges {
 
   private diagnosisChanged():boolean {
     let diagnosesDiffer = false;
-    console.log(this.diagnosis);
-    console.log(this.diagnosisOriginal);
-
-    if(this.diagnosis.diagnosisType !== this.diagnosisOriginal.diagnosisType) {
+    if(this.diagnosisOriginal == null) {
       diagnosesDiffer = true;
-    } else if(this.diagnosis.secondaryDiagnosis.trim() !== this.diagnosisOriginal.secondaryDiagnosis.trim()) {
-      diagnosesDiffer = true;
-    } else if(this.diagnosis.stage !== this.diagnosisOriginal.stage) {
-      diagnosesDiffer = true;
+    } else {
+      if (this.diagnosis.diagnosisType !== this.diagnosisOriginal.diagnosisType) {
+        diagnosesDiffer = true;
+      } else if (this.diagnosis.secondaryDiagnosis.trim() !== this.diagnosisOriginal.secondaryDiagnosis.trim()) {
+        diagnosesDiffer = true;
+      } else if (this.diagnosis.stage !== this.diagnosisOriginal.stage) {
+        diagnosesDiffer = true;
+      }
     }
 
     return diagnosesDiffer;

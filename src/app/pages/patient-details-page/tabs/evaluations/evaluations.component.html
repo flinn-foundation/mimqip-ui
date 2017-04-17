@@ -1,38 +1,37 @@
-<div id="evaluations" class="tabBox">
-  <div id="evalNav">
+<div class="ui-g">
+  <div class="ui-g-4">
     <ul>
       <li><h3>Required Evaluations</h3></li>
-      <li id="CRSNav"><a href="#CRS">Enter New <span class="upper">Diagnosis-Related Scale</span></a></li>
-      <li id="PastCRSNav" class="pastEval"><a href="#PastCRS">View Past <span>Diagnosis-Related Scales</span></a></li>
-      <li><a href="#global_rating_scale">Enter New <span class="upper">Global Rating Scale</span></a></li>
-      <li class="pastEval"><a href="#Pastglobal_rating_scale">View Past Global <span>Rating Scales</span></a></li>
+      <li id="CRSNav">Enter New <span class="upper">Diagnosis-Related Scale</span></li>
+      <li id="PastCRSNav" class="pastEval">View Past <span>Diagnosis-Related Scales</span></li>
+      <li>Enter New <span class="upper">Global Rating Scale</span></li>
+      <li class="pastEval">View Past Global <span>Rating Scales</span></li>
 
       <li><h3>Additional Evaluations</h3></li>
-      <li><a href="#psychiatric_evaluation">Enter New <span class="upper">Psychiatric Evaluation</span></a></li>
-      <li class="pastEval"><a href="#Pastpsychiatric_evaluation">View Past <span>Psychiatric Evaluation</span></a></li>
-      <li><a href="#mental_status">Enter New <span class="upper">Mental Status</span></a></li>
-      <li class="pastEval"><a href="#Pastmental_status">View Past <span>Mental Status</span></a></li>
-      <li><a href="#substance_abuse">Enter New <span class="upper">Substance Abuse Assessment</span></a></li>
-      <li class="pastEval"><a href="#Pastsubstance_abuse">View Past <span>Substance Abuse Assessment</span></a></li>
-      <li><a href="#vital_signs">Enter New <span class="upper">Patient Vital Signs</span></a></li>
-      <li class="pastEval"><a href="#Pastvital_signs">View Past <span>Patient Vital Signs</span></a></li>
+      <li>Enter New <span class="upper">Psychiatric Evaluation</span></li>
+      <li class="pastEval">View Past <span>Psychiatric Evaluation</span></li>
+      <li>Enter New <span class="upper">Mental Status</span></li>
+      <li class="pastEval">View Past <span>Mental Status</span></li>
+      <li>Enter New <span class="upper">Substance Abuse Assessment</span></li>
+      <li class="pastEval">View Past <span>Substance Abuse Assessment</span></li>
+      <li>Enter New <span class="upper">Patient Vital Signs</span></li>
+      <li class="pastEval">View Past <span>Patient Vital Signs</span></li>
     </ul>
   </div>
+  <div class="ui-g-8" [ngSwitch]="activeEvaluation">
+    <app-depression-phq9 *ngSwitchCase="evlautionEnum.PHQ9"></app-depression-phq9>
+    <app-global-ratings *ngSwitchCase="evlautionEnum.GLOBAL" (onEvalCompleted)="saveEvaluation($event)"></app-global-ratings>
+    <!--<div id="CRS" class="eval"><div class="content"></div></div>-->
+    <!--<div id="PastCRS" class="past eval"><div class="content"></div></div>-->
 
-  <div id="evalContent">
-    <app-depression-phq9></app-depression-phq9>
-    <div id="CRS" class="eval"><div class="content"></div></div>
-    <div id="PastCRS" class="past eval"><div class="content"></div></div>
-    <div id="global_rating_scale" class="eval"><div class="content"></div></div>
-    <div id="Pastglobal_rating_scale" class="past eval"><div class="content"></div></div>
-    <div id="psychiatric_evaluation" class="eval"><div class="content"></div></div>
-    <div id="Pastpsychiatric_evaluation" class="past eval"><div class="content"></div></div>
-    <div id="mental_status" class="eval"><div class="content"></div></div>
-    <div id="Pastmental_status" class="past eval"><div class="content"></div></div>
-    <div id="substance_abuse" class="eval"><div class="content"></div></div>
-    <div id="Pastsubstance_abuse" class="past eval"><div class="content"></div></div>
-    <div id="vital_signs" class="eval"><div class="content"></div></div>
-    <div id="Pastvital_signs" class="past eval"><div class="content"></div></div>
+    <!--<div id="Pastglobal_rating_scale" class="past eval"><div class="content"></div></div>-->
+    <!--<div id="psychiatric_evaluation" class="eval"><div class="content"></div></div>-->
+    <!--<div id="Pastpsychiatric_evaluation" class="past eval"><div class="content"></div></div>-->
+    <!--<div id="mental_status" class="eval"><div class="content"></div></div>-->
+    <!--<div id="Pastmental_status" class="past eval"><div class="content"></div></div>-->
+    <!--<div id="substance_abuse" class="eval"><div class="content"></div></div>-->
+    <!--<div id="Pastsubstance_abuse" class="past eval"><div class="content"></div></div>-->
+    <!--<div id="vital_signs" class="eval"><div class="content"></div></div>-->
+    <!--<div id="Pastvital_signs" class="past eval"><div class="content"></div></div>-->
   </div>
-
 </div>

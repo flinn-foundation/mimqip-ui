@@ -14,9 +14,9 @@
   </div>
 </div>
 <div class="content" [ngSwitch]="tab">
-  <app-evaluations *ngSwitchCase="1"></app-evaluations>
+  <app-evaluations *ngSwitchCase="1" [patientId]="patientId"></app-evaluations>
   <app-medications *ngSwitchCase="2"></app-medications>
-  <app-recommendations *ngSwitchCase="3"></app-recommendations>
+  <app-recommendations *ngSwitchCase="3" [patientId]="patientId"></app-recommendations>
   <app-progress *ngSwitchCase="4"></app-progress>
   <app-labs *ngSwitchCase="5"></app-labs>
   <app-information *ngSwitchCase="6"></app-information>

@@ -1,7 +1,7 @@
 import {Component, Input, OnInit} from '@angular/core';
-import {PatientDto} from "../../../../swagger/model/PatientDto";
+import {PatientDto} from "../../../../swagger-patient-service/model/PatientDto";
 import {PatientService} from "../../../../services/patient/patient.service";
-import {PatientSimpleDto} from "../../../../swagger/model/PatientSimpleDto";
+import {PatientSimpleDto} from "../../../../swagger-patient-service/model/PatientSimpleDto";
 import SexEnum = PatientDto.SexEnum;
 
 @Component({
