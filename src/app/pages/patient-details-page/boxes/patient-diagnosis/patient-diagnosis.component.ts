@@ -1,6 +1,6 @@
 import {Component, Input, OnInit} from '@angular/core';
 import {DiagnosisService} from "../../../../services/diagnosis/diagnosis.service";
-import {DiagnosisDto} from "../../../../swagger/model/DiagnosisDto";
+import {DiagnosisDto} from "../../../../swagger-patient-service/model/DiagnosisDto";
 
 @Component({
   selector: 'app-patient-diagnosis',

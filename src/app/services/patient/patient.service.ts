@@ -1,12 +1,12 @@
 import {Injectable} from '@angular/core';
-import {PatientApi} from "../../swagger/api/PatientApi";
+import {PatientApi} from "../../swagger-patient-service/api/PatientApi";
 import {Http} from '@angular/http';
 import {Observable} from "rxjs";
-import {PatientDto} from "../../swagger/model/PatientDto";
+import {PatientDto} from "../../swagger-patient-service/model/PatientDto";
 import {Response} from '@angular/http';
 
 import 'rxjs/add/operator/map';
-import {PatientSimpleDto} from "../../swagger/model/PatientSimpleDto";
+import {PatientSimpleDto} from "../../swagger-patient-service/model/PatientSimpleDto";
 
 @Injectable()
 export class PatientService extends PatientApi {

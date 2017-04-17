@@ -1,4 +1,7 @@
 <div class="tab-content">
+  <div *ngFor="let message of messages">
+    {{ message.text }}
+  </div>
   <button type="text" (click)="compareTreatments()" pButton icon="fa-arrows-h" label="Compare Treatments"></button>
 
   <!--<div class="floatLeft">-->

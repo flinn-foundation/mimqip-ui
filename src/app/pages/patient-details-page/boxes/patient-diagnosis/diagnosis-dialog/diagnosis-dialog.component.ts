@@ -1,6 +1,6 @@
 import {AfterViewInit, Component, EventEmitter, Input, OnChanges, OnInit, Output} from '@angular/core';
 import {SelectItem} from "primeng/primeng";
-import {DiagnosisDto} from "../../../../../swagger/model/DiagnosisDto";
+import {DiagnosisDto} from "../../../../../swagger-patient-service/model/DiagnosisDto";
 import DiagnosisTypeEnum = DiagnosisDto.DiagnosisTypeEnum;
 import {DiagnosisService} from "../../../../../services/diagnosis/diagnosis.service";
 
