@@ -1,3 +1,31 @@
 .progress-notes {
   width: 393px;
 }
+
+
+.overlay-content {
+  height: 140px;
+  width: 628px;
+
+  .progress-note-header {
+    color: #FFFFFF;
+  }
+
+  .save-note-button {
+    position: absolute;
+    top: 2px;
+    right: 24px;
+  }
+
+  .tags {
+    background: white;
+    height: 100px;
+    width: 100%;
+  }
+
+  .note-message {
+    height: 100px;
+    width: 100%;
+    resize: none;
+  }
+}

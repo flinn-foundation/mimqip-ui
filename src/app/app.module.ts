@@ -12,9 +12,9 @@ import {CheckboxModule} from 'primeng/primeng';
 import {RadioButtonModule} from 'primeng/primeng';
 import {DialogModule} from 'primeng/primeng';
 import {InputTextareaModule} from 'primeng/primeng';
+import {OverlayPanelModule} from 'primeng/primeng';
 
 import {NgPipesModule} from "angular2-pipes";
-
 
 import {AppRoutingModule} from './app-routing.module';
 
@@ -49,6 +49,7 @@ import {SumImpurePipe} from './pipes/sum-impure/sum-impure.pipe';
 import {SexShortPipe} from './pipes/sex-short/sex-short.pipe';
 import { CompareTreatmentsDialogComponent } from './pages/patient-details-page/tabs/recommendations/compare-treatments-dialog/compare-treatments-dialog.component';
 import { DiagnosisDialogComponent } from './pages/patient-details-page/boxes/patient-diagnosis/diagnosis-dialog/diagnosis-dialog.component';
+import { AgePipe } from './pipes/age/age.pipe';
 
 
 @NgModule({
@@ -83,7 +84,8 @@ import { DiagnosisDialogComponent } from './pages/patient-details-page/boxes/pat
     SumImpurePipe,
     SexShortPipe,
     CompareTreatmentsDialogComponent,
-    DiagnosisDialogComponent
+    DiagnosisDialogComponent,
+    AgePipe
   ],
   imports: [
     BrowserModule,
@@ -98,6 +100,7 @@ import { DiagnosisDialogComponent } from './pages/patient-details-page/boxes/pat
     RadioButtonModule,
     InputTextareaModule,
     DialogModule,
+    OverlayPanelModule,
     SharedModule,
     NgPipesModule,
     BrowserAnimationsModule

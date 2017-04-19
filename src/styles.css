@@ -27,6 +27,12 @@ body {
   background: url(assets/images/global/orangeBtnBg.png) repeat-x;
 }
 
+.grey-btn {
+  background: #8c8c8c;
+  color: #3b3b3b;
+  cursor: not-allowed;
+}
+
 .page-title {
   background: #5eb6dc;
   font-size: 24px;
@@ -142,3 +148,4 @@ body {
 .eval-response-rating label {
   display: block;
 }
+
