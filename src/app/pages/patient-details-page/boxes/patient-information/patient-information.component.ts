@@ -7,15 +7,14 @@ import SexEnum = PatientDto.SexEnum;
 @Component({
   selector: 'app-patient-information',
   templateUrl: './patient-information.component.html',
-  styleUrls: ['./patient-information.component.scss'],
-  providers: [PatientService]
+  styleUrls: ['./patient-information.component.scss']
 })
 export class PatientInformationComponent implements OnInit {
 
   @Input()
   private patientId: number;
 
-  private patient: PatientSimpleDto;
+  private patient: PatientSimpleDto = {};
 
   constructor(private patientService: PatientService) {
 
@@ -26,12 +25,6 @@ export class PatientInformationComponent implements OnInit {
       (patient: PatientSimpleDto) => this.patient = patient,
       error => console.log(error)
     );
-  }
-
-  calculateAge(dateOfBirth: Date) { // birthday is a date
-    const ageDiffMs = Date.now() - dateOfBirth.getTime();
-    const ageDate = new Date(ageDiffMs);
-    return Math.abs(ageDate.getUTCFullYear() - 1970);
   }
 
 }

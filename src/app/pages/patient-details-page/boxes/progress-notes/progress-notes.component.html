@@ -1,8 +1,33 @@
-<div class="progress-notes">
+<div class="progress-notes" xmlns="http://www.w3.org/1999/html">
   <div class="box-header">
     Progress Notes
-    <button (click)="createNote()" class="patient-details-button" style="float: right">Create Note</button>
+    <button (click)="op.toggle($event)" class="patient-details-button" style="float: right">Create Note</button>
   </div>
-  <div style="height: 112px;background:white">
+  <div style="height: 112px;background:white; overflow: scroll">
+    <div *ngFor="let existingProgressNote of progressNotes" class="existing-progress-note">{{ existingProgressNote.noteText }}
+      <span style="float: right">{{ existingProgressNote.createdTimestamp | date:'short' }}</span></div>
   </div>
 </div>
+<p-overlayPanel #op [style]="{'background':'#5eb6dc'}">
+  <div class="ui-g new-progress-note">
+    <div class="ui-g-3">
+      <div class="progress-note-header">Select Tag</div>
+      <div class="tags">
+        <div *ngFor="let tag of noteTags">
+          <label>
+            <input type="checkbox" name="isActive" [(ngModel)]="tag.value">
+            {{ tag.label }}
+          </label>
+        </div>
+      </div>
+    </div>
+    <div class="ui-g-9">
+      <div class="progress-note-header">Progress Note</div>
+      <button class="save-note-button orange-btn" [ngClass]="{' grey-btn': !hasMessageContent()}"
+              [disabled]="!hasMessageContent()" (click)="saveNote()">Save
+      </button>
+      <textarea class="note-message" [(ngModel)]="progressNote.noteText"></textarea>
+      <span *ngIf="hasErrorSavingNote" class="error">Error saving progress note</span>
+    </div>
+  </div>
+</p-overlayPanel>

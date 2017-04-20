@@ -1,4 +1,4 @@
-<div class="information-box ui-g-nopad" *ngIf="patient">
+<div class="information-box ui-g-nopad">
   <div class="box-header">
     Patient Information
   </div>
@@ -20,7 +20,7 @@
   </div>
   <div class="field-box ui-g-3" id="age" style="border: 1px #C7D1D7; border-style:solid solid none;">
     <span class="title">Age</span>
-    <span class="data">{{ calculateAge(patient.dateOfBirth) }}</span>
+    <span class="data">{{ patient.dateOfBirth | age }}</span>
   </div>
   <div class="field-box ui-g-6" id="dob">
     <span class="title">Dob</span>

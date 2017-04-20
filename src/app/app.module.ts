@@ -12,9 +12,9 @@ import {CheckboxModule} from 'primeng/primeng';
 import {RadioButtonModule} from 'primeng/primeng';
 import {DialogModule} from 'primeng/primeng';
 import {InputTextareaModule} from 'primeng/primeng';
+import {OverlayPanelModule} from 'primeng/primeng';
 
 import {NgPipesModule} from "angular2-pipes";
-
 
 import {AppRoutingModule} from './app-routing.module';
 
@@ -35,7 +35,6 @@ import {ProgressComponent} from './pages/patient-details-page/tabs/progress/prog
 import {LabsComponent} from './pages/patient-details-page/tabs/labs/labs.component';
 import {InformationComponent} from './pages/patient-details-page/tabs/information/information.component';
 import {ReportsComponent} from './pages/patient-details-page/tabs/reports/reports.component';
-import {NewProgressNoteComponent} from './pages/patient-details-page/boxes/progress-notes/new-progress-note/new-progress-note.component';
 import {InstructionsComponent} from './pages/patient-details-page/instructions/instructions.component';
 import {DepressionPhq9Component} from './pages/patient-details-page/tabs/evaluations/depression-phq9/depression-phq9.component';
 import {PsychiatricComponent} from './pages/patient-details-page/tabs/evaluations/psychiatric/psychiatric.component';
@@ -47,8 +46,13 @@ import {BipolarBbdssComponent} from './pages/patient-details-page/tabs/evaluatio
 import {SchizophreniaPsrsComponent} from './pages/patient-details-page/tabs/evaluations/schizophrenia-psrs/schizophrenia-psrs.component';
 import {SumImpurePipe} from './pipes/sum-impure/sum-impure.pipe';
 import {SexShortPipe} from './pipes/sex-short/sex-short.pipe';
-import { CompareTreatmentsDialogComponent } from './pages/patient-details-page/tabs/recommendations/compare-treatments-dialog/compare-treatments-dialog.component';
-import { DiagnosisDialogComponent } from './pages/patient-details-page/boxes/patient-diagnosis/diagnosis-dialog/diagnosis-dialog.component';
+import {CompareTreatmentsDialogComponent} from './pages/patient-details-page/tabs/recommendations/compare-treatments-dialog/compare-treatments-dialog.component';
+import {DiagnosisDialogComponent} from './pages/patient-details-page/boxes/patient-diagnosis/diagnosis-dialog/diagnosis-dialog.component';
+import {AgePipe} from './pipes/age/age.pipe';
+import {LoginPageComponent} from './pages/login-page/login-page.component';
+import {PatientService} from "./services/patient/patient.service";
+import {AuthGuard} from "./guards/auth-guard/auth.guard";
+import {PatientRootComponent} from './pages/patient-root/patient-root.component';
 
 
 @NgModule({
@@ -70,7 +74,6 @@ import { DiagnosisDialogComponent } from './pages/patient-details-page/boxes/pat
     LabsComponent,
     InformationComponent,
     ReportsComponent,
-    NewProgressNoteComponent,
     InstructionsComponent,
     DepressionPhq9Component,
     PsychiatricComponent,
@@ -83,7 +86,10 @@ import { DiagnosisDialogComponent } from './pages/patient-details-page/boxes/pat
     SumImpurePipe,
     SexShortPipe,
     CompareTreatmentsDialogComponent,
-    DiagnosisDialogComponent
+    DiagnosisDialogComponent,
+    AgePipe,
+    LoginPageComponent,
+    PatientRootComponent
   ],
   imports: [
     BrowserModule,
@@ -98,11 +104,15 @@ import { DiagnosisDialogComponent } from './pages/patient-details-page/boxes/pat
     RadioButtonModule,
     InputTextareaModule,
     DialogModule,
+    OverlayPanelModule,
     SharedModule,
     NgPipesModule,
     BrowserAnimationsModule
   ],
-  providers: [],
+  providers: [
+    PatientService,
+    AuthGuard
+  ],
   bootstrap: [AppComponent]
 })
 export class AppModule {

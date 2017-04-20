@@ -5,8 +5,7 @@ import {DiagnosisDto} from "../../../../swagger-patient-service/model/DiagnosisD
 @Component({
   selector: 'app-patient-diagnosis',
   templateUrl: './patient-diagnosis.component.html',
-  styleUrls: ['./patient-diagnosis.component.scss'],
-  providers: [DiagnosisService]
+  styleUrls: ['./patient-diagnosis.component.scss']
 })
 export class PatientDiagnosisComponent implements OnInit {
 
@@ -17,7 +16,12 @@ export class PatientDiagnosisComponent implements OnInit {
 
   private displayDialog: boolean = false;
 
-  constructor(private diagnosisService: DiagnosisService) { }
+  constructor(private diagnosisService: DiagnosisService) {
+    diagnosisService.diagnosis$.subscribe(
+      diagnosis => {
+        this.diagnosis = diagnosis;
+      });
+  }
 
   ngOnInit() {
     this.getLatestDiagnosis();
@@ -28,9 +32,8 @@ export class PatientDiagnosisComponent implements OnInit {
   }
 
   getLatestDiagnosis() {
-    console.log("Getting fresh diagnosis");
     this.diagnosisService.getMostRecentDiagnosisByPatientId(this.patientId).subscribe(
-      (diagnosis:DiagnosisDto) => this.diagnosis = diagnosis,
+      (diagnosis: DiagnosisDto) => this.diagnosis = diagnosis,
       (error) => console.log(error)
     );
   }

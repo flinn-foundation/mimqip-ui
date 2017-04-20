@@ -1,4 +1,4 @@
-import {Component, OnInit} from '@angular/core';
+import {Component, Input, OnInit} from '@angular/core';
 
 @Component({
   selector: 'app-instructions',
@@ -7,7 +7,11 @@ import {Component, OnInit} from '@angular/core';
 })
 export class InstructionsComponent implements OnInit {
 
+  @Input()
+  private patientId: number;
+
   private showInstructions: boolean = true;
+  private displayDialog: boolean = false;
 
   constructor() {
   }
@@ -28,7 +32,7 @@ export class InstructionsComponent implements OnInit {
   }
 
   updateDiagnosis() {
-    console.log('clicked diagnosis');
+    this.displayDialog = true;
   }
 
   viewMedications() {

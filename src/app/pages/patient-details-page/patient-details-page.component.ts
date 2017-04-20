@@ -1,11 +1,15 @@
 import {Component, OnInit} from '@angular/core';
 import {ActivatedRoute, Params, Router} from "@angular/router";
 import {MenuItem} from "primeng/primeng";
+import {Store, provideStore} from "@ngrx/store"
+import {PatientService} from "../../services/patient/patient.service";
+import {DiagnosisService} from "../../services/diagnosis/diagnosis.service";
 
 @Component({
   selector: 'app-patient-details-page',
   templateUrl: './patient-details-page.component.html',
-  styleUrls: ['./patient-details-page.component.scss']
+  styleUrls: ['./patient-details-page.component.scss'],
+  providers: [DiagnosisService]
 })
 export class PatientDetailsPageComponent implements OnInit {
 
@@ -15,7 +19,7 @@ export class PatientDetailsPageComponent implements OnInit {
 
   private tab: number = 1;
 
-  constructor(private activatedRoute: ActivatedRoute, private router: Router) {
+  constructor(private activatedRoute: ActivatedRoute, private router: Router, private diagnosisService: DiagnosisService) {
   }
 
   ngOnInit() {

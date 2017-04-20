@@ -6,8 +6,7 @@ import {Router} from "@angular/router";
 @Component({
   selector: 'app-patient-search-page',
   templateUrl: './patient-search-page.component.html',
-  styleUrls: ['./patient-search-page.component.scss'],
-  providers: [PatientService]
+  styleUrls: ['./patient-search-page.component.scss']
 })
 export class PatientSearchPageComponent implements OnInit {
 

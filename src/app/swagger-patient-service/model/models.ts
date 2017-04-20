@@ -5,3 +5,4 @@ export * from './ModelError';
 export * from './PatientDto';
 export * from './PatientMedicationDto';
 export * from './PatientSimpleDto';
+export * from './ProgressNoteDto';

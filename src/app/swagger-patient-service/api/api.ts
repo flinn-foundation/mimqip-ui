@@ -6,4 +6,6 @@ export * from './MedicationApi';
 import { MedicationApi }  from './MedicationApi';
 export * from './PatientApi';
 import { PatientApi }  from './PatientApi';
-export const APIS = [ DiagnosisApi, EvaluationApi, MedicationApi, PatientApi, ];
+export * from './ProgressNoteApi';
+import { ProgressNoteApi }  from './ProgressNoteApi';
+export const APIS = [ DiagnosisApi, EvaluationApi, MedicationApi, PatientApi, ProgressNoteApi, ];

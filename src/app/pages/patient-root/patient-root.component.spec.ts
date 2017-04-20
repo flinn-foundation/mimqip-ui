@@ -1,20 +1,20 @@
 import { async, ComponentFixture, TestBed } from '@angular/core/testing';
 
-import { NewProgressNoteComponent } from './new-progress-note.component';
+import { PatientRootComponent } from './patient-root.component';
 
-describe('NewProgressNoteComponent', () => {
-  let component: NewProgressNoteComponent;
-  let fixture: ComponentFixture<NewProgressNoteComponent>;
+describe('PatientRootComponent', () => {
+  let component: PatientRootComponent;
+  let fixture: ComponentFixture<PatientRootComponent>;
 
   beforeEach(async(() => {
     TestBed.configureTestingModule({
-      declarations: [ NewProgressNoteComponent ]
+      declarations: [ PatientRootComponent ]
     })
     .compileComponents();
   }));
 
   beforeEach(() => {
-    fixture = TestBed.createComponent(NewProgressNoteComponent);
+    fixture = TestBed.createComponent(PatientRootComponent);
     component = fixture.componentInstance;
     fixture.detectChanges();
   });

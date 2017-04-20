@@ -13,8 +13,7 @@ import LivingEnum = PatientDto.LivingEnum;
 @Component({
   selector: 'app-patient-creation-page',
   templateUrl: './patient-creation-page.component.html',
-  styleUrls: ['./patient-creation-page.component.scss'],
-  providers: [PatientService]
+  styleUrls: ['./patient-creation-page.component.scss']
 })
 export class PatientCreationPageComponent implements OnInit {
 
