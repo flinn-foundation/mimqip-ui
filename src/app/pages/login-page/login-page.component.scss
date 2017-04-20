@@ -16,12 +16,20 @@
 
     margin-top: 100px;
     padding: 40px 50px 20px;
+    text-align: center;
 
     .credentials {
       font-size: 16px;
 
       .credentials-label {
         text-align: right;
+      }
+
+      input {
+        border: none;
+        border-radius: 5px;
+        background-color: rgba(100, 208, 255, 0.53);
+        line-height: 20px;
       }
     }
 
