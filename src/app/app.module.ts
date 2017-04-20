@@ -50,6 +50,10 @@ import {SexShortPipe} from './pipes/sex-short/sex-short.pipe';
 import { CompareTreatmentsDialogComponent } from './pages/patient-details-page/tabs/recommendations/compare-treatments-dialog/compare-treatments-dialog.component';
 import { DiagnosisDialogComponent } from './pages/patient-details-page/boxes/patient-diagnosis/diagnosis-dialog/diagnosis-dialog.component';
 import { AgePipe } from './pipes/age/age.pipe';
+import { LoginPageComponent } from './pages/login-page/login-page.component';
+import {PatientService} from "./services/patient/patient.service";
+import {AuthGuard} from "./guards/auth-guard/auth.guard";
+import { PatientRootComponent } from './pages/patient-root/patient-root.component';
 
 
 @NgModule({
@@ -85,7 +89,9 @@ import { AgePipe } from './pipes/age/age.pipe';
     SexShortPipe,
     CompareTreatmentsDialogComponent,
     DiagnosisDialogComponent,
-    AgePipe
+    AgePipe,
+    LoginPageComponent,
+    PatientRootComponent
   ],
   imports: [
     BrowserModule,
@@ -105,7 +111,10 @@ import { AgePipe } from './pipes/age/age.pipe';
     NgPipesModule,
     BrowserAnimationsModule
   ],
-  providers: [],
+  providers: [
+    PatientService,
+    AuthGuard
+  ],
   bootstrap: [AppComponent]
 })
 export class AppModule {

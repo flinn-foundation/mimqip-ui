@@ -7,8 +7,7 @@ import SexEnum = PatientDto.SexEnum;
 @Component({
   selector: 'app-patient-information',
   templateUrl: './patient-information.component.html',
-  styleUrls: ['./patient-information.component.scss'],
-  providers: [PatientService]
+  styleUrls: ['./patient-information.component.scss']
 })
 export class PatientInformationComponent implements OnInit {
 
