@@ -2,8 +2,13 @@
   width: 393px;
 }
 
+.existing-progress-note {
+  background: lightskyblue;
+  margin-bottom: 1px;
+  padding: 0 5px;
+}
 
-.overlay-content {
+.new-progress-note {
   height: 140px;
   width: 628px;
 
@@ -27,5 +32,11 @@
     height: 100px;
     width: 100%;
     resize: none;
+  }
+
+  .error {
+    font-size: 12px;
+    color: red;
+    float: right;
   }
 }
