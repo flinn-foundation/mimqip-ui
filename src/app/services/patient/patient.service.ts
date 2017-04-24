@@ -7,9 +7,22 @@ import {Response} from '@angular/http';
 
 import 'rxjs/add/operator/map';
 import {PatientSimpleDto} from "../../swagger-patient-service/model/PatientSimpleDto";
+import {Subject} from "rxjs/Subject";
+import {DiagnosisDto} from "../../swagger-patient-service/model/DiagnosisDto";
 
 @Injectable()
 export class PatientService extends PatientApi {
+
+  private patientId: number;
+
+  setPatientId(patientId) {
+    this.patientId = patientId;
+  }
+
+  getPatientId() {
+    return this.patientId;
+  }
+
 
   constructor(http: Http) {
     super(http, "http://localhost:8080", null);

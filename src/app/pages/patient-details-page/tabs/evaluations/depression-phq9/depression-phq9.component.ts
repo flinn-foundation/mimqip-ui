@@ -1,11 +1,13 @@
 import {Component, OnInit} from '@angular/core';
+import {EvaluationBase} from "../evaluation-base";
+import {EvaluationService} from "../../../../../services/evaluation/evaluation.service";
 
 @Component({
   selector: 'app-depression-phq9',
   templateUrl: './depression-phq9.component.html',
   styleUrls: ['./depression-phq9.component.scss']
 })
-export class DepressionPhq9Component implements OnInit {
+export class DepressionPhq9Component extends EvaluationBase implements OnInit {
 
   private questions: string[] = [
     "Little interest or pleasure in doing things",
@@ -21,7 +23,8 @@ export class DepressionPhq9Component implements OnInit {
 
   private responses: number[] = [0, 0, 0, 0, 0, 0, 0, 0, 0];
 
-  constructor() {
+  constructor(evaluationService: EvaluationService) {
+    super(evaluationService);
   }
 
   ngOnInit() {

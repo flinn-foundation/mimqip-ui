@@ -1,37 +1,23 @@
 <div class="ui-g">
   <div class="ui-g-4">
-    <ul>
-      <li><h3>Required Evaluations</h3></li>
-      <li id="CRSNav">Enter New <span class="upper">Diagnosis-Related Scale</span></li>
-      <li id="PastCRSNav" class="pastEval">View Past <span>Diagnosis-Related Scales</span></li>
-      <li>Enter New <span class="upper">Global Rating Scale</span></li>
-      <li class="pastEval">View Past Global <span>Rating Scales</span></li>
+    <h3>Required Evaluations</h3>
+    <a class="evaluation-link" routerLink="global" preserveQueryParams skipLocationChange routerLinkActive="active-route">Global Rating Scale</a>
+    <div [ngSwitch]="diagnosisRelatedEvaluation">
+      <a *ngSwitchCase="evaluationTypeEnum.PHQ9" class="evaluation-link" routerLink="phq9"
+         preserveQueryParams skipLocationChange routerLinkActive="active-route">Major Depressive Disorder PHQ9 Scale</a>
+      <a *ngSwitchCase="evaluationTypeEnum.BBDSS" class="evaluation-link" routerLink="bbdss"
+         preserveQueryParams skipLocationChange routerLinkActive="active-route">Bipolar Disorder BBDSS Scale</a>
+      <a *ngSwitchCase="evaluationTypeEnum.PSRS" class="evaluation-link" routerLink="psrs"
+         preserveQueryParams skipLocationChange routerLinkActive="active-route">Schizophrenia PSRS Scale</a>
+    </div>
 
-      <li><h3>Additional Evaluations</h3></li>
-      <li>Enter New <span class="upper">Psychiatric Evaluation</span></li>
-      <li class="pastEval">View Past <span>Psychiatric Evaluation</span></li>
-      <li>Enter New <span class="upper">Mental Status</span></li>
-      <li class="pastEval">View Past <span>Mental Status</span></li>
-      <li>Enter New <span class="upper">Substance Abuse Assessment</span></li>
-      <li class="pastEval">View Past <span>Substance Abuse Assessment</span></li>
-      <li>Enter New <span class="upper">Patient Vital Signs</span></li>
-      <li class="pastEval">View Past <span>Patient Vital Signs</span></li>
-    </ul>
+    <h3>Additional Evaluations</h3>
+    <a class="evaluation-link" routerLink="psychiatric" preserveQueryParams skipLocationChange routerLinkActive="active-route">Psychiatric Evaluation</a>
+    <a class="evaluation-link" routerLink="mental-status" preserveQueryParams skipLocationChange routerLinkActive="active-route">Mental Status</a>
+    <a class="evaluation-link" routerLink="substance-abuse" preserveQueryParams skipLocationChange routerLinkActive="active-route">Substance Abuse Assessment</a>
+    <a class="evaluation-link" routerLink="vital-signs" preserveQueryParams skipLocationChange routerLinkActive="active-route">Patient Vital Signs</a>
   </div>
-  <div class="ui-g-8" [ngSwitch]="activeEvaluation">
-    <app-depression-phq9 *ngSwitchCase="evlautionEnum.PHQ9"></app-depression-phq9>
-    <app-global-ratings *ngSwitchCase="evlautionEnum.GLOBAL" (onEvalCompleted)="saveEvaluation($event)"></app-global-ratings>
-    <!--<div id="CRS" class="eval"><div class="content"></div></div>-->
-    <!--<div id="PastCRS" class="past eval"><div class="content"></div></div>-->
-
-    <!--<div id="Pastglobal_rating_scale" class="past eval"><div class="content"></div></div>-->
-    <!--<div id="psychiatric_evaluation" class="eval"><div class="content"></div></div>-->
-    <!--<div id="Pastpsychiatric_evaluation" class="past eval"><div class="content"></div></div>-->
-    <!--<div id="mental_status" class="eval"><div class="content"></div></div>-->
-    <!--<div id="Pastmental_status" class="past eval"><div class="content"></div></div>-->
-    <!--<div id="substance_abuse" class="eval"><div class="content"></div></div>-->
-    <!--<div id="Pastsubstance_abuse" class="past eval"><div class="content"></div></div>-->
-    <!--<div id="vital_signs" class="eval"><div class="content"></div></div>-->
-    <!--<div id="Pastvital_signs" class="past eval"><div class="content"></div></div>-->
+  <div class="ui-g-8">
+    <router-outlet></router-outlet>
   </div>
 </div>

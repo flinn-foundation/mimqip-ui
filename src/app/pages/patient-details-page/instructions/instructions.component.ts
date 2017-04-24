@@ -7,9 +7,6 @@ import {Component, Input, OnInit} from '@angular/core';
 })
 export class InstructionsComponent implements OnInit {
 
-  @Input()
-  private patientId: number;
-
   private showInstructions: boolean = true;
   private displayDialog: boolean = false;
 
