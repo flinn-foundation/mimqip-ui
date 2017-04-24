@@ -41,27 +41,27 @@ export class EvaluationsComponent implements OnInit {
 
   private setDiagnosisRelatedEvaluation() {
 
-    let diagnosisRelatedEvaluation: EvaluationTypeEnum;
+    let updatedDiagnosisRelatedEvaluation: EvaluationTypeEnum;
     if (this.diagnosis != null) {
       let diagnosisName: string = this.diagnosis.diagnosisType.toString().toUpperCase();
 
 
       if (diagnosisName.indexOf("SCHIZOPHRENIC") > -1) {
-        diagnosisRelatedEvaluation = EvaluationTypeEnum.PSRS;
+        updatedDiagnosisRelatedEvaluation = EvaluationTypeEnum.PSRS;
       } else if (diagnosisName.indexOf("BIPOLAR") > -1) {
-        diagnosisRelatedEvaluation = EvaluationTypeEnum.BBDSS;
+        updatedDiagnosisRelatedEvaluation = EvaluationTypeEnum.BBDSS;
       } else if (diagnosisName.indexOf("MDD") > -1) {
-        diagnosisRelatedEvaluation = EvaluationTypeEnum.PHQ9;
+        updatedDiagnosisRelatedEvaluation = EvaluationTypeEnum.PHQ9;
       } else {
-        diagnosisRelatedEvaluation = null;
+        updatedDiagnosisRelatedEvaluation = null;
       }
+
+      if (this.diagnosisRelatedEvaluation != updatedDiagnosisRelatedEvaluation) {
+        this.changeActiveEvaluationIfDiagnosisChanges();
+      }
+
+      this.diagnosisRelatedEvaluation = updatedDiagnosisRelatedEvaluation;
     }
-
-    this.changeActiveEvaluationIfDiagnosisChanges();
-
-    this.diagnosisRelatedEvaluation = diagnosisRelatedEvaluation;
-
-    console.log(this.diagnosisRelatedEvaluation);
   }
 
   private changeActiveEvaluationIfDiagnosisChanges() {
