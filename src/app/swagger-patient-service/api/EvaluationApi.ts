@@ -41,6 +41,23 @@ export class EvaluationApi {
     }
 
     /**
+     * Create new vital sign evaluation
+     * Create new vital sign evaluation
+     * @param patientId Patient Id of vital sign evaluations to create
+     * @param vitalSignsEvaluation Patient vitals
+     */
+    public createNewVitalSignEvaluation(patientId: number, vitalSignsEvaluation: models.VitalSignsDto, extraHttpRequestParams?: any): Observable<string> {
+        return this.createNewVitalSignEvaluationWithHttpInfo(patientId, vitalSignsEvaluation, extraHttpRequestParams)
+            .map((response: Response) => {
+                if (response.status === 204) {
+                    return undefined;
+                } else {
+                    return response.json();
+                }
+            });
+    }
+
+    /**
      * Post results of new evaluation
      * Post results of new evaluation
      * @param patientId Id of patient evaluations to fetch
@@ -91,6 +108,67 @@ export class EvaluationApi {
             });
     }
 
+    /**
+     * Get all vital sign evaluations
+     * Get all vital sign evaluations
+     * @param patientId Patient Id of vital sign evaluations to fetch
+     */
+    public getVitalSignEvaluations(patientId: number, extraHttpRequestParams?: any): Observable<Array<models.VitalSignsDto>> {
+        return this.getVitalSignEvaluationsWithHttpInfo(patientId, extraHttpRequestParams)
+            .map((response: Response) => {
+                if (response.status === 204) {
+                    return undefined;
+                } else {
+                    return response.json();
+                }
+            });
+    }
+
+
+    /**
+     * Create new vital sign evaluation
+     * Create new vital sign evaluation
+     * @param patientId Patient Id of vital sign evaluations to create
+     * @param vitalSignsEvaluation Patient vitals
+     */
+    public createNewVitalSignEvaluationWithHttpInfo(patientId: number, vitalSignsEvaluation: models.VitalSignsDto, extraHttpRequestParams?: any): Observable<Response> {
+        const path = this.basePath + `/patients/${patientId}/evaluations/vitals`;
+
+        let queryParameters = new URLSearchParams();
+        let headers = new Headers(this.defaultHeaders.toJSON()); // https://github.com/angular/angular/issues/6845
+        // verify required parameter 'patientId' is not null or undefined
+        if (patientId === null || patientId === undefined) {
+            throw new Error('Required parameter patientId was null or undefined when calling createNewVitalSignEvaluation.');
+        }
+        // verify required parameter 'vitalSignsEvaluation' is not null or undefined
+        if (vitalSignsEvaluation === null || vitalSignsEvaluation === undefined) {
+            throw new Error('Required parameter vitalSignsEvaluation was null or undefined when calling createNewVitalSignEvaluation.');
+        }
+        // to determine the Content-Type header
+        let consumes: string[] = [
+        ];
+
+        // to determine the Accept header
+        let produces: string[] = [
+            'application/json'
+        ];
+
+        headers.set('Content-Type', 'application/json');
+
+        let requestOptions: RequestOptionsArgs = new RequestOptions({
+            method: RequestMethod.Post,
+            headers: headers,
+            body: vitalSignsEvaluation == null ? '' : JSON.stringify(vitalSignsEvaluation), // https://github.com/angular/angular/issues/10612
+            search: queryParameters
+        });
+
+        // https://github.com/swagger-api/swagger-codegen/issues/4037
+        if (extraHttpRequestParams) {
+            requestOptions = (<any>Object).assign(requestOptions, extraHttpRequestParams);
+        }
+
+        return this.http.request(path, requestOptions);
+    }
 
     /**
      * Post results of new evaluation
@@ -195,9 +273,46 @@ export class EvaluationApi {
             throw new Error('Required parameter patientId was null or undefined when calling getEvaluationsByPatientId.');
         }
         if (evaluationType !== undefined) {
-          queryParameters.set('evaluationType', <any>evaluationType);
+                queryParameters.set('evaluationType', <any>evaluationType);
         }
 
+        // to determine the Content-Type header
+        let consumes: string[] = [
+        ];
+
+        // to determine the Accept header
+        let produces: string[] = [
+            'application/json'
+        ];
+
+        let requestOptions: RequestOptionsArgs = new RequestOptions({
+            method: RequestMethod.Get,
+            headers: headers,
+            search: queryParameters
+        });
+
+        // https://github.com/swagger-api/swagger-codegen/issues/4037
+        if (extraHttpRequestParams) {
+            requestOptions = (<any>Object).assign(requestOptions, extraHttpRequestParams);
+        }
+
+        return this.http.request(path, requestOptions);
+    }
+
+    /**
+     * Get all vital sign evaluations
+     * Get all vital sign evaluations
+     * @param patientId Patient Id of vital sign evaluations to fetch
+     */
+    public getVitalSignEvaluationsWithHttpInfo(patientId: number, extraHttpRequestParams?: any): Observable<Response> {
+        const path = this.basePath + `/patients/${patientId}/evaluations/vitals`;
+
+        let queryParameters = new URLSearchParams();
+        let headers = new Headers(this.defaultHeaders.toJSON()); // https://github.com/angular/angular/issues/6845
+        // verify required parameter 'patientId' is not null or undefined
+        if (patientId === null || patientId === undefined) {
+            throw new Error('Required parameter patientId was null or undefined when calling getVitalSignEvaluations.');
+        }
         // to determine the Content-Type header
         let consumes: string[] = [
         ];
