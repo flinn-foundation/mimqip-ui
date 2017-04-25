@@ -3,19 +3,18 @@ import {EvaluationService} from "../../../../services/evaluation/evaluation.serv
 
 export class EvaluationBase {
 
-  protected
 
   constructor(private evaluationService: EvaluationService) {
   }
 
-  saveEvaluation(patientId, evaluation: EvaluationDto) {
+  saveEvaluation(evaluation: EvaluationDto) {
     console.log(evaluation);
-    this.evaluationService.createPatientEvaluation(patientId, evaluation).subscribe(
+    this.evaluationService.createPatientEvaluation(evaluation).subscribe(
       (message: any) => {
         console.log(message)
       },
       (error) => console.log(error)
-  )
+    );
   }
 
 }

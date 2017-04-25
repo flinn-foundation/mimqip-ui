@@ -4,6 +4,7 @@ import {Http} from "@angular/http";
 import {PatientService} from "../patient/patient.service";
 import {VitalSignsDto} from "../../swagger-patient-service/model/VitalSignsDto";
 import {Observable} from "rxjs/Observable";
+import {EvaluationDto} from "../../swagger-patient-service/model/EvaluationDto";
 
 @Injectable()
 export class EvaluationService extends EvaluationApi {
@@ -14,5 +15,9 @@ export class EvaluationService extends EvaluationApi {
 
   public createNewVitalSignEvaluation(vitalSignsEvaluation: VitalSignsDto, extraHttpRequestParams?: any): Observable<string> {
     return super.createNewVitalSignEvaluation(this.patientService.getPatientId(), vitalSignsEvaluation, extraHttpRequestParams);
+  }
+
+  public createPatientEvaluation(evaluation: EvaluationDto, extraHttpRequestParams?: any): Observable<string> {
+    return super.createPatientEvaluation(this.patientService.getPatientId(), evaluation, extraHttpRequestParams);
   }
 }
