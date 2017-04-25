@@ -1,73 +1,46 @@
-<form action="" class="crsEval phq9">
-  <h1>PHQ9 for Major Depressive Disorder</h1>
-  <p class="instructions">Over the last 2 weeks, how often have you been bothered by any of the following problems?</p>
-  <div class="evalNav">
-    <a class="prevEval" href="#"></a>
-    <span class="evalDate"></span>
-    <a class="nextEval" href="#"></a>
+<h1>PHQ9 for Major Depressive Disorder</h1>
+<div class="instructions">Over the last 2 weeks, how often have you been bothered by any of the following problems?
+</div>
+<div class="ui-g">
+  <div class="ui-g-12 eval-header">
+    <div class="ui-g-6"></div>
+    <div class="ui-g-1">Not at all</div>
+    <div class="ui-g-1">Several days</div>
+    <div class="ui-g-1">More than 7 days</div>
+    <div class="ui-g-1">Nearly every day</div>
+    <div class="ui-g-1">Score</div>
   </div>
-  <div class="scoreTitles">
-    <ul>
-      <li>Not at all</li>
-      <li>Several<br />days</li>
-      <li>More than<br />7 days</li>
-      <li>Nearly<br />every day</li>
-      <li class="score">Score</li>
-    </ul>
+
+  <div class="ui-g-12" *ngFor="let response of scoredEvaluationResponses; let i = index;">
+    <div class="ui-g-1" style="text-align: right">{{ i+1 }}.</div>
+    <div class="ui-g-5">{{ response.prompt }}</div>
+    <div class="ui-g-1" *ngFor="let number of [0,1,2,3]">
+      <input type="radio" name="question{{ i }}" value="{{ number }}" [(ngModel)]="response.answer"/>
+    </div>
+    <div class="ui-g-1">
+      <span class="inputVal">{{ response.answer }}</span>
+    </div>
   </div>
-  <ul class="questionList">
-    <li class="fieldWrapper total top">
-      <div class="floatLeft">
-        <p>
-          <span class="title">Total Score = </span><span class="inputVal"></span>
-        </p>
-      </div>
-    </li>
-    <li class="fieldWrapper symptom" *ngFor="let question of questions; let i = index;">
-      <label><span class="number">{{ index }}.</span><span>{{ question }}</span></label>
-      <ul class="radiolist">
-        <li *ngFor="let number of [0,1,2,3]">
-          <input type="radio" name="question{{ i }}" value="{{ number }}" [(ngModel)]="responses[i]"/>
-        </li>
-        <li class="score">
-          <span class="inputVal">{{ responses[i] }}</span>
-        </li>
-      </ul>
-    </li>
-    <li class="fieldWrapper total bottom">
-      <div class="floatLeft">
-        <p>
-          <span class="title">Total Score = </span><span class="inputVal">{{ responses | sumImpure }}</span>
-        </p>
-      </div>
-    </li>
-  </ul>
-  <div class="scoreTitles">
-    <ul>
-      <li>Not difficult at all</li>
-      <li>Somewhat difficult</li>
-      <li>Very<br />difficult</li>
-      <li>Extremely difficult</li>
-    </ul>
+  <div class="ui-g-12">Total Score: {{ sumResponses(scoredEvaluationResponses) }}</div>
+  <div class="ui-g-12 eval-header">
+    <div class="ui-g-6"></div>
+    <div class="ui-g-1">Not difficult at all</div>
+    <div class="ui-g-1">Somewhat difficult</div>
+    <div class="ui-g-1">Very difficult</div>
+    <div class="ui-g-1">Extremely difficult</div>
   </div>
-  <ul class="lastQuestion">
-    <li class="fieldWrapper symptom">
-      <label><span>If you checked off any problems, how difficult have these problems made it for you to do your work, take care of things at home, or get along with other people?</span></label>
-      <ul class="radiolist">
-        <li><input type="radio" name="question10" value="not difficult" /></li>
-        <li><input type="radio" name="question10" value="somewhat difficult" /></li>
-        <li><input type="radio" name="question10" value="very difficult" /></li>
-        <li><input type="radio" name="question10" value="extremely difficult" /></li>
-      </ul>
-    </li>
-  </ul>
-  <div class="evaluatedBy">Evaluated By: <span></span></div>
-  <div class="buttons bottom">
-    <input type="submit" class="orange-btn" value="Save" (click)="saveResults()" />
+  <div class="ui-g-12">
+    <div class="ui-g-6">{{ unscoredEvaluationResponse.prompt }}</div>
+    <div class="ui-g-1"><input type="radio" name="question10" value="not difficult" [(ngModel)]="unscoredEvaluationResponse.answer"/></div>
+    <div class="ui-g-1"><input type="radio" name="question10" value="somewhat difficult" [(ngModel)]="unscoredEvaluationResponse.answer"/></div>
+    <div class="ui-g-1"><input type="radio" name="question10" value="very difficult" [(ngModel)]="unscoredEvaluationResponse.answer"/></div>
+    <div class="ui-g-1"><input type="radio" name="question10" value="extremely difficult" [(ngModel)]="unscoredEvaluationResponse.answer"/></div>
   </div>
-  <div id="scoreInterpretation">
+  <div class="ui-g-12">
+    <input class="orange-btn" value="Save" (click)="createEvaluation(evaluationDto)"/>
+  </div>
+  <div class="ui-g-12">
     <h2>Interpretation of Total Score</h2>
-    <p><strong>Total Score Depression Severity</strong></p>
     <ul>
       <li><span>1-4</span> Minimal depression</li>
       <li><span>5-9</span> Mild depression</li>
@@ -76,4 +49,5 @@
       <li><span>20-27</span> Severe depression
     </ul>
   </div>
-</form>
+</div>
+
