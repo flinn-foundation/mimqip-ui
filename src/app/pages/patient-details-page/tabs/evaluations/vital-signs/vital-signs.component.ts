@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import {SelectItem} from "primeng/primeng";
 
 @Component({
   selector: 'app-vital-signs',
@@ -7,9 +8,30 @@ import { Component, OnInit } from '@angular/core';
 })
 export class VitalSignsComponent implements OnInit {
 
-  constructor() { }
+  private feetSelectItems: SelectItem[] = [];
+  private inchesSelectItems: SelectItem[] = [];
+
+  private selectedItem: string;
+  private selectedItem2: string;
+
+  constructor() {
+
+    this.feetSelectItems.push({label: "Select", value: null});
+    for (var i = 1; i < 8; i++) {
+      this.feetSelectItems.push({label: i.toString(), value: i});
+    }
+
+    this.inchesSelectItems.push({label: "Select", value: null});
+    for (var i = 0; i < 12; i++) {
+      this.inchesSelectItems.push({label: i.toString(), value: i});
+    }
+
+
+  }
 
   ngOnInit() {
   }
+
+
 
 }

@@ -4,15 +4,10 @@ import {NgModule} from '@angular/core';
 import {FormsModule} from '@angular/forms';
 import {HttpModule} from '@angular/http';
 
-import {DataTableModule, SharedModule} from 'primeng/primeng';
-import {TabMenuModule} from 'primeng/primeng';
-import {CalendarModule} from 'primeng/primeng';
-import {DropdownModule} from 'primeng/primeng';
-import {CheckboxModule} from 'primeng/primeng';
-import {RadioButtonModule} from 'primeng/primeng';
-import {DialogModule} from 'primeng/primeng';
-import {InputTextareaModule} from 'primeng/primeng';
-import {OverlayPanelModule} from 'primeng/primeng';
+import {
+  DataTableModule, InputTextModule, SharedModule, TabMenuModule, CalendarModule,
+  DropdownModule, CheckboxModule, RadioButtonModule, InputTextareaModule, DialogModule, OverlayPanelModule
+} from 'primeng/primeng';
 
 import {NgPipesModule} from "angular2-pipes";
 
@@ -103,6 +98,7 @@ import {PatientRootComponent} from './pages/patient-root/patient-root.component'
     CheckboxModule,
     RadioButtonModule,
     InputTextareaModule,
+    InputTextModule,
     DialogModule,
     OverlayPanelModule,
     SharedModule,
