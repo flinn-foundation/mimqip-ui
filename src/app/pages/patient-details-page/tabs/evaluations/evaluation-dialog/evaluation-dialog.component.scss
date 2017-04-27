@@ -1,0 +1,21 @@
+.evaluation-dialog-content {
+  min-height: 300px;
+
+  .long-description {
+    margin: 0 0 10px;
+  }
+
+  .scale-level {
+
+    .scale-value {
+      display: inline-block; width: 5%; float: left;
+      padding: 5px 0;
+      font-weight: bold;
+    }
+
+    .scale-description {
+      display: inline-block; width: 95%; float: left;
+      padding: 5px 0;
+    }
+  }
+}

@@ -48,6 +48,7 @@ import {LoginPageComponent} from './pages/login-page/login-page.component';
 import {PatientService} from "./services/patient/patient.service";
 import {AuthGuard} from "./guards/auth-guard/auth.guard";
 import {PatientRootComponent} from './pages/patient-root/patient-root.component';
+import { EvaluationDialogComponent } from './pages/patient-details-page/tabs/evaluations/evaluation-dialog/evaluation-dialog.component';
 
 
 @NgModule({
@@ -84,7 +85,8 @@ import {PatientRootComponent} from './pages/patient-root/patient-root.component'
     DiagnosisDialogComponent,
     AgePipe,
     LoginPageComponent,
-    PatientRootComponent
+    PatientRootComponent,
+    EvaluationDialogComponent
   ],
   imports: [
     BrowserModule,

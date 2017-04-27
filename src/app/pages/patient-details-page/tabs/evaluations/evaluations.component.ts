@@ -57,14 +57,14 @@ export class EvaluationsComponent implements OnInit {
       }
 
       if (this.diagnosisRelatedEvaluation != updatedDiagnosisRelatedEvaluation) {
-        this.changeActiveEvaluationIfDiagnosisChanges();
+        this.changeActiveEvaluationIfDiagnosisChanges(updatedDiagnosisRelatedEvaluation);
       }
 
       this.diagnosisRelatedEvaluation = updatedDiagnosisRelatedEvaluation;
     }
   }
 
-  private changeActiveEvaluationIfDiagnosisChanges() {
+  private changeActiveEvaluationIfDiagnosisChanges(updatedDiagnosisRelatedEvaluation: EvaluationTypeEnum) {
 
     let childrenRoutes: ActivatedRoute[] = this.activatedRoute.children;
     if (childrenRoutes.length == 1) {
@@ -72,7 +72,7 @@ export class EvaluationsComponent implements OnInit {
       activeChildRoute.url.subscribe((url) => {
         if (url.length == 1) {
           if (['psrs', 'bbdss', 'phq9'].includes(url[0].path)) {
-            this.router.navigate(['global'], {
+            this.router.navigate([updatedDiagnosisRelatedEvaluation.toString().toLowerCase()], {
               preserveQueryParams: true,
               skipLocationChange: true,
               relativeTo: this.activatedRoute

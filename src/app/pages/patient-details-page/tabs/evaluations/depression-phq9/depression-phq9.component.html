@@ -1,6 +1,5 @@
 <h1>PHQ9 for Major Depressive Disorder</h1>
-<div class="instructions">Over the last 2 weeks, how often have you been bothered by any of the following problems?
-</div>
+<div class="instructions">Over the last 2 weeks, how often have you been bothered by any of the following problems?</div>
 <div class="ui-g">
   <div class="ui-g-12 eval-header">
     <div class="ui-g-6"></div>
@@ -37,7 +36,7 @@
     <div class="ui-g-1"><input type="radio" name="question10" value="extremely difficult" [(ngModel)]="unscoredEvaluationResponse.answer"/></div>
   </div>
   <div class="ui-g-12">
-    <input class="orange-btn" value="Save" (click)="createEvaluation(evaluationDto)"/>
+    <input class="orange-btn" value="Save" (click)="saveEvaluation()"/>
   </div>
   <div class="ui-g-12">
     <h2>Interpretation of Total Score</h2>

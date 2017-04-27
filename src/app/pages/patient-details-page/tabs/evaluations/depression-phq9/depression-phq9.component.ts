@@ -51,11 +51,11 @@ export class DepressionPhq9Component extends EvaluationBase implements OnInit {
     return total;
   }
 
-  createEvaluation() {
+  saveEvaluation() {
     this.evaluationDto.evaluationResponses = this.evaluationDto.evaluationResponses.concat(this.scoredEvaluationResponses);
     this.evaluationDto.evaluationResponses.push(this.unscoredEvaluationResponse);
     console.log(this.evaluationDto.evaluationResponses);
-    this.saveEvaluation(this.evaluationDto);
+    super.saveEvaluation(this.evaluationDto);
   }
 
 
