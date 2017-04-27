@@ -1,7 +1,6 @@
 import {Component, OnInit} from '@angular/core';
 import {EvaluationDto} from "../../../../../swagger-patient-service/model/EvaluationDto";
 import EvaluationTypeEnum = EvaluationDto.EvaluationTypeEnum;
-import {Question} from "./question";
 import {EvaluationResponseDto} from "../../../../../swagger-patient-service/model/EvaluationResponseDto";
 
 @Component({
@@ -10,8 +9,6 @@ import {EvaluationResponseDto} from "../../../../../swagger-patient-service/mode
   styleUrls: ['./bipolar-bbdss.component.scss']
 })
 export class BipolarBbdssComponent implements OnInit {
-
-  // private questions: Question[] = [];
 
   evaluationDto: EvaluationDto = {
     evaluationType: EvaluationTypeEnum.BBDSS,
@@ -41,8 +38,6 @@ export class BipolarBbdssComponent implements OnInit {
   dialogLongDescription: string;
 
   constructor() {
-
-    // this.questions.push(new Question("Hostility", "Animosity, contempt, belligerence, threats, arguments, tantrums, property destruction, fights and any other expression of hostile attitudes or actions. Do not infer hostility from neurotic defenses, anxiety or somatic complaints. Do not include incidents of appropriate anger or obvious self-defense.", "How have you been getting along with people (family, co-workers, etc.)? Have you been irritable or grumpy lately? (How do you show it? Do you keep it to yourself?) Were you ever so irritable that you would shout at people or start fights or arguments? (Have you found yourself yelling at people you didn't know?) Have you hit anyone recently?", ["Irritable or grumpy, but not overtly expressed.", "Argumentative or sarcastic.", "Overtly angry on several occasions OR yelled at others excessively.", "Has threatened, slammed about or thrown things.", "Has assaulted others but with no harm likely, e.g., slapped or pushed, OR destroyed property, e.g., knocked over furniture, broken windows.", "Has attacked others with definite possibility of harming them or with actual harm, e.g., assault with hammer or weapon."]);
 
     this.bipolarQuestionsMap.set("Hostility", "Animosity, contempt, belligerence, threats, arguments, tantrums, property destruction, fights and any other expression of hostile attitudes or actions. Do not infer hostility from neurotic defenses, anxiety or somatic complaints. Do not include incidents of appropriate anger or obvious self-defense.");
     this.bipolarQuestionsMap.set("Elevated Mood", "A pervasive, sustained and exaggerated feeling of well-being, cheerfulness, euphoria (implying a pathological mood), optimism that is out of proportion to the circumstances. Do not infer elation from increased activity or from grandiose statements alone.");

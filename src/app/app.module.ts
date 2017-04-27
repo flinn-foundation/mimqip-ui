@@ -38,7 +38,7 @@ import {MentalStatusComponent} from './pages/patient-details-page/tabs/evaluatio
 import {VitalSignsComponent} from './pages/patient-details-page/tabs/evaluations/vital-signs/vital-signs.component';
 import {GlobalRatingsComponent} from './pages/patient-details-page/tabs/evaluations/global-ratings/global-ratings.component';
 import {BipolarBbdssComponent} from './pages/patient-details-page/tabs/evaluations/bipolar-bbdss/bipolar-bbdss.component';
-import {SchizophreniaPsrsComponent} from './pages/patient-details-page/tabs/evaluations/schizophrenia-psrs/schizophrenia-psrs.component';
+import {SchizophreniaPsrsComponent} from './pages/patient-details-page/tabs/evaluations/schizophrenia-psrs-bnsas/schizophrenia-psrs.component';
 import {SumImpurePipe} from './pipes/sum-impure/sum-impure.pipe';
 import {SexShortPipe} from './pipes/sex-short/sex-short.pipe';
 import {CompareTreatmentsDialogComponent} from './pages/patient-details-page/tabs/recommendations/compare-treatments-dialog/compare-treatments-dialog.component';

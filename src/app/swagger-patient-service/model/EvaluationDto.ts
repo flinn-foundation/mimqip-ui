@@ -31,6 +31,7 @@ export namespace EvaluationDto {
         GLOBAL = <any> 'GLOBAL',
         MENTALSTATUS = <any> 'MENTAL_STATUS',
         PSRS = <any> 'PSRS',
+        BNSAS = <any> 'BNSAS',
         SUBSTANCEABUSE = <any> 'SUBSTANCE_ABUSE',
         VITALSIGNS = <any> 'VITAL_SIGNS',
         PSYCHIATRIC = <any> 'PSYCHIATRIC'

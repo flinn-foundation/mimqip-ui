@@ -1,4 +1,5 @@
-import {Component, EventEmitter, Input, OnInit, Output} from '@angular/core';
+import {Component, EventEmitter, Input, OnChanges, OnInit, Output} from '@angular/core';
+import {ScaleDetail} from "../schizophrenia-psrs-bnsas/scale-detail";
 
 @Component({
   selector: 'app-evaluation-dialog',
@@ -6,7 +7,6 @@ import {Component, EventEmitter, Input, OnInit, Output} from '@angular/core';
   styleUrls: ['./evaluation-dialog.component.scss']
 })
 export class EvaluationDialogComponent implements OnInit {
-
   @Input()
   display: boolean;
 
@@ -17,12 +17,11 @@ export class EvaluationDialogComponent implements OnInit {
   longDescription: string;
 
   @Input()
-  scaleDescriptions: string[];
+  scaleDetails: ScaleDetail[];
 
   @Output()
   private displayChange = new EventEmitter<boolean>();
 
-  scaleLevels: string[] = ["VERY MILD", "MILD", "MODERATE", "MODERATELY SEVERE", "SEVERE", "EXTREMELY SEVERE"];
 
   constructor() { }
 

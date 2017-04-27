@@ -17,7 +17,7 @@
   </div>
 </div>
 <app-evaluation-dialog [(display)]="displayDialog" [name]="dialogKey" [longDescription]="dialogLongDescription"
-                       [scaleDescriptions]="dialogScaleDescriptions"></app-evaluation-dialog>
+                       [scaleDetails]="dialogScaleDescriptions"></app-evaluation-dialog>
 
 <div>
   <span class="title">Manic Subscale = </span><span class="inputVal">{{ calculateSubscale(evaluationDto.evaluationResponses, 'manic') }}</span>
