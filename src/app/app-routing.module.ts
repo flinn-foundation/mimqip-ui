@@ -17,7 +17,7 @@ import {InformationComponent} from "./pages/patient-details-page/tabs/informatio
 import {GlobalRatingsComponent} from "./pages/patient-details-page/tabs/evaluations/global-ratings/global-ratings.component";
 import {BipolarBbdssComponent} from "./pages/patient-details-page/tabs/evaluations/bipolar-bbdss/bipolar-bbdss.component";
 import {DepressionPhq9Component} from "./pages/patient-details-page/tabs/evaluations/depression-phq9/depression-phq9.component";
-import {SchizophreniaPsrsComponent} from "./pages/patient-details-page/tabs/evaluations/schizophrenia-psrs-bnsas/schizophrenia-psrs.component";
+import {SchizophreniaComponent} from "./pages/patient-details-page/tabs/evaluations/schizophrenia/schizophrenia.component";
 import {PsychiatricComponent} from "./pages/patient-details-page/tabs/evaluations/psychiatric/psychiatric.component";
 import {MentalStatusComponent} from "./pages/patient-details-page/tabs/evaluations/mental-status/mental-status.component";
 import {SubstanceAbuseComponent} from "./pages/patient-details-page/tabs/evaluations/substance-abuse/substance-abuse.component";
@@ -39,7 +39,7 @@ const routes: Routes = [
               {path: "global", component: GlobalRatingsComponent},
               {path: "bbdss", component: BipolarBbdssComponent},
               {path: "phq9", component: DepressionPhq9Component},
-              {path: "psrs", component: SchizophreniaPsrsComponent},
+              {path: "psrs", component: SchizophreniaComponent},
               {path: "psychiatric", component: PsychiatricComponent},
               {path: "mental-status", component: MentalStatusComponent},
               {path: "substance-abuse", component: SubstanceAbuseComponent},

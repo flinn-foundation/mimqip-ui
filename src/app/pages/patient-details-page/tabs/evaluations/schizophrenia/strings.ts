@@ -19,6 +19,8 @@ export const PSRS_LONG_DESCRIPTIONS = [
   ""
 ];
 
+export const PSRS_SCALE_TITLES = ["NOT PRESENT", "VERY MILD", "MILD", "MODERATE", "MODERATE SEVERE", "SEVERE", "EXTREMELY SEVERE"];
+
 export const SUSPICIOUSNESS_SCALE_LEVELS = [
   "",
   "Seems on guard. Reluctant to respond to some \"personal\" questions. Reports being overly selfconscious in public.",
@@ -66,7 +68,7 @@ export const PSRS_SCALE_LEVELS = [
   CONCEPTUAL_DISORGANIZATION_SCALE_LEVELS
 ];
 
-export const PSRS_SCALE_TITLES = ["NOT PRESENT", "VERY MILD", "MILD", "MODERATE", "MODERATE SEVERE", "SEVERE", "EXTREMELY SEVERE"];
+export const PSRS_STRINGS = {titles: PSRS_TITLES, subTitles: [], descriptions: PSRS_DESCRIPTIONS, longDescriptions: PSRS_LONG_DESCRIPTIONS, scaleTitles: PSRS_SCALE_TITLES, scaleLevels: PSRS_SCALE_LEVELS };
 
 export const BNSAS_TITLES = [
   "Prolonged Time to Respond",
@@ -95,6 +97,8 @@ export const BNSAS_LONG_DESCRIPTIONS = [
   "Assessed by asking the patient questions like: How have you spent your time in the past week? Do you live alone or with someone else? Do you like to be around people? Do you spend much time with others? Do you have difficulty feeling close to others? Who are your friends? How often do you see them? Did you see them this past week? Have you called them on the phone? When you get together, who decides what to do and where to go? When you spend time with others, do you ask them to do something with you or do you wait until they ask you to do something? Is anyone concerned about your happiness or well being?",
   "Assess the patient by asking questions like: How many times in the past week have you taken a shower or bath? How often do you change your clothes? How often do you shower and brush your teeth?"
 ];
+
+export const BNSAS_SCALE_TITLES = ["NORMAL", "MINIMAL", "MILD", "MODERATE", "MARKED", "SEVERE"];
 
 export const TIME_TO_RESPOND_SCALE_LEVELS = [
   "No abnormal pauses before speaking.",
@@ -137,10 +141,9 @@ export const BNSAS_SCALE_LEVELS = [
   EMOTION_SCALE_LEVELS,
   SOCIAL_DRIVE_SCALE_LEVELS,
   GROOMING_SCALE_LEVELS
-]
+];
 
-
-export const BNSAS_SCALE_TITLES = ["NORMAL", "MINIMAL", "MILD", "MODERATE", "MARKED", "SEVERE"];
+export const BNSAS_STRINGS = {titles: BNSAS_TITLES, subTitles: BNSAS_SUBTITLES, descriptions: BNSAS_DESCRIPTIONS, longDescriptions: BNSAS_LONG_DESCRIPTIONS, scaleTitles: BNSAS_SCALE_TITLES, scaleLevels: BNSAS_SCALE_LEVELS };
 
 
 

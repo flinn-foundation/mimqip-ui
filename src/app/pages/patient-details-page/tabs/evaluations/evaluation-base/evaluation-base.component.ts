@@ -5,6 +5,8 @@ import {EvaluationService} from "../../../../../services/evaluation/evaluation.s
 import {ScaleDetail} from "./scale-detail";
 import {EvaluationResponseDto} from "../../../../../swagger-patient-service/model/EvaluationResponseDto";
 import {Question} from "./question";
+import EvaluationTypeEnum = EvaluationDto.EvaluationTypeEnum;
+import {Observable} from "rxjs/Observable";
 
 @Component({
   selector: 'app-evaluation-base',
@@ -24,11 +26,15 @@ export class EvaluationBaseComponent implements OnInit {
   ngOnInit(): void {
   }
 
+  getHistoricalEvaluations(evaluationType?: EvaluationTypeEnum): Observable<Array<EvaluationDto>> {
+    return this.evaluationService.getEvaluations(evaluationType);
+  }
+
   successRedirect() {
     this.router.navigate(['/patient/details/evaluations/success'], {
       preserveQueryParams: true,
       skipLocationChange: true
-    })
+    });
   }
 
   saveEvaluation(evaluation: EvaluationDto) {
@@ -39,8 +45,6 @@ export class EvaluationBaseComponent implements OnInit {
   }
 
   saveEvaluations(evaluations: EvaluationDto[]) {
-    console.log("Evals");
-    console.log(evaluations);
     this.evaluationService.saveEvaluations(evaluations).subscribe(
       () => this.successRedirect(),
       (error) => console.log(error)
