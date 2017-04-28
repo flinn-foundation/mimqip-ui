@@ -1,5 +1,5 @@
 import {Component, EventEmitter, Input, OnChanges, OnInit, Output} from '@angular/core';
-import {ScaleDetail} from "../schizophrenia-psrs-bnsas/scale-detail";
+import {ScaleDetail} from "../scale-detail";
 
 @Component({
   selector: 'app-evaluation-dialog',

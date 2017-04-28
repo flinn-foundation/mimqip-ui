@@ -68,6 +68,83 @@ export const PSRS_SCALE_LEVELS = [
 
 export const PSRS_SCALE_TITLES = ["NOT PRESENT", "VERY MILD", "MILD", "MODERATE", "MODERATE SEVERE", "SEVERE", "EXTREMELY SEVERE"];
 
+export const BNSAS_TITLES = [
+  "Prolonged Time to Respond",
+  "Emotion: Unchanging Facial Expression; Blank, Expressionless Face",
+  "Reduced Social Drive",
+  "Grooming and Hygiene"
+];
+
+export const BNSAS_SUBTITLES = [
+  "(A Measure of Alogia)",
+  "(A Measure of Flat Affect)",
+  "(A Measure of Asociality)",
+  "(A Measure of Amotivation)"
+];
+
+export const BNSAS_DESCRIPTIONS = [
+  "Observed throughout communication with the patient. After asking the patient a question, he or she pauses for inappropriately long periods before initiating a response. Delay is considered a pause if it feels as though you are waiting for a response or if you consider repeating the question because it appears that the patient has not heard you. He or she may seem \"distant\" and sometimes the examiner may wonder if he has even heard the question. Prompting usually indicates that the patient is aware of the question, but has been having difficulty in developing his thoughts in order to make an appropriate reply. Rate severity on the frequency of these pauses.",
+  "Unusual, odd, strange or bizarre thought content. Rate the degree of unusualness, not the degree of disorganization of speech. Delusions are patently absurd, clearly false or bizarre ideas that are expressed with full conviction. Consider the patient to have full conviction if he/she has acted as though the delusional belief were true. Ideas of reference/persecution can be differentiated from delusions in that ideas are expressed with much doubt and contain more elements of reality. Include thought insertion, withdrawal and broadcast. Include grandiose, somatic and persecutory delusions even if rated elsewhere.",
+  "This item assesses how much the subject desires to initiate social interactions. Desire may be measured in part by the number of actual or attempted social contacts with others. If the patient has frequent contact with someone (e.g., family member) who initiates the contact, does the patient appear to desire the contact (i.e., would he or she initiate contact if necessary?)? In making this rating, probe the desire to initiate social interactions, number of social interactions, and the ability to enjoy them.",
+  "Observed during interaction with the patient. The patient displays less attention to grooming and hygiene than normal. The patient presents with poorly groomed hair, disheveled clothing, etc. Do not rate grooming as poor if it is simply done in what one might consider poor taste (e.g., wild hairdo or excessive makeup). In addition to observation, one must ask the patient about regularity of bathing, brushing teeth, changing clothes, etc. This is particularly important with outpatients, as the patient may present his or her best grooming and hygiene at their clinic visit. Two dimensions to keep in mind when making this rating are current appearance and regularity of grooming behaviors."
+];
+
+export const BNSAS_LONG_DESCRIPTIONS = [
+  "",
+  "",
+  "Assessed by asking the patient questions like: How have you spent your time in the past week? Do you live alone or with someone else? Do you like to be around people? Do you spend much time with others? Do you have difficulty feeling close to others? Who are your friends? How often do you see them? Did you see them this past week? Have you called them on the phone? When you get together, who decides what to do and where to go? When you spend time with others, do you ask them to do something with you or do you wait until they ask you to do something? Is anyone concerned about your happiness or well being?",
+  "Assess the patient by asking questions like: How many times in the past week have you taken a shower or bath? How often do you change your clothes? How often do you shower and brush your teeth?"
+];
+
+export const TIME_TO_RESPOND_SCALE_LEVELS = [
+  "No abnormal pauses before speaking.",
+  "Minimal evidence of inappropriate pauses (brief but not abnormally lengthy pauses occur) may be extreme of normal.",
+  "Occasional noticeable pauses before answering questions. Due to the length of the pause, you feel the need to repeat yourself once or twice during the interview.",
+  "Distinct pauses occur frequently (20-40% of responses).",
+  "Distinct pauses occur most of the time (40-80% of responses).",
+  "Distinct pauses occur with almost every response (80-100% of responses).",
+];
+
+export const EMOTION_SCALE_LEVELS = [
+  "Spontaneous displays of emotion occur when expected. Normal degree of expressiveness of emotions is present.",
+  "Spontaneous expressions of emotion occur when expected. However, there is a reduction in degree or intensity of the emotions expressed. May be extreme of normal.",
+  "Spontaneous expressions of emotion occur infrequently. When emotions are expressed, there is a reduction in degree or intensity displayed.",
+  "Obvious reduction in spontaneous expressions. Spontaneous expressions of emotion may occur very rarely during interaction and only when discussing topics of special interest or humor to the subject.",
+  "Facial expression is markedly decreased. There are no spontaneous expressions of emotion unless prompted or coaxed by the interviewer.",
+  "There are no expressions of emotion even when attempts are made to elicit an emotional response. The subject’s face remains blank throughout the interview.",
+];
+
+export const SOCIAL_DRIVE_SCALE_LEVELS = [
+  "Normal desire to initiate and normal number of contacts. Social contacts are enjoyable.",
+  "Minimal reduction in either the desire to initiate social contacts or the number of social relationships. May initially seem guarded, but has the ability to establish relationships over time. Social relationships are enjoyable.",
+  "Reduction in desire to initiate social contacts. The patient has few social relationships and these social contacts are enjoyable.",
+  "Obvious reduction in the desire to initiate social contacts. The patient has few relationships toward which he or she feels indifference. However, a number of social contacts are initiated each week.",
+  "Marked reduction in desire to initiate social contacts. The patient has very few relationships toward which he or she feels indifference. The patient does not initiate social contacts but may maintain a few contacts (such as with family).",
+  "Patient does not desire social contact. Actively avoids social interactions.",
+];
+
+export const GROOMING_SCALE_LEVELS = [
+  "Patient is clean (e.g., showers every day) and dressed neatly.",
+  "Minimal reduction in grooming and hygiene, may be at the extreme end of the normal range.",
+  "Apparently clean but untidy appearance. Clothing may be mismatched. Patient may shower less often than every other day, or may brush teeth less than everyday.",
+  "There is an obvious reduction in grooming and hygiene. Clothes may appear unkempt, rumpled, or the patient may look as if he or she just got out of bed. The patient may go without showering or bathing for two days at a time. The patient may go for two days without brushing his/her teeth.",
+  "There is a marked reduction in grooming and hygiene. Clothing may appear dirty, stained, or very unkempt. The subject may have greasy hair or a body odor. The patient may go 3 days at a time without showering or 3 or 4 days without brushing his/her teeth.",
+  "Clothing is badly soiled. Patient has a foul odor. Patient may go more than 4 days in a row without showering or more than 4 days in a row without brushing his/her teeth. Poor hygiene may present a health risk.",
+];
+
+export const BNSAS_SCALE_LEVELS = [
+  TIME_TO_RESPOND_SCALE_LEVELS,
+  EMOTION_SCALE_LEVELS,
+  SOCIAL_DRIVE_SCALE_LEVELS,
+  GROOMING_SCALE_LEVELS
+]
+
+
+export const BNSAS_SCALE_TITLES = ["NORMAL", "MINIMAL", "MILD", "MODERATE", "MARKED", "SEVERE"];
+
+
+
+
 
 
 
