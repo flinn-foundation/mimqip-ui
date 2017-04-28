@@ -7,6 +7,7 @@ import {
   PSRS_DESCRIPTIONS, PSRS_LONG_DESCRIPTIONS, PSRS_SCALE_LEVELS, PSRS_SCALE_TITLES, PSRS_TITLES
 } from "./strings";
 import {EvaluationBaseComponent} from "../evaluation-base/evaluation-base.component";
+import {Observable} from "rxjs/Observable";
 
 @Component({
   selector: 'app-schizophrenia-psrs',
@@ -25,11 +26,10 @@ export class SchizophreniaPsrsComponent extends EvaluationBaseComponent implemen
     evaluationResponses: []
   };
 
-  private psrsQuestions: Question[] = [];
-  private bnsasQuestions: Question[] = [];
+  psrsQuestions: Question[] = [];
+  bnsasQuestions: Question[] = [];
 
   ngOnInit() {
-
     for (let i = 0; i < PSRS_TITLES.length; i++) {
       this.psrsQuestions.push(new Question(PSRS_TITLES[i], "", PSRS_DESCRIPTIONS[i], PSRS_LONG_DESCRIPTIONS[i], this.generateScaleDetails(PSRS_SCALE_TITLES, PSRS_SCALE_LEVELS[i])));
       this.psrsEvaluation.evaluationResponses.push({prompt: PSRS_TITLES[i], answer: ""});
@@ -39,8 +39,6 @@ export class SchizophreniaPsrsComponent extends EvaluationBaseComponent implemen
       this.bnsasQuestions.push(new Question(BNSAS_TITLES[i], BNSAS_SUBTITLES[i], BNSAS_DESCRIPTIONS[i], BNSAS_LONG_DESCRIPTIONS[i], this.generateScaleDetails(BNSAS_SCALE_TITLES, BNSAS_SCALE_LEVELS[i])));
       this.bnsasEvaluation.evaluationResponses.push({prompt: BNSAS_TITLES[i], answer: ""})
     }
-
   }
-
 
 }

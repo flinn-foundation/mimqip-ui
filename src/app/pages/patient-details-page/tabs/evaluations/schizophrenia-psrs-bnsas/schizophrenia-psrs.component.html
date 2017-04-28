@@ -34,7 +34,7 @@
   </div>
   <div>TOTAL SCORE = {{ calculateTotal(bnsasEvaluation.evaluationResponses) }}</div>
 </div>
-<button (click)="saveEvaluation()" class="orange-btn">Save</button>
+<button (click)="saveEvaluations([psrsEvaluation, bnsasEvaluation])" class="orange-btn">Save</button>
 <app-evaluation-dialog [(display)]="displayDialog" [name]="dialogKey" [longDescription]="dialogLongDescription"
                        [scaleDetails]="dialogScaleDetails"></app-evaluation-dialog>
 

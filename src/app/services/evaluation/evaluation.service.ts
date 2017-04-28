@@ -17,7 +17,13 @@ export class EvaluationService extends EvaluationApi {
     return super.createNewVitalSignEvaluation(this.patientService.getPatientId(), vitalSignsEvaluation, extraHttpRequestParams);
   }
 
-  public createPatientEvaluation(evaluation: EvaluationDto, extraHttpRequestParams?: any): Observable<string> {
-    return super.createPatientEvaluation(this.patientService.getPatientId(), evaluation, extraHttpRequestParams);
+  public saveEvaluation(evaluation: EvaluationDto, extraHttpRequestParams?: any): Observable<Array<number>> {
+    return this.saveEvaluations([evaluation], extraHttpRequestParams);
   }
+
+  public saveEvaluations(evaluations: EvaluationDto[], extraHttpRequestParams?: any): Observable<Array<number>> {
+    return super.createPatientEvaluations(this.patientService.getPatientId(), evaluations, extraHttpRequestParams);
+  }
+
+
 }

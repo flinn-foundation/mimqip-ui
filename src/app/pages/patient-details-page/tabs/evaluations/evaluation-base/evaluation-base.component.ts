@@ -24,14 +24,25 @@ export class EvaluationBaseComponent implements OnInit {
   ngOnInit(): void {
   }
 
+  successRedirect() {
+    this.router.navigate(['/patient/details/evaluations/success'], {
+      preserveQueryParams: true,
+      skipLocationChange: true
+    })
+  }
+
   saveEvaluation(evaluation: EvaluationDto) {
-    this.evaluationService.createPatientEvaluation(evaluation).subscribe(
-      (message: any) => {
-        this.router.navigate(['/patient/details/evaluations/success'], {
-          preserveQueryParams: true,
-          skipLocationChange: true
-        })
-      },
+    this.evaluationService.saveEvaluation(evaluation).subscribe(
+      (message: any) => this.successRedirect(),
+      (error) => console.log(error)
+    );
+  }
+
+  saveEvaluations(evaluations: EvaluationDto[]) {
+    console.log("Evals");
+    console.log(evaluations);
+    this.evaluationService.saveEvaluations(evaluations).subscribe(
+      () => this.successRedirect(),
       (error) => console.log(error)
     );
   }
