@@ -19,8 +19,11 @@ export class VitalSignsComponent implements OnInit {
   selectedInches: number;
 
 
-  constructor(private evaluationsService: EvaluationService) {
+  constructor(private evaluationService: EvaluationService) {
 
+  }
+
+  ngOnInit() {
     this.feetSelectItems.push({label: "Select", value: null});
     for (let i = 1; i < 8; i++) {
       this.feetSelectItems.push({label: i.toString(), value: i});
@@ -30,16 +33,12 @@ export class VitalSignsComponent implements OnInit {
     for (let i = 0; i < 12; i++) {
       this.inchesSelectItems.push({label: i.toString(), value: i});
     }
-
-  }
-
-  ngOnInit() {
   }
 
   saveVitals() {
     this.vitalSigns.height = this.calculateHeightInInches();
 
-    this.evaluationsService.createNewVitalSignEvaluation(this.vitalSigns).subscribe(
+    this.evaluationService.createNewVitalSignEvaluation(this.vitalSigns).subscribe(
       (vitalsId: string) => console.log(vitalsId),
       (error) => console.log(error)
     );

@@ -49,6 +49,8 @@ import {PatientService} from "./services/patient/patient.service";
 import {AuthGuard} from "./guards/auth-guard/auth.guard";
 import {PatientRootComponent} from './pages/patient-root/patient-root.component';
 import { EvaluationDialogComponent } from './pages/patient-details-page/tabs/evaluations/evaluation-dialog/evaluation-dialog.component';
+import { EvaluationSuccessComponent } from './pages/patient-details-page/tabs/evaluations/evaluation-success/evaluation-success.component';
+import { EvaluationBaseComponent } from './pages/patient-details-page/tabs/evaluations/evaluation-base/evaluation-base.component';
 
 
 @NgModule({
@@ -86,7 +88,9 @@ import { EvaluationDialogComponent } from './pages/patient-details-page/tabs/eva
     AgePipe,
     LoginPageComponent,
     PatientRootComponent,
-    EvaluationDialogComponent
+    EvaluationDialogComponent,
+    EvaluationSuccessComponent,
+    EvaluationBaseComponent
   ],
   imports: [
     BrowserModule,

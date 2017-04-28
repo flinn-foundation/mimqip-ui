@@ -1,16 +1,15 @@
 import {Component, OnInit} from '@angular/core';
-import {EvaluationBase} from "../evaluation-base";
-import {EvaluationService} from "../../../../../services/evaluation/evaluation.service";
 import {EvaluationDto} from "../../../../../swagger-patient-service/model/EvaluationDto";
 import EvaluationTypeEnum = EvaluationDto.EvaluationTypeEnum;
 import {EvaluationResponseDto} from "../../../../../swagger-patient-service/model/EvaluationResponseDto";
+import {EvaluationBaseComponent} from "../evaluation-base/evaluation-base.component";
 
 @Component({
   selector: 'app-depression-phq9',
   templateUrl: './depression-phq9.component.html',
   styleUrls: ['./depression-phq9.component.scss']
 })
-export class DepressionPhq9Component extends EvaluationBase implements OnInit {
+export class DepressionPhq9Component extends EvaluationBaseComponent implements OnInit {
 
   evaluationDto: EvaluationDto = {
     evaluationType: EvaluationTypeEnum.PHQ9,
@@ -33,11 +32,6 @@ export class DepressionPhq9Component extends EvaluationBase implements OnInit {
     prompt: "If you checked off any problems, how difficult have these problems made it for you to do your work, take care of things at home, or get along with other people?",
     answer: ""
   };
-
-
-  constructor(evaluationService: EvaluationService) {
-    super(evaluationService);
-  }
 
   ngOnInit() {
   }

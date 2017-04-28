@@ -1,15 +1,14 @@
-import { Component, OnInit } from '@angular/core';
+import {Component, OnInit} from '@angular/core';
 import {EvaluationDto} from "../../../../../swagger-patient-service/model/EvaluationDto";
 import EvaluationTypeEnum = EvaluationDto.EvaluationTypeEnum;
-import {EvaluationBase} from "../evaluation-base";
-import {EvaluationService} from "../../../../../services/evaluation/evaluation.service";
+import {EvaluationBaseComponent} from "../evaluation-base/evaluation-base.component";
 
 @Component({
   selector: 'app-mental-status',
   templateUrl: './mental-status.component.html',
   styleUrls: ['./mental-status.component.scss']
 })
-export class MentalStatusComponent extends EvaluationBase implements OnInit {
+export class MentalStatusComponent extends EvaluationBaseComponent implements OnInit {
 
   evaluationDto: EvaluationDto = {
     evaluationType: EvaluationTypeEnum.MENTALSTATUS,
@@ -26,10 +25,6 @@ export class MentalStatusComponent extends EvaluationBase implements OnInit {
       {prompt: "Judgement", answer: ""}
     ]
   };
-
-  constructor(evaluationService: EvaluationService) {
-    super(evaluationService);
-  }
 
   ngOnInit() {
   }

@@ -2,16 +2,14 @@ import {Component, EventEmitter, OnInit, Output} from '@angular/core';
 import {EvaluationDto} from "../../../../../swagger-patient-service/model/EvaluationDto";
 import {EvaluationResponseDto} from "../../../../../swagger-patient-service/model/EvaluationResponseDto";
 import EvaluationTypeEnum = EvaluationDto.EvaluationTypeEnum;
+import {EvaluationBaseComponent} from "../evaluation-base/evaluation-base.component";
 
 @Component({
   selector: 'app-global-ratings',
   templateUrl: './global-ratings.component.html',
   styleUrls: ['./global-ratings.component.scss']
 })
-export class GlobalRatingsComponent implements OnInit {
-
-  @Output()
-  private onEvalCompleted = new EventEmitter<EvaluationDto>();
+export class GlobalRatingsComponent extends EvaluationBaseComponent implements OnInit {
 
   private description: string[] = [
     "Please rate the severity of the patient's side effects over the last week on the scale below from <span class='blue'>0 = No side effects</span> to <span class='blue'>10 = Very severe side effects</span>",
@@ -39,20 +37,12 @@ export class GlobalRatingsComponent implements OnInit {
     }
   ];
 
-  private evaluation: EvaluationDto = {
+  evaluation: EvaluationDto = {
     evaluationResponses: this.evaluationQuestions,
     evaluationType: EvaluationTypeEnum.GLOBAL
   };
 
-  constructor() {
-  }
-
   ngOnInit() {
-  }
-
-  private saveEvaluation() {
-    console.log("Saving Eval");
-    this.onEvalCompleted.emit(this.evaluation)
   }
 
 }

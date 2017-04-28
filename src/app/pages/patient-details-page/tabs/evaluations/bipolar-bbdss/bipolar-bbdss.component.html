@@ -17,7 +17,7 @@
   </div>
 </div>
 <app-evaluation-dialog [(display)]="displayDialog" [name]="dialogKey" [longDescription]="dialogLongDescription"
-                       [scaleDetails]="dialogScaleDescriptions"></app-evaluation-dialog>
+                       [scaleDetails]="dialogScaleDetails"></app-evaluation-dialog>
 
 <div>
   <span class="title">Manic Subscale = </span><span class="inputVal">{{ calculateSubscale(evaluation.evaluationResponses, 'manic') }}</span>
@@ -37,4 +37,4 @@
   <span class="title">Total Score = </span><span class="inputVal">{{ calculateTotal(evaluation.evaluationResponses) }}</span>
 </div>
 
-<button (click)="saveEvaluation()" class="orange-btn">Save</button>
+<button (click)="saveEvaluation(evaluation)" class="orange-btn">Save</button>

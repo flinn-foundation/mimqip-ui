@@ -22,6 +22,7 @@ import {PsychiatricComponent} from "./pages/patient-details-page/tabs/evaluation
 import {MentalStatusComponent} from "./pages/patient-details-page/tabs/evaluations/mental-status/mental-status.component";
 import {SubstanceAbuseComponent} from "./pages/patient-details-page/tabs/evaluations/substance-abuse/substance-abuse.component";
 import {VitalSignsComponent} from "./pages/patient-details-page/tabs/evaluations/vital-signs/vital-signs.component";
+import {EvaluationSuccessComponent} from "./pages/patient-details-page/tabs/evaluations/evaluation-success/evaluation-success.component";
 
 
 const routes: Routes = [
@@ -43,6 +44,7 @@ const routes: Routes = [
               {path: "mental-status", component: MentalStatusComponent},
               {path: "substance-abuse", component: SubstanceAbuseComponent},
               {path: "vital-signs", component: VitalSignsComponent},
+              {path: 'success', component: EvaluationSuccessComponent}
             ]
           },
           {path: "medications", component: MedicationsComponent},

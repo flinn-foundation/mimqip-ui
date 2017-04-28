@@ -6,28 +6,27 @@ import {
   BBDSS_DESCIPTIONS, BBDSS_LONG_DESCRIPTIONS, BBDSS_TITLES, DEPRESSED_QUESTIONS, MANIC_QUESTIONS,
   PSYCHOTIC_QUESTIONS, SCALE_LEVELS, SCALE_TITLES
 } from "./strings";
-import {Question} from "../question";
+import {Question} from "../evaluation-base/question";
 import {EvaluationService} from "../../../../../services/evaluation/evaluation.service";
-import {EvaluationBase} from "../evaluation-base";
+import {EvaluationBaseComponent} from "../evaluation-base/evaluation-base.component";
 
 @Component({
   selector: 'app-bipolar-bbdss',
   templateUrl: './bipolar-bbdss.component.html',
   styleUrls: ['./bipolar-bbdss.component.scss']
 })
-export class BipolarBbdssComponent extends EvaluationBase implements OnInit {
+export class BipolarBbdssComponent extends EvaluationBaseComponent implements OnInit {
 
   evaluation: EvaluationDto = {
-    evaluationType: EvaluationTypeEnum.BNSAS,
+    evaluationType: EvaluationTypeEnum.BBDSS,
     evaluationResponses: []
   };
 
   private questions: Question[] = [];
   private subscaleMap = new Map<string, string[]>();
 
-  constructor(evaluationService: EvaluationService) {
-    super(evaluationService);
 
+  ngOnInit() {
     this.subscaleMap.set("manic", MANIC_QUESTIONS);
     this.subscaleMap.set("depressed", DEPRESSED_QUESTIONS);
     this.subscaleMap.set("psychotic", PSYCHOTIC_QUESTIONS);
@@ -36,9 +35,7 @@ export class BipolarBbdssComponent extends EvaluationBase implements OnInit {
       this.questions.push(new Question(BBDSS_TITLES[i], "", BBDSS_DESCIPTIONS[i], BBDSS_LONG_DESCRIPTIONS[i], this.generateScaleDetails(SCALE_TITLES, SCALE_LEVELS[i])));
       this.evaluation.evaluationResponses.push({prompt: BBDSS_TITLES[i], answer: ""});
     }
-  }
 
-  ngOnInit() {
   }
 
 
@@ -54,7 +51,6 @@ export class BipolarBbdssComponent extends EvaluationBase implements OnInit {
     }
 
     return this.calculateTotal(subscaleEvaluationResponses)/subscaleEvaluationResponses.length;
-
   }
 
 }

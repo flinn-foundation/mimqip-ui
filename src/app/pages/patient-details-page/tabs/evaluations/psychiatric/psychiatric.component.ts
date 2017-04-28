@@ -1,15 +1,14 @@
-import { Component, OnInit } from '@angular/core';
-import {EvaluationBase} from "../evaluation-base";
-import {EvaluationService} from "../../../../../services/evaluation/evaluation.service";
+import {Component, OnInit} from '@angular/core';
 import {EvaluationDto} from "../../../../../swagger-patient-service/model/EvaluationDto";
 import EvaluationTypeEnum = EvaluationDto.EvaluationTypeEnum;
+import {EvaluationBaseComponent} from "../evaluation-base/evaluation-base.component";
 
 @Component({
   selector: 'app-psychiatric',
   templateUrl: './psychiatric.component.html',
   styleUrls: ['./psychiatric.component.scss']
 })
-export class PsychiatricComponent extends EvaluationBase implements OnInit {
+export class PsychiatricComponent extends EvaluationBaseComponent implements OnInit {
 
   evaluationDto: EvaluationDto = {
     evaluationType: EvaluationTypeEnum.PSYCHIATRIC,
@@ -27,10 +26,6 @@ export class PsychiatricComponent extends EvaluationBase implements OnInit {
       {prompt: "Functional Assessments", answer: ""}
     ]
   };
-
-  constructor(evaluationService: EvaluationService) {
-    super(evaluationService);
-  }
 
   ngOnInit() {
   }

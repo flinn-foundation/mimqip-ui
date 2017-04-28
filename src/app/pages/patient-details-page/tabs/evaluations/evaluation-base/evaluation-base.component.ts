@@ -1,24 +1,36 @@
-import {EvaluationDto} from "../../../../swagger-patient-service/model/EvaluationDto";
-import {EvaluationService} from "../../../../services/evaluation/evaluation.service";
+import { Component, OnInit } from '@angular/core';
+import {EvaluationDto} from "../../../../../swagger-patient-service/model/EvaluationDto";
+import {Router} from "@angular/router";
+import {EvaluationService} from "../../../../../services/evaluation/evaluation.service";
 import {ScaleDetail} from "./scale-detail";
-import {EvaluationResponseDto} from "../../../../swagger-patient-service/model/EvaluationResponseDto";
+import {EvaluationResponseDto} from "../../../../../swagger-patient-service/model/EvaluationResponseDto";
 import {Question} from "./question";
 
-export class EvaluationBase {
+@Component({
+  selector: 'app-evaluation-base',
+  templateUrl: './evaluation-base.component.html',
+  styleUrls: ['./evaluation-base.component.scss']
+})
+export class EvaluationBaseComponent implements OnInit {
 
   displayDialog: boolean = false;
   dialogKey: string;
   dialogScaleDetails: ScaleDetail[];
   dialogLongDescription: string;
 
-  constructor(private evaluationService: EvaluationService) {
+  constructor(private evaluationService: EvaluationService, private router: Router) {
+  }
+
+  ngOnInit(): void {
   }
 
   saveEvaluation(evaluation: EvaluationDto) {
-    console.log(evaluation);
     this.evaluationService.createPatientEvaluation(evaluation).subscribe(
       (message: any) => {
-        console.log(message)
+        this.router.navigate(['/patient/details/evaluations/success'], {
+          preserveQueryParams: true,
+          skipLocationChange: true
+        })
       },
       (error) => console.log(error)
     );
@@ -35,16 +47,14 @@ export class EvaluationBase {
 
   calculateTotal(evaluationResponses: EvaluationResponseDto[]): number {
     let total: number = 0;
-    for(let evaluationResponse of evaluationResponses) {
+    for (let evaluationResponse of evaluationResponses) {
       total += +evaluationResponse.answer;
     }
 
-    console.log(total);
     return total;
   }
 
   openScaleDetails(question: Question) {
-    console.log(question);
     this.dialogScaleDetails = question.scaleDetails;
     this.dialogLongDescription = question.longDescription;
     this.dialogKey = question.title;
