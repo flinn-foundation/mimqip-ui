@@ -4,6 +4,7 @@ import {Question} from "../../evaluation-base/question";
 import {SelectItem} from "primeng/primeng";
 import {EvaluationBaseComponent} from "../../evaluation-base/evaluation-base.component";
 import EvaluationTypeEnum = EvaluationDto.EvaluationTypeEnum;
+import {DatePipe} from "@angular/common";
 
 @Component({
   selector: 'app-schizophrenia-subscale',
@@ -18,6 +19,8 @@ export class SchizophreniaSubscaleComponent extends EvaluationBaseComponent impl
   @Input()
   subscaleStrings: any;
 
+  private datePipe;
+
   isHistorical: boolean = false;
   selectedEvaluation: EvaluationDto;
   historicalEvaluations: EvaluationDto[] = [];
@@ -30,6 +33,8 @@ export class SchizophreniaSubscaleComponent extends EvaluationBaseComponent impl
   evaluationDates: SelectItem[] = [{label: 'New Evaluation', value: null}];
 
   ngOnInit() {
+    this.datePipe = new DatePipe('en-US');
+
     this.newEvaluation.evaluationType = this.subscaleType;
 
     for (let i = 0; i < this.subscaleStrings.titles.length; i++) {
@@ -47,7 +52,7 @@ export class SchizophreniaSubscaleComponent extends EvaluationBaseComponent impl
   extractHistoricalEvaluationDates(evaluations: EvaluationDto[]) {
     this.historicalEvaluations = evaluations;
     for (let evaluation of this.historicalEvaluations) {
-      this.evaluationDates.push({label: evaluation.created.toISOString(), value: evaluation})
+      this.evaluationDates.push({label: this.datePipe.transform(evaluation.created, "short"), value: evaluation})
     }
   }
 

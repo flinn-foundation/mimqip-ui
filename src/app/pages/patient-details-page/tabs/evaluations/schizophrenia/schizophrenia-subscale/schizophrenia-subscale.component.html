@@ -1,5 +1,6 @@
 <div>
-  <p-dropdown [options]="evaluationDates" (onChange)="doSomething($event.value)"></p-dropdown>
+  <p-dropdown [options]="evaluationDates" (onChange)="doSomething($event.value)" [style]="{'width':'200px'}">
+  </p-dropdown>
 </div>
 <div class="instructions">Please enter a rating from 0-6 of the patient's symptoms in the past 7 days.</div>
 <div class="ui-g">
