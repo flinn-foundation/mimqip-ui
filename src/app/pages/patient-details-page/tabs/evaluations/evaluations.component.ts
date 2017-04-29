@@ -14,65 +14,49 @@ import {ActivatedRoute, Router} from "@angular/router";
 })
 export class EvaluationsComponent implements OnInit {
 
-  private diagnosis: DiagnosisDto;
+  selectedMajorDiagnosis: string;
 
-  private evaluationTypeEnum = EvaluationTypeEnum;
-  private diagnosisRelatedEvaluation: EvaluationTypeEnum;
-
-  // private scaleNameName: Map<string, Array<string>> = new Map([["1", ["test"]], ["2", ["test2"]]]);
+  majorDiagnosisTypes: string[] = ["MDD", "SCHIZOPHRENIC", "BIPOLAR"];
 
   constructor(private diagnosisService: DiagnosisService, private router: Router, private activatedRoute: ActivatedRoute) {
-    diagnosisService.diagnosis$.subscribe(
-      (diagnosis) => {
-        this.diagnosis = diagnosis;
-        this.setDiagnosisRelatedEvaluation()
-      });
+    diagnosisService.diagnosis$.subscribe((diagnosis) => this.setDiagnosisRelatedEvaluation(diagnosis));
   }
 
   ngOnInit() {
-    this.diagnosisService.getMostRecentDiagnosis().subscribe((diagnosis: DiagnosisDto) => {
-        this.diagnosis = diagnosis;
-        this.setDiagnosisRelatedEvaluation();
-      },
-      (error) => {
-        console.log(error)
-      })
+    this.diagnosisService.getMostRecentDiagnosis().subscribe(
+      (diagnosis: DiagnosisDto) => this.setDiagnosisRelatedEvaluation(diagnosis),
+      (error) => console.log(error))
   }
 
-  private setDiagnosisRelatedEvaluation() {
+  private setDiagnosisRelatedEvaluation(diagnosis: DiagnosisDto) {
 
-    let updatedDiagnosisRelatedEvaluation: EvaluationTypeEnum;
-    if (this.diagnosis != null) {
-      let diagnosisName: string = this.diagnosis.diagnosisType.toString().toUpperCase();
+    if (diagnosis != null) {
+      let updatedMajorDiagnosis: string;
+      let diagnosisName: string = diagnosis.diagnosisType.toString().toUpperCase();
 
-
-      if (diagnosisName.indexOf("SCHIZOPHRENIC") > -1) {
-        updatedDiagnosisRelatedEvaluation = EvaluationTypeEnum.PSRS;
-      } else if (diagnosisName.indexOf("BIPOLAR") > -1) {
-        updatedDiagnosisRelatedEvaluation = EvaluationTypeEnum.BBDSS;
-      } else if (diagnosisName.indexOf("MDD") > -1) {
-        updatedDiagnosisRelatedEvaluation = EvaluationTypeEnum.PHQ9;
-      } else {
-        updatedDiagnosisRelatedEvaluation = null;
+      for (let majorDiagnosis of this.majorDiagnosisTypes) {
+        if (diagnosisName.indexOf(majorDiagnosis) > -1) {
+          updatedMajorDiagnosis = majorDiagnosis;
+        }
       }
 
-      if (this.diagnosisRelatedEvaluation != updatedDiagnosisRelatedEvaluation) {
-        this.changeActiveEvaluationIfDiagnosisChanges(updatedDiagnosisRelatedEvaluation);
+      if (this.selectedMajorDiagnosis != updatedMajorDiagnosis) {
+        this.changeActiveEvaluationIfDiagnosisChanges(updatedMajorDiagnosis);
       }
 
-      this.diagnosisRelatedEvaluation = updatedDiagnosisRelatedEvaluation;
+      this.selectedMajorDiagnosis = updatedMajorDiagnosis;
     }
   }
 
-  private changeActiveEvaluationIfDiagnosisChanges(updatedDiagnosisRelatedEvaluation: EvaluationTypeEnum) {
+  private changeActiveEvaluationIfDiagnosisChanges(updatedDiagnosisUrl: string) {
 
     let childrenRoutes: ActivatedRoute[] = this.activatedRoute.children;
     if (childrenRoutes.length == 1) {
       let activeChildRoute: ActivatedRoute = childrenRoutes[0];
       activeChildRoute.url.subscribe((url) => {
         if (url.length == 1) {
-          if (['psrs', 'bbdss', 'phq9'].includes(url[0].path)) {
-            this.router.navigate([updatedDiagnosisRelatedEvaluation.toString().toLowerCase()], {
+          if (this.majorDiagnosisTypes.includes(url[0].path.toUpperCase())) {
+            this.router.navigate([updatedDiagnosisUrl.toLowerCase()], {
               preserveQueryParams: true,
               skipLocationChange: true,
               relativeTo: this.activatedRoute

@@ -30,29 +30,28 @@ export class SchizophreniaSubscaleComponent extends EvaluationBaseComponent impl
   evaluationDates: SelectItem[] = [{label: 'New Evaluation', value: null}];
 
   ngOnInit() {
+    this.newEvaluation.evaluationType = this.subscaleType;
 
     for (let i = 0; i < this.subscaleStrings.titles.length; i++) {
       this.questions.push(new Question(this.subscaleStrings.titles[i], "", this.subscaleStrings.descriptions[i], this.subscaleStrings.longDescriptions[i], this.generateScaleDetails(this.subscaleStrings.scaleTitles, this.subscaleStrings.scaleLevels[i])));
-      this.newEvaluation.evaluationResponses.push({prompt: this.subscaleStrings[i], answer: ""});
+      this.newEvaluation.evaluationResponses.push({prompt: this.subscaleStrings.titles[i], answer: ""});
     }
 
     this.selectedEvaluation = this.newEvaluation;
 
-    this.getHistoricalEvaluations(this.subscaleType).subscribe((evaluations: EvaluationDto[]) => {
-      this.historicalEvaluations = evaluations;
-      this.extractHistoricalEvaluationDates()
-    });
-
+    this.getHistoricalEvaluations(this.subscaleType).subscribe((evaluations: EvaluationDto[]) =>
+      this.extractHistoricalEvaluationDates(evaluations)
+    );
   }
 
-  extractHistoricalEvaluationDates() {
+  extractHistoricalEvaluationDates(evaluations: EvaluationDto[]) {
+    this.historicalEvaluations = evaluations;
     for (let evaluation of this.historicalEvaluations) {
-      this.evaluationDates.push({label: evaluation.created.toDateString(), value: evaluation})
+      this.evaluationDates.push({label: evaluation.created.toISOString(), value: evaluation})
     }
   }
 
   doSomething(selectedEvaluation: EvaluationDto) {
-    console.log("ERR");
     if (selectedEvaluation == null) {
       this.selectedEvaluation = this.newEvaluation;
       this.isHistorical = false;

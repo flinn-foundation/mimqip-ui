@@ -2,13 +2,13 @@
   <div class="ui-g-4">
     <h3>Required Evaluations</h3>
     <a class="evaluation-link" routerLink="global" preserveQueryParams skipLocationChange routerLinkActive="active-route">Global Rating Scale</a>
-    <div [ngSwitch]="diagnosisRelatedEvaluation">
-      <a *ngSwitchCase="evaluationTypeEnum.PHQ9" class="evaluation-link" routerLink="phq9"
-         preserveQueryParams skipLocationChange routerLinkActive="active-route">Major Depressive Disorder PHQ9 Scale</a>
-      <a *ngSwitchCase="evaluationTypeEnum.BBDSS" class="evaluation-link" routerLink="bbdss"
-         preserveQueryParams skipLocationChange routerLinkActive="active-route">Bipolar Disorder BBDSS Scale</a>
-      <a *ngSwitchCase="evaluationTypeEnum.PSRS" class="evaluation-link" routerLink="psrs"
-         preserveQueryParams skipLocationChange routerLinkActive="active-route">Schizophrenia PSRS Scale</a>
+    <div [ngSwitch]="selectedMajorDiagnosis">
+      <a *ngSwitchCase="majorDiagnosisTypes[0]" class="evaluation-link" routerLink="mdd"
+         preserveQueryParams skipLocationChange routerLinkActive="active-route">Major Depressive Disorder Scale</a>
+      <a *ngSwitchCase="majorDiagnosisTypes[1]" class="evaluation-link" routerLink="schizophrenic"
+         preserveQueryParams skipLocationChange routerLinkActive="active-route">Schizophrenia Scales</a>
+      <a *ngSwitchCase="majorDiagnosisTypes[2]" class="evaluation-link" routerLink="bipolar"
+         preserveQueryParams skipLocationChange routerLinkActive="active-route">Bipolar Disorder Scale</a>
     </div>
 
     <h3>Additional Evaluations</h3>

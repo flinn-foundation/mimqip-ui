@@ -37,9 +37,9 @@ const routes: Routes = [
             path: "evaluations", component: EvaluationsComponent,
             children: [
               {path: "global", component: GlobalRatingsComponent},
-              {path: "bbdss", component: BipolarBbdssComponent},
-              {path: "phq9", component: DepressionPhq9Component},
-              {path: "psrs", component: SchizophreniaComponent},
+              {path: "bipolar", component: BipolarBbdssComponent},
+              {path: "mdd", component: DepressionPhq9Component},
+              {path: "schizophrenic", component: SchizophreniaComponent},
               {path: "psychiatric", component: PsychiatricComponent},
               {path: "mental-status", component: MentalStatusComponent},
               {path: "substance-abuse", component: SubstanceAbuseComponent},
