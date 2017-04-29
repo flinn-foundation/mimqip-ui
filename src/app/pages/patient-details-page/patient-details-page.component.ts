@@ -1,7 +1,6 @@
 import {Component, OnInit} from '@angular/core';
 import {ActivatedRoute, Params, Router} from "@angular/router";
 import {MenuItem} from "primeng/primeng";
-import {Store, provideStore} from "@ngrx/store"
 import {PatientService} from "../../services/patient/patient.service";
 import {DiagnosisService} from "../../services/diagnosis/diagnosis.service";
 
