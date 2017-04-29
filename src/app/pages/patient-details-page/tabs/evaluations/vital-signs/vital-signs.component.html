@@ -16,7 +16,7 @@
 
 <div class="input-section">
   <label>BMI:</label>
-  <span class="inputVal"></span>
+  <span>{{ calculateBmi(vitalSigns.weight, selectedFeet, selectedInches) | round: 2 }}</span>
 </div>
 
 <div class="input-section">

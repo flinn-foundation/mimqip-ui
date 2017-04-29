@@ -18,9 +18,7 @@ export class VitalSignsComponent implements OnInit {
   selectedFeet: number;
   selectedInches: number;
 
-
   constructor(private evaluationService: EvaluationService) {
-
   }
 
   ngOnInit() {
@@ -46,6 +44,20 @@ export class VitalSignsComponent implements OnInit {
 
   private calculateHeightInInches(): number {
     return (this.selectedFeet * 12) + this.selectedInches;
+  }
+
+  calculateBmi(weightInLbs: number, heightInFeet: number, remainingHeightInInches: number) {
+
+    if(weightInLbs && heightInFeet && remainingHeightInInches) {
+      let heightInMeters: number = this.calculateHeightInInches() * .025;
+      let weightInKg: number = this.vitalSigns.weight * .45;
+
+      let heightSquared: number = heightInMeters * heightInMeters;
+
+      return weightInKg / heightSquared;
+    } else {
+      return -1;
+    }
   }
 
 }

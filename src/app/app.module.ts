@@ -9,7 +9,7 @@ import {
   DropdownModule, CheckboxModule, RadioButtonModule, InputTextareaModule, DialogModule, OverlayPanelModule, ButtonModule
 } from 'primeng/primeng';
 
-import {NgPipesModule} from "angular2-pipes";
+import {NgPipesModule} from 'ngx-pipes';
 
 import {AppRoutingModule} from './app-routing.module';
 
