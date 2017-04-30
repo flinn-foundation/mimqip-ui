@@ -3,6 +3,8 @@
   drug the patient has previously used.</p>
 <p class="instructions">If the patient is currently abusing a drug place a check in the "Currently Abuses Drug"
   column. Please enter additional relevant information about substance abuse in the progress notes.</p>
+<p-dropdown [options]="evaluationDates" (onChange)="selectEvaluation($event.value)" [style]="{'width':'200px'}">
+</p-dropdown>
 <div class="evalNav">
   <a class="prevEval" href="#"></a>
   <span class="evalDate"></span>
@@ -14,15 +16,13 @@
     <div class="ui-g-4" style="text-align: center">Abused Drug in the Past</div>
     <div class="ui-g-4" style="text-align: center">Currently Abuses Drug</div>
   </div>
-  <div *ngFor="let response of evaluationDto.evaluationResponses" class="ui-g-12">
+  <div *ngFor="let response of selectedEvaluation.evaluationResponses" class="ui-g-12">
     <div class="ui-g-4">{{ response.prompt }}</div>
     <p-radioButton class="ui-g-4" [name]="response.prompt" value="prior"
-                   [(ngModel)]="response.answer" style="text-align: center"></p-radioButton>
+                   [(ngModel)]="response.answer" style="text-align: center" [disabled]="isHistorical"></p-radioButton>
     <p-radioButton class="ui-g-4" [name]="response.prompt" value="current"
-                   [(ngModel)]="response.answer" style="text-align: center"></p-radioButton>
+                   [(ngModel)]="response.answer" style="text-align: center" [disabled]="isHistorical"></p-radioButton>
   </div>
 </div>
-<div class="buttons bottom">
-  <button class="orange-btn" (click)="saveEvaluation(evaluationDto)">Save</button>
-</div>
+<button (click)="saveEvaluation()" [disabled]="isHistorical" label="Save" pButton></button>
 

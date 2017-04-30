@@ -17,25 +17,21 @@ import {EvaluationBaseComponent} from "../evaluation-base/evaluation-base.compon
 })
 export class BipolarBbdssComponent extends EvaluationBaseComponent implements OnInit {
 
-  evaluation: EvaluationDto = {
-    evaluationType: EvaluationTypeEnum.BBDSS,
-    evaluationResponses: []
-  };
 
   private questions: Question[] = [];
   private subscaleMap = new Map<string, string[]>();
 
-
   ngOnInit() {
+
     this.subscaleMap.set("manic", MANIC_QUESTIONS);
     this.subscaleMap.set("depressed", DEPRESSED_QUESTIONS);
     this.subscaleMap.set("psychotic", PSYCHOTIC_QUESTIONS);
 
     for (let i = 0; i < BBDSS_TITLES.length; i++) {
       this.questions.push(new Question(BBDSS_TITLES[i], "", BBDSS_DESCIPTIONS[i], BBDSS_LONG_DESCRIPTIONS[i], this.generateScaleDetails(SCALE_TITLES, SCALE_LEVELS[i])));
-      this.evaluation.evaluationResponses.push({prompt: BBDSS_TITLES[i], answer: ""});
     }
 
+    this.finishInit(EvaluationTypeEnum.BBDSS, BBDSS_TITLES);
   }
 
 

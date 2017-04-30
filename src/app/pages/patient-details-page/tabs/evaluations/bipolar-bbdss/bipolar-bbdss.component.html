@@ -1,10 +1,12 @@
 <h1>Brief Bipolar Disorder Symptom Scale (BDSS)</h1>
 <div class="instructions">Please enter a rating from 0-6 of the patient's symptoms in the past 7 days.</div>
+<p-dropdown [options]="evaluationDates" (onChange)="selectEvaluation($event.value)" [style]="{'width':'200px'}">
+</p-dropdown>
 <div class="ui-g">
   <div class="ui-g-12" *ngFor="let question of questions; let i = index">
     <div class="ui-g-1"></div>
     <div class="ui-g-1">
-      <input pInputText type="number" [(ngModel)]="evaluation.evaluationResponses[i].answer" style="width: 30px;text-align: center;" min="0" max="6">
+      <input pInputText type="number" [(ngModel)]="selectedEvaluation.evaluationResponses[i].answer" style="width: 30px;text-align: center;" min="0" max="6" [disabled]="isHistorical">
     </div>
     <div class="ui-g-10">
       <div>
@@ -20,21 +22,21 @@
                        [scaleDetails]="dialogScaleDetails"></app-evaluation-dialog>
 
 <div>
-  <span class="title">Manic Subscale = </span><span class="inputVal">{{ calculateSubscale(evaluation.evaluationResponses, 'manic') }}</span>
+  <span class="title">Manic Subscale = </span><span class="inputVal">{{ calculateSubscale(selectedEvaluation.evaluationResponses, 'manic') }}</span>
 </div>
 
 <div>
-  <span class="title">Depressed Subscale = </span><span class="inputVal">{{ calculateSubscale(evaluation.evaluationResponses, 'depressed') }}</span>
-</div>
-
-
-<div>
-  <span class="title">Psychotic Subscale = </span><span class="inputVal">{{ calculateSubscale(evaluation.evaluationResponses, 'psychotic') }}</span>
+  <span class="title">Depressed Subscale = </span><span class="inputVal">{{ calculateSubscale(selectedEvaluation.evaluationResponses, 'depressed') }}</span>
 </div>
 
 
 <div>
-  <span class="title">Total Score = </span><span class="inputVal">{{ calculateTotal(evaluation.evaluationResponses) }}</span>
+  <span class="title">Psychotic Subscale = </span><span class="inputVal">{{ calculateSubscale(selectedEvaluation.evaluationResponses, 'psychotic') }}</span>
 </div>
 
-<button (click)="saveEvaluation(evaluation)" class="orange-btn">Save</button>
+
+<div>
+  <span class="title">Total Score = </span><span class="inputVal">{{ calculateTotal(selectedEvaluation.evaluationResponses) }}</span>
+</div>
+
+<button (click)="saveEvaluation()" [disabled]="isHistorical" label="Save" pButton></button>

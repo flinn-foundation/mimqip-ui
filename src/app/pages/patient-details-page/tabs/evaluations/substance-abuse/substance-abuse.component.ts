@@ -2,6 +2,7 @@ import {Component, OnInit} from '@angular/core';
 import {EvaluationDto} from "../../../../../swagger-patient-service/model/EvaluationDto";
 import EvaluationTypeEnum = EvaluationDto.EvaluationTypeEnum;
 import {EvaluationBaseComponent} from "../evaluation-base/evaluation-base.component";
+import {SUBSTANCE_ABUSE_TITLES} from "./strings";
 
 @Component({
   selector: 'app-substance-abuse',
@@ -10,22 +11,10 @@ import {EvaluationBaseComponent} from "../evaluation-base/evaluation-base.compon
 })
 export class SubstanceAbuseComponent extends EvaluationBaseComponent implements OnInit {
 
-  evaluationDto: EvaluationDto = {
-    evaluationType: EvaluationTypeEnum.SUBSTANCEABUSE,
-    evaluationResponses: [
-      {prompt: "Nicotine", answer: ""},
-      {prompt: "Stimulants", answer: ""},
-      {prompt: "Inhalants", answer: ""},
-      {prompt: "Alcohol", answer: ""},
-      {prompt: "Opioids", answer: ""},
-      {prompt: "Cannabis", answer: ""},
-      {prompt: "Cocaine", answer: ""},
-      {prompt: "Hallucinogen", answer: ""},
-      {prompt: "Other", answer: ""}
-    ]
-  };
 
   ngOnInit() {
+
+    this.finishInit(EvaluationTypeEnum.SUBSTANCEABUSE, SUBSTANCE_ABUSE_TITLES);
   }
 
 

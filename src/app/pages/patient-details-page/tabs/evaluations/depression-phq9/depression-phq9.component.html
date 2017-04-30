@@ -1,5 +1,8 @@
 <h1>PHQ9 for Major Depressive Disorder</h1>
-<div class="instructions">Over the last 2 weeks, how often have you been bothered by any of the following problems?</div>
+<div class="instructions">Over the last 2 weeks, how often have you been bothered by any of the following problems?
+</div>
+<p-dropdown [options]="evaluationDates" (onChange)="selectEvaluation($event.value)" [style]="{'width':'200px'}">
+</p-dropdown>
 <div class="ui-g">
   <div class="ui-g-12 eval-header">
     <div class="ui-g-6"></div>
@@ -10,33 +13,39 @@
     <div class="ui-g-1">Score</div>
   </div>
 
-  <div class="ui-g-12" *ngFor="let response of scoredEvaluationResponses; let i = index;">
-    <div class="ui-g-1" style="text-align: right">{{ i+1 }}.</div>
-    <div class="ui-g-5">{{ response.prompt }}</div>
-    <div class="ui-g-1" *ngFor="let number of [0,1,2,3]">
-      <input type="radio" name="question{{ i }}" value="{{ number }}" [(ngModel)]="response.answer"/>
+  <div class="ui-g-12" *ngFor="let response of selectedEvaluation.evaluationResponses; let i = index;">
+    <div *ngIf="i < 9">
+      <div class="ui-g-1" style="text-align: right">{{ i+1 }}.</div>
+      <div class="ui-g-5">{{ response.prompt }}</div>
+      <div class="ui-g-1" *ngFor="let number of [0,1,2,3]">
+        <input type="radio" name="question{{ i }}" value="{{ number }}" [(ngModel)]="response.answer"
+               [disabled]="isHistorical"/>
+      </div>
+      <div class="ui-g-1">
+        <span class="inputVal">{{ response.answer }}</span>
+      </div>
     </div>
-    <div class="ui-g-1">
-      <span class="inputVal">{{ response.answer }}</span>
+    <div *ngIf="i >= 9">
+      <div class="ui-g-12">Total Score: {{ calculateTotal(selectedEvaluation.evaluationResponses.slice(0,8)) }}</div>
+      <div class="ui-g-12 eval-header">
+        <div class="ui-g-6"></div>
+        <div class="ui-g-1">Not difficult at all</div>
+        <div class="ui-g-1">Somewhat difficult</div>
+        <div class="ui-g-1">Very difficult</div>
+        <div class="ui-g-1">Extremely difficult</div>
+      </div>
+
+      <div class="ui-g-12">
+        <div class="ui-g-6">{{ response.prompt }}</div>
+        <div *ngFor="let difficulty of difficulties" class="ui-g-1">
+          <input type="radio" name="question{{ i }}" [value]="difficulty" [(ngModel)]="response.answer"
+                 [disabled]="isHistorical"/>
+        </div>
+      </div>
     </div>
-  </div>
-  <div class="ui-g-12">Total Score: {{ sumResponses(scoredEvaluationResponses) }}</div>
-  <div class="ui-g-12 eval-header">
-    <div class="ui-g-6"></div>
-    <div class="ui-g-1">Not difficult at all</div>
-    <div class="ui-g-1">Somewhat difficult</div>
-    <div class="ui-g-1">Very difficult</div>
-    <div class="ui-g-1">Extremely difficult</div>
   </div>
   <div class="ui-g-12">
-    <div class="ui-g-6">{{ unscoredEvaluationResponse.prompt }}</div>
-    <div class="ui-g-1"><input type="radio" name="question10" value="not difficult" [(ngModel)]="unscoredEvaluationResponse.answer"/></div>
-    <div class="ui-g-1"><input type="radio" name="question10" value="somewhat difficult" [(ngModel)]="unscoredEvaluationResponse.answer"/></div>
-    <div class="ui-g-1"><input type="radio" name="question10" value="very difficult" [(ngModel)]="unscoredEvaluationResponse.answer"/></div>
-    <div class="ui-g-1"><input type="radio" name="question10" value="extremely difficult" [(ngModel)]="unscoredEvaluationResponse.answer"/></div>
-  </div>
-  <div class="ui-g-12">
-    <input class="orange-btn" value="Save" (click)="saveEvaluation()"/>
+    <button (click)="saveEvaluation()" [disabled]="isHistorical" label="Save" pButton></button>
   </div>
   <div class="ui-g-12">
     <h2>Interpretation of Total Score</h2>

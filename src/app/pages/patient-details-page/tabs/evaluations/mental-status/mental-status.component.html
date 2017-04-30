@@ -1,9 +1,9 @@
 <h1>Mental Status</h1>
-<div *ngFor="let response of evaluationDto.evaluationResponses" class="response">
+<p-dropdown [options]="evaluationDates" (onChange)="selectEvaluation($event.value)" [style]="{'width':'200px'}">
+</p-dropdown>
+<div *ngFor="let response of selectedEvaluation.evaluationResponses" class="response">
   <div class="prompt">{{ response.prompt }}</div>
-  <textarea pInputTextarea [(ngModel)]="response.answer"></textarea>
+  <textarea pInputTextarea [(ngModel)]="response.answer" [disabled]="isHistorical"></textarea>
 </div>
-<div class="buttons bottom">
-  <button class="orange-btn" (click)="saveEvaluation(evaluationDto)">Save</button>
-</div>
+<button (click)="saveEvaluation()" [disabled]="isHistorical" label="Save" pButton></button>
 
