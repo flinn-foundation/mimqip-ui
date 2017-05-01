@@ -58,13 +58,13 @@ export class EvaluationApi {
     }
 
     /**
-     * Save evaluation(s)
-     * Save evaluation(s)
+     * Save evaluation
+     * Save evaluation
      * @param patientId Id of patient
-     * @param evaluations Evaluations to save
+     * @param evaluation Evaluation to save
      */
-    public createPatientEvaluations(patientId: number, evaluations: Array<models.EvaluationDto>, extraHttpRequestParams?: any): Observable<Array<number>> {
-        return this.createPatientEvaluationsWithHttpInfo(patientId, evaluations, extraHttpRequestParams)
+    public createPatientEvaluation(patientId: number, evaluation: models.EvaluationDto, extraHttpRequestParams?: any): Observable<number> {
+        return this.createPatientEvaluationWithHttpInfo(patientId, evaluation, extraHttpRequestParams)
             .map((response: Response) => {
                 if (response.status === 204) {
                     return undefined;
@@ -171,23 +171,23 @@ export class EvaluationApi {
     }
 
     /**
-     * Save evaluation(s)
-     * Save evaluation(s)
+     * Save evaluation
+     * Save evaluation
      * @param patientId Id of patient
-     * @param evaluations Evaluations to save
+     * @param evaluation Evaluation to save
      */
-    public createPatientEvaluationsWithHttpInfo(patientId: number, evaluations: Array<models.EvaluationDto>, extraHttpRequestParams?: any): Observable<Response> {
+    public createPatientEvaluationWithHttpInfo(patientId: number, evaluation: models.EvaluationDto, extraHttpRequestParams?: any): Observable<Response> {
         const path = this.basePath + `/patients/${patientId}/evaluations`;
 
         let queryParameters = new URLSearchParams();
         let headers = new Headers(this.defaultHeaders.toJSON()); // https://github.com/angular/angular/issues/6845
         // verify required parameter 'patientId' is not null or undefined
         if (patientId === null || patientId === undefined) {
-            throw new Error('Required parameter patientId was null or undefined when calling createPatientEvaluations.');
+            throw new Error('Required parameter patientId was null or undefined when calling createPatientEvaluation.');
         }
-        // verify required parameter 'evaluations' is not null or undefined
-        if (evaluations === null || evaluations === undefined) {
-            throw new Error('Required parameter evaluations was null or undefined when calling createPatientEvaluations.');
+        // verify required parameter 'evaluation' is not null or undefined
+        if (evaluation === null || evaluation === undefined) {
+            throw new Error('Required parameter evaluation was null or undefined when calling createPatientEvaluation.');
         }
         // to determine the Content-Type header
         let consumes: string[] = [
@@ -203,7 +203,7 @@ export class EvaluationApi {
         let requestOptions: RequestOptionsArgs = new RequestOptions({
             method: RequestMethod.Post,
             headers: headers,
-            body: evaluations == null ? '' : JSON.stringify(evaluations), // https://github.com/angular/angular/issues/10612
+            body: evaluation == null ? '' : JSON.stringify(evaluation), // https://github.com/angular/angular/issues/10612
             search: queryParameters
         });
 
