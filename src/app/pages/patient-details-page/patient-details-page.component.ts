@@ -1,7 +1,6 @@
 import {Component, OnInit} from '@angular/core';
 import {ActivatedRoute, Params, Router} from "@angular/router";
 import {MenuItem} from "primeng/primeng";
-import {Store, provideStore} from "@ngrx/store"
 import {PatientService} from "../../services/patient/patient.service";
 import {DiagnosisService} from "../../services/diagnosis/diagnosis.service";
 
@@ -15,11 +14,10 @@ export class PatientDetailsPageComponent implements OnInit {
 
   private patientId: number;
   private items: MenuItem[];
+  private activeItem: MenuItem;
 
 
-  private tab: number = 1;
-
-  constructor(private activatedRoute: ActivatedRoute, private router: Router, private diagnosisService: DiagnosisService) {
+  constructor(private patientService: PatientService, private activatedRoute: ActivatedRoute, private router: Router, private diagnosisService: DiagnosisService) {
   }
 
   ngOnInit() {
@@ -27,18 +25,29 @@ export class PatientDetailsPageComponent implements OnInit {
       this.patientId = params['patientId'];
       if (this.patientId == null) {
         this.router.navigate(["/patient/search"]);
+      } else {
+        this.patientService.setPatientId(this.patientId);
+        this.switchTabs("evaluations");
       }
     });
 
     this.items = [
-      {label: 'Patient Evaluations', command: () => { this.tab = 1; }},
-      {label: 'Medications', command: () => { this.tab = 2; }},
-      {label: 'Decision Support', command: () => { this.tab = 3; }},
-      {label: 'Progress Notes', command: () => { this.tab = 4; }},
-      {label: 'Patient Labs', command: () => { this.tab = 5; }},
-      {label: 'Patient Information', command: () => { this.tab = 6; }},
-      {label: 'Reports', command: () => { this.tab = 7; }}
+      {label: 'Patient Evaluations', command: () => {this.switchTabs("evaluations")}},
+      {label: 'Medications', command: () => { this.switchTabs("medications") }},
+      {label: 'Decision Support', command: () => { this.switchTabs("recommendations") }},
+      {label: 'Progress Notes', command: () => { this.switchTabs("progress-notes") }},
+      {label: 'Patient Labs', command: () => { this.switchTabs("labs") }},
+      {label: 'Patient Information', command: () => { this.switchTabs("patient-information") }},
+      {label: 'Reports', command: () => { this.switchTabs("reports") }}
     ];
+
+    this.activeItem = this.items[0];
   }
+
+  private switchTabs(route: string) {
+      this.router.navigate([route], {preserveQueryParams: true, relativeTo: this.activatedRoute, skipLocationChange: true});
+  }
+
+
 
 }

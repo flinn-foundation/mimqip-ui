@@ -3,6 +3,7 @@ import {ProgressNoteService} from "../../../../services/progress-note/progress-n
 import {ProgressNoteDto} from "../../../../swagger-patient-service/model/ProgressNoteDto";
 import ProgressNoteTagTypesEnum = ProgressNoteDto.ProgressNoteTagTypesEnum;
 import {OverlayPanel} from "primeng/primeng";
+import {PatientService} from "../../../../services/patient/patient.service";
 
 @Component({
   selector: 'app-progress-notes',
@@ -11,9 +12,6 @@ import {OverlayPanel} from "primeng/primeng";
   providers: [ProgressNoteService]
 })
 export class ProgressNotesComponent implements OnInit {
-
-  @Input()
-  private patientId: number;
 
   @ViewChild('op') overlayPanel: OverlayPanel;
 
@@ -39,7 +37,7 @@ export class ProgressNotesComponent implements OnInit {
   }
 
   private getExistingMessages() {
-    this.progressNoteService.getProgressNotes(this.patientId).subscribe(
+    this.progressNoteService.getProgressNotes().subscribe(
       (progressNotes: Array<ProgressNoteDto>) => this.progressNotes = progressNotes
     );
   }
@@ -52,10 +50,7 @@ export class ProgressNotesComponent implements OnInit {
 
     this.progressNote.progressNoteTagTypes = this.collectProgressNoteTags();
 
-    console.log(this.progressNote);
-    console.log(this.patientId);
-
-    this.progressNoteService.saveProgressNoteWithHttpInfo(this.patientId, this.progressNote).subscribe(
+    this.progressNoteService.saveProgressNote(this.progressNote).subscribe(
       () => {
         this.overlayPanel.hide();
         this.resetProgressNote();

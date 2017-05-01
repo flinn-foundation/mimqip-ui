@@ -3,8 +3,8 @@
     Diagnosis &amp; Stage
   </div>
   <div class="field-box ui-g-12" id="diagnosis" style="height: 84px">
-    <span class="title">Primary Diagnosis</span>
-    <span class="data">{{ diagnosis.diagnosisType }}</span>
+    <span class="title" style="width: 100%;">Primary Diagnosis</span>
+    <span class="data" style="font-size: 10px">{{ getDiagnosisLongName(diagnosis.diagnosisType) }}</span>
   </div>
   <div class="field-box ui-g-5" id="stage" style="border-style:solid solid none none">
     <span class="title">Stage</span>
@@ -16,4 +16,4 @@
     </button>
   </div>
 </div>
-<app-diagnosis-dialog [(display)]="displayDialog" [patientId]="patientId"></app-diagnosis-dialog>
+<app-diagnosis-dialog [(display)]="displayDialog"></app-diagnosis-dialog>

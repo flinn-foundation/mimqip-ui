@@ -1,34 +1,31 @@
-<div>Global Rating Scales</div>
+<h1>Global Rating Scales</h1>
 <div class="instructions">Please note: MiMQIP requires a score on the Overall Side Effect Severity and Overall Symptom
   Severity scales to make a clinical recommendation.
 </div>
-<!--TODO: Navigate past responses-->
-
-<div *ngFor="let question of evaluationQuestions; let i = index;">
+<p-dropdown [options]="evaluationDates" (onChange)="selectEvaluation($event.value)" [style]="{'width':'200px'}">
+</p-dropdown>
+<div *ngFor="let question of selectedEvaluation.evaluationResponses; let i = index;">
   <div *ngIf="i < 3">
     <div class="errorMsg">Please select a response.</div>
     <h2>{{ question.prompt }}</h2>
-    <div [innerHTML]="description[i]"></div>
+    <div [innerHTML]="globalDescriptions[i]"></div>
     <div *ngFor="let severity of [0,1,2,3,4,5,6,7,8,9,10]" class="eval-response-rating">
       <label for="{{i + severity }}">{{ severity }}</label>
       <input type="radio" name="{{ i }}" id="{{i + severity }}" value="{{ severity }}"
-             [(ngModel)]="question.answer"/>
+             [(ngModel)]="question.answer" [disabled]="isHistorical"/>
     </div>
   </div>
 </div>
 <div class="fieldWrapper symptom">
   <div class="errorMsg">Please select a response.</div>
-  <h2>{{ evaluationQuestions[3].prompt }}</h2>
-  <div>{{ description[3] }}</div>
+  <h2>{{ selectedEvaluation.evaluationResponses[3].prompt }}</h2>
+  <div>{{ globalDescriptions[3] }}</div>
   <div *ngFor="let compliance of ['Yes', 'No', 'Unknown/ Unsure']" class="eval-response-rating compliance">
     <label for="{{ compliance }}">{{ compliance }}</label>
     <input type="radio" name="compliance" id="{{ compliance }}" value="{{ compliance }}"
-           [(ngModel)]="evaluationQuestions[3].answer"/>
+           [(ngModel)]="selectedEvaluation.evaluationResponses[3].answer" [disabled]="isHistorical"/>
   </div>
 </div>
 
-<div class="evaluatedBy">Evaluated By: <span></span></div>
-<div class="buttons bottom">
-  <button class="orange-btn" (click)="saveEvaluation()">Save</button>
-</div>
+<button (click)="saveEvaluation()" [disabled]="isHistorical" label="Save" pButton></button>
 

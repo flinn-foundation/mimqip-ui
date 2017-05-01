@@ -11,17 +11,13 @@ import SexEnum = PatientDto.SexEnum;
 })
 export class PatientInformationComponent implements OnInit {
 
-  @Input()
-  private patientId: number;
-
   private patient: PatientSimpleDto = {};
 
   constructor(private patientService: PatientService) {
-
   }
 
   ngOnInit() {
-    this.patientService.getPatientSimpleById(this.patientId).subscribe(
+    this.patientService.getPatientSimpleById(this.patientService.getPatientId()).subscribe(
       (patient: PatientSimpleDto) => this.patient = patient,
       error => console.log(error)
     );

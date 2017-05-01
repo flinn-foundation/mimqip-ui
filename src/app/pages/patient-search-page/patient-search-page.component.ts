@@ -24,6 +24,5 @@ export class PatientSearchPageComponent implements OnInit {
 
   onRowSelect(event) {
     this.router.navigate(['/patient/details'], { queryParams: { patientId: event.data.id }});
-
   }
 }

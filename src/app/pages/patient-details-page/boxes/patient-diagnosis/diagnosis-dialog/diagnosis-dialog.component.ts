@@ -14,9 +14,6 @@ export class DiagnosisDialogComponent implements OnInit, OnChanges {
   @Input()
   private display: boolean;
 
-  @Input()
-  private patientId: number;
-
   @Output()
   private displayChange = new EventEmitter<boolean>();
 
@@ -77,7 +74,7 @@ export class DiagnosisDialogComponent implements OnInit, OnChanges {
     {label: "295.20 Schizophrenia, Catatonic Type", value: DiagnosisTypeEnum.SCHIZOPHRENICC},
     {label: "295.90 Schizophrenia, Undifferentiated Type", value: DiagnosisTypeEnum.SCHIZOPHRENICU},
     {label: "295.60 Schizophrenia, Residual Type", value: DiagnosisTypeEnum.SCHIZOPHRENICR},
-    {label: "Other", value: null}
+    {label: "Select", value: null}
   ];
 
   private stages: SelectItem[] = [
@@ -96,7 +93,7 @@ export class DiagnosisDialogComponent implements OnInit, OnChanges {
 
   ngOnChanges() {
     if (this.display === true) {
-      this.diagnosisService.getMostRecentDiagnosisByPatientId(this.patientId).subscribe(
+      this.diagnosisService.getMostRecentDiagnosis().subscribe(
         (diagnosis: DiagnosisDto) => {
           this.diagnosis = {
             diagnosisType: diagnosis.diagnosisType,
@@ -122,7 +119,7 @@ export class DiagnosisDialogComponent implements OnInit, OnChanges {
     this.diagnosis.id = null;
     if (this.diagnosisChanged()) {
       console.log("Different");
-      this.diagnosisService.savePatientDiagnosis(this.patientId, this.diagnosis).subscribe(() => this.diagnosisService.submitDiagnosis(this.diagnosis), () => console.log("Error submitting diagnosis"));
+      this.diagnosisService.savePatientDiagnosis(this.diagnosis).subscribe(() => this.diagnosisService.submitDiagnosis(this.diagnosis), () => console.log("Error submitting diagnosis"));
       this.emitHide();
     } else {
       this.emitHide();

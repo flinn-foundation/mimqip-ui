@@ -1,0 +1,17 @@
+.evaluation-link {
+  text-decoration: underline;
+  cursor: pointer;
+  color: #000000;
+  text-transform: capitalize;
+  display: block;
+  padding: 5px;
+}
+
+.past-eval {
+  font-size: 14px;
+  padding-left: 15px;
+}
+
+.active-route {
+  background: #8ecce6;
+}

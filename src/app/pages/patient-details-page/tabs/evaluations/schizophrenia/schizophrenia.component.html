@@ -1,0 +1,11 @@
+<p-accordion>
+  <p-accordionTab header="Positive Symptom Rating Scale (PSRS)">
+    <app-schizophrenia-subscale [subscaleType]="evaluationTypeEnum.PSRS" [subscaleStrings]="psrsStrings"></app-schizophrenia-subscale>
+  </p-accordionTab>
+  <p-accordionTab header="Brief Negative Symptom Assessment Scale (BNSAS)">
+    <app-schizophrenia-subscale [subscaleType]="evaluationTypeEnum.BNSAS" [subscaleStrings]="bnsasStrings"></app-schizophrenia-subscale>
+  </p-accordionTab>
+</p-accordion>
+<app-evaluation-dialog [(display)]="displayDialog" [name]="dialogKey" [longDescription]="dialogLongDescription"
+                       [scaleDetails]="dialogScaleDetails"></app-evaluation-dialog>
+

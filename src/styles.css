@@ -149,3 +149,23 @@ body {
   display: block;
 }
 
+.response {
+  margin: 10px 0;
+}
+
+.response .prompt {
+  font-weight: bold;
+}
+
+.response textarea {
+  width: 500px;
+  height: 80px;
+  resize: none;
+}
+
+.view-scale {
+  text-decoration: underline;
+  font-style: italic;
+}
+
+

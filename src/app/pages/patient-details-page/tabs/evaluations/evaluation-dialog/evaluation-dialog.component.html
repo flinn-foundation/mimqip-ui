@@ -1,0 +1,10 @@
+<p-dialog [(visible)]="display" modal="modal" width="700" (onHide)="displayChange.emit(false);"
+          [draggable]="false" [resizable]="false" [header]="name">
+  <div style="" class="evaluation-dialog-content">
+    <div class="long-description">{{ longDescription }}</div>
+    <div *ngFor="let scaleDetail of scaleDetails let i = index;" class="scale-level">
+      <div class="scale-value">{{ i }}</div>
+      <div class="scale-description">{{ scaleDetail.title }}: {{ scaleDetail.description }}</div>
+    </div>
+  </div>
+</p-dialog>

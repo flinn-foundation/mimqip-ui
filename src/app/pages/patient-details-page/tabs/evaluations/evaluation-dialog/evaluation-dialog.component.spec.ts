@@ -1,20 +1,20 @@
 import { async, ComponentFixture, TestBed } from '@angular/core/testing';
 
-import { SchizophreniaPsrsComponent } from './schizophrenia-psrs.component';
+import { EvaluationDialogComponent } from './evaluation-dialog.component';
 
-describe('SchizophreniaPsrsComponent', () => {
-  let component: SchizophreniaPsrsComponent;
-  let fixture: ComponentFixture<SchizophreniaPsrsComponent>;
+describe('EvaluationDialogComponent', () => {
+  let component: EvaluationDialogComponent;
+  let fixture: ComponentFixture<EvaluationDialogComponent>;
 
   beforeEach(async(() => {
     TestBed.configureTestingModule({
-      declarations: [ SchizophreniaPsrsComponent ]
+      declarations: [ EvaluationDialogComponent ]
     })
     .compileComponents();
   }));
 
   beforeEach(() => {
-    fixture = TestBed.createComponent(SchizophreniaPsrsComponent);
+    fixture = TestBed.createComponent(EvaluationDialogComponent);
     component = fixture.componentInstance;
     fixture.detectChanges();
   });

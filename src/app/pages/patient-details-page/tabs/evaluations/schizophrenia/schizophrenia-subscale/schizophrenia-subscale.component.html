@@ -1,0 +1,24 @@
+<div>
+  <p-dropdown [options]="evaluationDates" (onChange)="selectEvaluation($event.value)" [style]="{'width':'200px'}">
+  </p-dropdown>
+</div>
+<div class="instructions">Please enter a rating from 0-6 of the patient's symptoms in the past 7 days.</div>
+<div class="ui-g">
+  <div class="ui-g-12" *ngFor="let question of questions; let i = index;">
+    <div class="ui-g-1"></div>
+    <div class="ui-g-1">
+      <input pInputText type="number" [(ngModel)]="selectedEvaluation.evaluationResponses[i].answer"
+             style="width: 40px;text-align: center;" min="0" max="6" [disabled]="isHistorical">
+    </div>
+    <div class="ui-g-10">
+      <div>
+        <span
+          style="font-weight: bold; color: #1389B8; text-transform: uppercase">{{ i+1 }}. {{ question.title }}: </span>
+        <span>{{ question.description }}</span>
+      </div>
+      <a (click)="openScaleDetails(question)" class="view-scale">View Scale</a>
+    </div>
+  </div>
+  <div>TOTAL SCORE = {{ calculateTotal(selectedEvaluation.evaluationResponses) }}</div>
+</div>
+<button (click)="saveEvaluation()" [disabled]="isHistorical" label="Save" pButton></button>

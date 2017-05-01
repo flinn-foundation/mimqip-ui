@@ -4,17 +4,12 @@ import {NgModule} from '@angular/core';
 import {FormsModule} from '@angular/forms';
 import {HttpModule} from '@angular/http';
 
-import {DataTableModule, SharedModule} from 'primeng/primeng';
-import {TabMenuModule} from 'primeng/primeng';
-import {CalendarModule} from 'primeng/primeng';
-import {DropdownModule} from 'primeng/primeng';
-import {CheckboxModule} from 'primeng/primeng';
-import {RadioButtonModule} from 'primeng/primeng';
-import {DialogModule} from 'primeng/primeng';
-import {InputTextareaModule} from 'primeng/primeng';
-import {OverlayPanelModule} from 'primeng/primeng';
+import {
+  AccordionModule, DataTableModule, InputTextModule, SharedModule, TabMenuModule, CalendarModule,
+  DropdownModule, CheckboxModule, RadioButtonModule, InputTextareaModule, DialogModule, OverlayPanelModule, ButtonModule
+} from 'primeng/primeng';
 
-import {NgPipesModule} from "angular2-pipes";
+import {NgPipesModule} from 'ngx-pipes';
 
 import {AppRoutingModule} from './app-routing.module';
 
@@ -43,7 +38,7 @@ import {MentalStatusComponent} from './pages/patient-details-page/tabs/evaluatio
 import {VitalSignsComponent} from './pages/patient-details-page/tabs/evaluations/vital-signs/vital-signs.component';
 import {GlobalRatingsComponent} from './pages/patient-details-page/tabs/evaluations/global-ratings/global-ratings.component';
 import {BipolarBbdssComponent} from './pages/patient-details-page/tabs/evaluations/bipolar-bbdss/bipolar-bbdss.component';
-import {SchizophreniaPsrsComponent} from './pages/patient-details-page/tabs/evaluations/schizophrenia-psrs/schizophrenia-psrs.component';
+import {SchizophreniaComponent} from './pages/patient-details-page/tabs/evaluations/schizophrenia/schizophrenia.component';
 import {SumImpurePipe} from './pipes/sum-impure/sum-impure.pipe';
 import {SexShortPipe} from './pipes/sex-short/sex-short.pipe';
 import {CompareTreatmentsDialogComponent} from './pages/patient-details-page/tabs/recommendations/compare-treatments-dialog/compare-treatments-dialog.component';
@@ -53,6 +48,10 @@ import {LoginPageComponent} from './pages/login-page/login-page.component';
 import {PatientService} from "./services/patient/patient.service";
 import {AuthGuard} from "./guards/auth-guard/auth.guard";
 import {PatientRootComponent} from './pages/patient-root/patient-root.component';
+import { EvaluationDialogComponent } from './pages/patient-details-page/tabs/evaluations/evaluation-dialog/evaluation-dialog.component';
+import { EvaluationSuccessComponent } from './pages/patient-details-page/tabs/evaluations/evaluation-success/evaluation-success.component';
+import { EvaluationBaseComponent } from './pages/patient-details-page/tabs/evaluations/evaluation-base/evaluation-base.component';
+import { SchizophreniaSubscaleComponent } from './pages/patient-details-page/tabs/evaluations/schizophrenia/schizophrenia-subscale/schizophrenia-subscale.component';
 
 
 @NgModule({
@@ -82,20 +81,26 @@ import {PatientRootComponent} from './pages/patient-root/patient-root.component'
     VitalSignsComponent,
     GlobalRatingsComponent,
     BipolarBbdssComponent,
-    SchizophreniaPsrsComponent,
+    SchizophreniaComponent,
     SumImpurePipe,
     SexShortPipe,
     CompareTreatmentsDialogComponent,
     DiagnosisDialogComponent,
     AgePipe,
     LoginPageComponent,
-    PatientRootComponent
+    PatientRootComponent,
+    EvaluationDialogComponent,
+    EvaluationSuccessComponent,
+    EvaluationBaseComponent,
+    SchizophreniaSubscaleComponent
   ],
   imports: [
     BrowserModule,
     FormsModule,
     HttpModule,
     AppRoutingModule,
+    AccordionModule,
+    ButtonModule,
     DataTableModule,
     TabMenuModule,
     CalendarModule,
@@ -103,6 +108,7 @@ import {PatientRootComponent} from './pages/patient-root/patient-root.component'
     CheckboxModule,
     RadioButtonModule,
     InputTextareaModule,
+    InputTextModule,
     DialogModule,
     OverlayPanelModule,
     SharedModule,
