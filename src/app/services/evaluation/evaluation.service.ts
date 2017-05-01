@@ -18,12 +18,8 @@ export class EvaluationService extends EvaluationApi {
     return super.createNewVitalSignEvaluation(this.patientService.getPatientId(), vitalSignsEvaluation, extraHttpRequestParams);
   }
 
-  public saveEvaluation(evaluation: EvaluationDto, extraHttpRequestParams?: any): Observable<Array<number>> {
-    return this.saveEvaluations([evaluation], extraHttpRequestParams);
-  }
-
-  public saveEvaluations(evaluations: EvaluationDto[], extraHttpRequestParams?: any): Observable<Array<number>> {
-    return super.createPatientEvaluations(this.patientService.getPatientId(), evaluations, extraHttpRequestParams);
+  public saveEvaluation(evaluation: EvaluationDto, extraHttpRequestParams?: any): Observable<number> {
+    return super.createPatientEvaluation(this.patientService.getPatientId(), evaluation, extraHttpRequestParams);
   }
 
   public getEvaluations(evaluationType?: EvaluationTypeEnum): Observable<Array<EvaluationDto>> {
@@ -32,7 +28,7 @@ export class EvaluationService extends EvaluationApi {
         evaluations.forEach((evaluation) => {
           evaluation.created = new Date(evaluation.created);
         });
-        
+
         return evaluations;
       });
   }
