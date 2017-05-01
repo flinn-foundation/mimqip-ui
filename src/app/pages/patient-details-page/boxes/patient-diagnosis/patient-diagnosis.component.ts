@@ -10,9 +10,6 @@ import DiagnosisTypeEnum = DiagnosisDto.DiagnosisTypeEnum;
 })
 export class PatientDiagnosisComponent implements OnInit {
 
-  @Input()
-  private patientId: number;
-
   private diagnosis: DiagnosisDto = {};
 
   private displayDialog: boolean = false;
@@ -63,7 +60,7 @@ export class PatientDiagnosisComponent implements OnInit {
   }
 
   getLatestDiagnosis() {
-    this.diagnosisService.getMostRecentDiagnosis(this.patientId).subscribe(
+    this.diagnosisService.getMostRecentDiagnosis().subscribe(
       (diagnosis: DiagnosisDto) => this.diagnosis = diagnosis,
       (error) => console.log(error)
     );

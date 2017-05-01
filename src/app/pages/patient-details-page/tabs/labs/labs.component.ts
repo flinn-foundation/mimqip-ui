@@ -7,9 +7,15 @@ import { Component, OnInit } from '@angular/core';
 })
 export class LabsComponent implements OnInit {
 
+  displayDialog: boolean = false;
+
   constructor() { }
 
   ngOnInit() {
+  }
+
+  openLabsDialog() {
+    this.displayDialog = true;
   }
 
 }

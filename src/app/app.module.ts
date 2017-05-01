@@ -28,7 +28,7 @@ import {MedicationsComponent} from './pages/patient-details-page/tabs/medication
 import {RecommendationsComponent} from './pages/patient-details-page/tabs/recommendations/recommendations.component';
 import {ProgressComponent} from './pages/patient-details-page/tabs/progress/progress.component';
 import {LabsComponent} from './pages/patient-details-page/tabs/labs/labs.component';
-import {InformationComponent} from './pages/patient-details-page/tabs/information/information.component';
+import {InformationComponent} from './pages/patient-details-page/tabs/patient-information-input/patient-information-input.component';
 import {ReportsComponent} from './pages/patient-details-page/tabs/reports/reports.component';
 import {InstructionsComponent} from './pages/patient-details-page/instructions/instructions.component';
 import {DepressionPhq9Component} from './pages/patient-details-page/tabs/evaluations/depression-phq9/depression-phq9.component';
@@ -52,6 +52,7 @@ import { EvaluationDialogComponent } from './pages/patient-details-page/tabs/eva
 import { EvaluationSuccessComponent } from './pages/patient-details-page/tabs/evaluations/evaluation-success/evaluation-success.component';
 import { EvaluationBaseComponent } from './pages/patient-details-page/tabs/evaluations/evaluation-base/evaluation-base.component';
 import { SchizophreniaSubscaleComponent } from './pages/patient-details-page/tabs/evaluations/schizophrenia/schizophrenia-subscale/schizophrenia-subscale.component';
+import { LabsDialogComponent } from './pages/patient-details-page/tabs/labs/labs-dialog/labs-dialog.component';
 
 
 @NgModule({
@@ -92,7 +93,8 @@ import { SchizophreniaSubscaleComponent } from './pages/patient-details-page/tab
     EvaluationDialogComponent,
     EvaluationSuccessComponent,
     EvaluationBaseComponent,
-    SchizophreniaSubscaleComponent
+    SchizophreniaSubscaleComponent,
+    LabsDialogComponent
   ],
   imports: [
     BrowserModule,

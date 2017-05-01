@@ -13,7 +13,7 @@ import {RecommendationsComponent} from "./pages/patient-details-page/tabs/recomm
 import {ReportsComponent} from "./pages/patient-details-page/tabs/reports/reports.component";
 import {LabsComponent} from "./pages/patient-details-page/tabs/labs/labs.component";
 import {ProgressComponent} from "./pages/patient-details-page/tabs/progress/progress.component";
-import {InformationComponent} from "./pages/patient-details-page/tabs/information/information.component";
+import {InformationComponent} from "./pages/patient-details-page/tabs/patient-information-input/patient-information-input.component";
 import {GlobalRatingsComponent} from "./pages/patient-details-page/tabs/evaluations/global-ratings/global-ratings.component";
 import {BipolarBbdssComponent} from "./pages/patient-details-page/tabs/evaluations/bipolar-bbdss/bipolar-bbdss.component";
 import {DepressionPhq9Component} from "./pages/patient-details-page/tabs/evaluations/depression-phq9/depression-phq9.component";

@@ -17,7 +17,7 @@ export class PatientInformationComponent implements OnInit {
   }
 
   ngOnInit() {
-    this.patientService.getPatientSimpleById(this.patientService.getPatientId()).subscribe(
+    this.patientService.getPatientSimple().subscribe(
       (patient: PatientSimpleDto) => this.patient = patient,
       error => console.log(error)
     );

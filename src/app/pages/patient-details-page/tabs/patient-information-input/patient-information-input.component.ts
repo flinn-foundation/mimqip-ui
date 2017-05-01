@@ -11,13 +11,13 @@ import {Router} from "@angular/router";
 import {PatientService} from "../../../../services/patient/patient.service";
 
 @Component({
-  selector: 'app-information',
-  templateUrl: './information.component.html',
-  styleUrls: ['./information.component.scss']
+  selector: 'app-patient-information-input',
+  templateUrl: './patient-information-input.component.html',
+  styleUrls: ['./patient-information-input.component.scss']
 })
 export class InformationComponent implements OnInit {
 
-  patient: PatientDto = {};
+  patient: PatientDto = { race: [] };
 
   defaultDate: Date;
 
@@ -39,7 +39,6 @@ export class InformationComponent implements OnInit {
   ];
 
   employmentOptions: SelectItem[] = [
-    {label: 'Select', value: null},
     {label: 'Full Time Salaried', value: EmploymentEnum.FULLTIMESALARIED},
     {label: 'Part Time Salaried', value: EmploymentEnum.PARTTIMESALARIED},
     {label: 'Full Time Non-salaried', value: EmploymentEnum.FULLTIMENONSALARIED},
@@ -47,12 +46,12 @@ export class InformationComponent implements OnInit {
     {label: 'Self Employed', value: EmploymentEnum.SELFEMPLOYED}
   ];
 
-  sexOptions: SelectItem[] = [{label: 'Select', value: null},
+  sexOptions: SelectItem[] = [
     {label: 'Male', value: SexEnum.MALE},
     {label: 'Female', value: SexEnum.FEMALE}
   ];
 
-  maritalOptions: SelectItem[] = [{label: 'Select', value: null},
+  maritalOptions: SelectItem[] = [
     {label: 'Single', value: MaritalEnum.SINGLE},
     {label: 'Married', value: MaritalEnum.MARRIED},
     {label: 'Separated', value: MaritalEnum.SEPARATED},
@@ -60,7 +59,7 @@ export class InformationComponent implements OnInit {
     {label: 'Widowed', value: MaritalEnum.WIDOWED}
   ];
 
-  livingOptions: SelectItem[] = [{label: 'Select', value: null},
+  livingOptions: SelectItem[] = [
     {label: 'Alone', value: LivingEnum.ALONE},
     {label: 'With Roommates', value: LivingEnum.WITHROOMMATES},
     {label: 'With Spouse', value: LivingEnum.WITHSPOUSE},
@@ -75,9 +74,11 @@ export class InformationComponent implements OnInit {
   }
 
   ngOnInit() {
-    this.patientService.getPatientById(this.patientService.getPatientId()).subscribe(
-      (patient: PatientDto) => this.patient = patient
-    );
+    if (this.patientService.getPatientId()) {
+      this.patientService.getPatient().subscribe(
+        (patient: PatientDto) => this.patient = patient
+      );
+    }
   }
 
   saveNewPatient() {

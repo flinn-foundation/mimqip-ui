@@ -1,0 +1,44 @@
+<p-dialog [(visible)]="display" modal="modal" width="700" height="500" (onHide)="displayChange.emit(false);"
+          [draggable]="false" [resizable]="false" header="Enter new labs">
+  <div style="height: 400px">
+    <div>
+      <p-calendar [(ngModel)]="newLab.testDate" [defaultDate]="defaultDate"
+                  [monthNavigator]="true" [yearNavigator]="true" [yearRange]="yearRange"
+                  [showIcon]="true"></p-calendar>
+    </div>
+    <div>
+      <p-dropdown [options]="testTypes" [(ngModel)]="selectedTestType" placeholder="Select Test Type" [style]="{'width':'300px'}"></p-dropdown>
+    </div>
+    <div [ngSwitch]="selectedTestType">
+      <div *ngSwitchCase="'CBC'">
+        <div>RBC (cells/µl):<input type="text" pInputText /></div>
+        <div>WBC (cells/µl):<input type="text" pInputText /></div>
+        <div>Hemoglobin (gm/dl):<input type="text" pInputText /></div>
+        <div>Hematocrit (%):<input type="text" pInputText /></div>
+        <div>Platelet count (platelets/ml):<input type="text" pInputText /></div>
+      </div>
+      <div *ngSwitchCase="'LIPIDPANEL'">
+        <div>Total cholesterol (mg/dl):<input type="text" pInputText /></div>
+        <div>HDL (mg/dl):<input type="text" pInputText /></div>
+        <div>LDL (mg/dl):<input type="text" pInputText /></div>
+        <div>Triglycerides (mg/dl):<input type="text" pInputText /></div>
+      </div>
+      <div *ngSwitchCase="'LIVERENZYMES'">
+        <div>Alanine transaminase (ALT) (or SGPT) (lu/L):<input type="text" pInputText /></div>
+        <div>Aspartate transaminase (AST) (or SGOT) (lu/L):<input type="text" pInputText /></div>
+        <div>Alkaline phosphatase (ALP) (lu/L):<input type="text" pInputText /></div>
+        <div>Gamma glutamyl transpeptidase (GGT) (lu/L):<input type="text" pInputText /></div>
+      </div>
+      <div *ngSwitchCase="'LITHIUM'">
+        <div>(0.6 - 1.5 meq/L):<input type="text" pInputText /></div>
+      </div>
+      <div *ngSwitchCase="'DIVALPROEX'">
+        <div>(50 - 125 mcg/ml):<input type="text" pInputText /></div>
+      </div>
+      <div *ngSwitchCase="'CARBAMAZEPINE'">
+        <div>(6 - 10 mcg/ml):<input type="text" pInputText /></div>
+      </div>
+    </div>
+    <button (click)="saveNewPatient()" pButton label="Save"></button>
+  </div>
+</p-dialog>

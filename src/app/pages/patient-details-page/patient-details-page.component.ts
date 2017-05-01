@@ -27,7 +27,7 @@ export class PatientDetailsPageComponent implements OnInit {
         this.router.navigate(["/patient/search"]);
       } else {
         this.patientService.setPatientId(this.patientId);
-        this.switchTabs("evaluations");
+        this.switchTabs("labs");
       }
     });
 

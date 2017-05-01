@@ -10,18 +10,16 @@ import {MessageService} from "../../../../services/message/message.service";
 })
 export class RecommendationsComponent implements OnInit {
 
-  @Input()
-  private patientId: number;
+  messages: Array<MessageDto>;
 
-  private messages: Array<MessageDto>;
+  displayDialog: boolean = false;
 
-  private displayDialog: boolean = false;
-
-  constructor(private messageService: MessageService) { }
+  constructor(private messageService: MessageService) {
+  }
 
   ngOnInit() {
-    this.messageService.getMessages(this.patientId).subscribe(
-      (messages:Array<MessageDto>) => this.messages = messages,
+    this.messageService.getMessages().subscribe(
+      (messages: Array<MessageDto>) => this.messages = messages,
       (error) => console.log(error)
     );
   }

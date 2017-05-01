@@ -39,8 +39,8 @@ export class PatientService extends PatientApi {
       });
   }
 
-  public getPatientSimpleById(id: number, extraHttpRequestParams?: any): Observable<PatientSimpleDto> {
-    return this.getPatientSimpleByIdWithHttpInfo(id, extraHttpRequestParams)
+  public getPatientSimple(extraHttpRequestParams?: any): Observable<PatientSimpleDto> {
+    return this.getPatientSimpleByIdWithHttpInfo(this.getPatientId(), extraHttpRequestParams)
       .map((response: Response) => {
         if (response.status === 204) {
           return undefined;
@@ -62,8 +62,8 @@ export class PatientService extends PatientApi {
       });
   }
 
-  public getPatientById(id: number, extraHttpRequestParams?: any): Observable<PatientDto> {
-    return this.getPatientByIdWithHttpInfo(id, extraHttpRequestParams)
+  public getPatient(extraHttpRequestParams?: any): Observable<PatientDto> {
+    return this.getPatientByIdWithHttpInfo(this.getPatientId(), extraHttpRequestParams)
       .map((response: Response) => {
         if (response.status === 204) {
           return undefined;
