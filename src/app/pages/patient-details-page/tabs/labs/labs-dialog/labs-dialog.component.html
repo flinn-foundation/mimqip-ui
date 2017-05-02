@@ -2,20 +2,19 @@
           [draggable]="false" [resizable]="false" header="Enter new labs">
   <div style="height: 400px">
     <div>
-      <p-calendar [(ngModel)]="newLab.testDate" [defaultDate]="defaultDate"
-                  [monthNavigator]="true" [yearNavigator]="true" [yearRange]="yearRange"
-                  [showIcon]="true"></p-calendar>
+      <p-calendar [(ngModel)]="testDate" [defaultDate]="defaultDate" [monthNavigator]="true" [yearNavigator]="true"
+                  [yearRange]="yearRange" [showIcon]="true"></p-calendar>
     </div>
     <div>
       <p-dropdown [options]="testTypes" [(ngModel)]="selectedTestType" placeholder="Select Test Type" [style]="{'width':'300px'}"></p-dropdown>
     </div>
     <div [ngSwitch]="selectedTestType">
       <div *ngSwitchCase="'CBC'">
-        <div>RBC (cells/µl):<input type="text" pInputText /></div>
-        <div>WBC (cells/µl):<input type="text" pInputText /></div>
-        <div>Hemoglobin (gm/dl):<input type="text" pInputText /></div>
-        <div>Hematocrit (%):<input type="text" pInputText /></div>
-        <div>Platelet count (platelets/ml):<input type="text" pInputText /></div>
+        <div>RBC (cells/µl):<input type="text" pInputText [(ngModel)]="completeBloodCountLab.rbc"/></div>
+        <div>WBC (cells/µl):<input type="text" pInputText [(ngModel)]="completeBloodCountLab.wbc"/></div>
+        <div>Hemoglobin (gm/dl):<input type="text" pInputText [(ngModel)]="completeBloodCountLab.hemoglobin"/></div>
+        <div>Hematocrit (%):<input type="text" pInputText [(ngModel)]="completeBloodCountLab.hematocrit"/></div>
+        <div>Platelet count (platelets/ml):<input type="text" pInputText [(ngModel)]="completeBloodCountLab.platelets"/></div>
       </div>
       <div *ngSwitchCase="'LIPIDPANEL'">
         <div>Total cholesterol (mg/dl):<input type="text" pInputText /></div>
@@ -39,6 +38,6 @@
         <div>(6 - 10 mcg/ml):<input type="text" pInputText /></div>
       </div>
     </div>
-    <button (click)="saveNewPatient()" pButton label="Save"></button>
+    <button (click)="saveCbcLab()" pButton label="Save"></button>
   </div>
 </p-dialog>

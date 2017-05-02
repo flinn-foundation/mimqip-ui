@@ -22,8 +22,7 @@ export class PatientService extends PatientApi {
   getPatientId() {
     return this.patientId;
   }
-
-
+  
   constructor(http: Http) {
     super(http, "http://localhost:8080", null);
   }

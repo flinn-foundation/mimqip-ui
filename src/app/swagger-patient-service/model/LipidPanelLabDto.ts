@@ -12,11 +12,21 @@
 
 import * as models from './models';
 
-export interface PatientMedicationDto {
+export interface LipidPanelLabDto {
     id?: number;
 
     patientId?: number;
 
-    genericName?: string;
+    testDate?: Date;
+
+    cholesterol?: number;
+
+    hdl?: number;
+
+    ldl?: number;
+
+    triglycerides?: number;
+
+    createdTimestamp?: Date;
 
 }

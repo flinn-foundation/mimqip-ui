@@ -58,7 +58,7 @@ export class EvaluationBaseComponent implements OnInit {
   extractHistoricalEvaluationDates(evaluations: EvaluationDto[]) {
     this.historicalEvaluations = evaluations;
     for (let evaluation of this.historicalEvaluations) {
-      this.evaluationDates.push({label: this.datePipe.transform(evaluation.created, "short"), value: evaluation})
+      this.evaluationDates.push({label: this.datePipe.transform(evaluation.createdTimestamp, "short"), value: evaluation})
     }
   }
 

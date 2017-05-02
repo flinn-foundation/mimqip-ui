@@ -12,11 +12,15 @@
 
 import * as models from './models';
 
-export interface PatientMedicationDto {
+export interface LithiumLabDto {
     id?: number;
 
     patientId?: number;
 
-    genericName?: string;
+    testDate?: Date;
+
+    bloodLevel?: number;
+
+    createdTimestamp?: Date;
 
 }

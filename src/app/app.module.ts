@@ -53,6 +53,7 @@ import { EvaluationSuccessComponent } from './pages/patient-details-page/tabs/ev
 import { EvaluationBaseComponent } from './pages/patient-details-page/tabs/evaluations/evaluation-base/evaluation-base.component';
 import { SchizophreniaSubscaleComponent } from './pages/patient-details-page/tabs/evaluations/schizophrenia/schizophrenia-subscale/schizophrenia-subscale.component';
 import { LabsDialogComponent } from './pages/patient-details-page/tabs/labs/labs-dialog/labs-dialog.component';
+import {DiagnosisService} from "./services/diagnosis/diagnosis.service";
 
 
 @NgModule({
@@ -119,6 +120,7 @@ import { LabsDialogComponent } from './pages/patient-details-page/tabs/labs/labs
   ],
   providers: [
     PatientService,
+    DiagnosisService,
     AuthGuard
   ],
   bootstrap: [AppComponent]

@@ -20,7 +20,7 @@ export class EvaluationDialogComponent implements OnInit {
   scaleDetails: ScaleDetail[];
 
   @Output()
-  private displayChange = new EventEmitter<boolean>();
+  displayChange = new EventEmitter<boolean>();
 
 
   constructor() { }

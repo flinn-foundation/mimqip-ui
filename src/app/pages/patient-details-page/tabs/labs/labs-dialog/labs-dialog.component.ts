@@ -1,5 +1,7 @@
-import {Component, Input, OnInit} from '@angular/core';
+import {Component, EventEmitter, Input, OnInit, Output} from '@angular/core';
 import {SelectItem} from "primeng/primeng";
+import {LabService} from "../../../../../services/lab/lab.service";
+import {CbcLabDto} from "../../../../../swagger-patient-service/model/CbcLabDto";
 
 @Component({
   selector: 'app-labs-dialog',
@@ -11,9 +13,12 @@ export class LabsDialogComponent implements OnInit {
   @Input()
   display: boolean;
 
-  newLab = {testDate: null};
+  @Output()
+  displayChange = new EventEmitter<boolean>();
 
-  selectedTestType: string;
+  testDate: Date;
+
+  completeBloodCountLab: CbcLabDto = {};
 
   testTypes: SelectItem[] = [
     {label: 'CBC', value: "CBC"},
@@ -28,10 +33,22 @@ export class LabsDialogComponent implements OnInit {
 
   yearRange: string = (new Date().getFullYear() - 120) + ':' + (new Date().getFullYear());
 
-  constructor() {
+  constructor(private labService: LabService) {
   }
 
   ngOnInit() {
+  }
+
+  saveCbcLab() {
+
+    this.completeBloodCountLab.testDate = this.testDate;
+
+    this.labService.saveCbcLab(this.completeBloodCountLab).subscribe(
+      (response:any) => {
+        console.log(response);
+        this.displayChange.emit(false);
+      }
+    );
   }
 
 }

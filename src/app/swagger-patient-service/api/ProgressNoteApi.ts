@@ -62,7 +62,7 @@ export class ProgressNoteApi {
      * @param patientId Id of patient progress note to create
      * @param progressNote Progress note to submit
      */
-    public saveProgressNote(patientId: number, progressNote: models.ProgressNoteDto, extraHttpRequestParams?: any): Observable<{}> {
+    public saveProgressNote(patientId: number, progressNote: models.ProgressNoteDto, extraHttpRequestParams?: any): Observable<string> {
         return this.saveProgressNoteWithHttpInfo(patientId, progressNote, extraHttpRequestParams)
             .map((response: Response) => {
                 if (response.status === 204) {

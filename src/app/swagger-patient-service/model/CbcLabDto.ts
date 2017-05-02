@@ -12,11 +12,23 @@
 
 import * as models from './models';
 
-export interface PatientMedicationDto {
+export interface CbcLabDto {
     id?: number;
 
     patientId?: number;
 
-    genericName?: string;
+    testDate?: Date;
+
+    rbc?: number;
+
+    wbc?: number;
+
+    hemoglobin?: number;
+
+    hematocrit?: number;
+
+    platelets?: number;
+
+    createdTimestamp?: Date;
 
 }

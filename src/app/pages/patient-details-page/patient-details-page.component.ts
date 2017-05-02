@@ -7,17 +7,25 @@ import {DiagnosisService} from "../../services/diagnosis/diagnosis.service";
 @Component({
   selector: 'app-patient-details-page',
   templateUrl: './patient-details-page.component.html',
-  styleUrls: ['./patient-details-page.component.scss'],
-  providers: [DiagnosisService]
+  styleUrls: ['./patient-details-page.component.scss']
 })
 export class PatientDetailsPageComponent implements OnInit {
 
   private patientId: number;
-  private items: MenuItem[];
-  private activeItem: MenuItem;
 
+  items: MenuItem[] = [
+    {label: 'Patient Evaluations', command: () => {this.switchTabs("evaluations")}},
+    {label: 'Medications', command: () => {this.switchTabs("medications")}},
+    {label: 'Decision Support', command: () => {this.switchTabs("recommendations")}},
+    {label: 'Progress Notes', command: () => {this.switchTabs("progress-notes")}},
+    {label: 'Patient Labs', command: () => {this.switchTabs("labs")}},
+    {label: 'Patient Information', command: () => {this.switchTabs("patient-information")}},
+    {label: 'Reports', command: () => {this.switchTabs("reports")}}
+  ];
 
-  constructor(private patientService: PatientService, private activatedRoute: ActivatedRoute, private router: Router, private diagnosisService: DiagnosisService) {
+  activeItem: MenuItem = this.items[4];
+
+  constructor(private patientService: PatientService, private activatedRoute: ActivatedRoute, private router: Router) {
   }
 
   ngOnInit() {
@@ -27,27 +35,19 @@ export class PatientDetailsPageComponent implements OnInit {
         this.router.navigate(["/patient/search"]);
       } else {
         this.patientService.setPatientId(this.patientId);
-        this.switchTabs("labs");
       }
     });
 
-    this.items = [
-      {label: 'Patient Evaluations', command: () => {this.switchTabs("evaluations")}},
-      {label: 'Medications', command: () => { this.switchTabs("medications") }},
-      {label: 'Decision Support', command: () => { this.switchTabs("recommendations") }},
-      {label: 'Progress Notes', command: () => { this.switchTabs("progress-notes") }},
-      {label: 'Patient Labs', command: () => { this.switchTabs("labs") }},
-      {label: 'Patient Information', command: () => { this.switchTabs("patient-information") }},
-      {label: 'Reports', command: () => { this.switchTabs("reports") }}
-    ];
-
-    this.activeItem = this.items[0];
+    this.activeItem.command();
   }
 
   private switchTabs(route: string) {
-      this.router.navigate([route], {preserveQueryParams: true, relativeTo: this.activatedRoute, skipLocationChange: true});
+    this.router.navigate([route], {
+      preserveQueryParams: true,
+      relativeTo: this.activatedRoute,
+      skipLocationChange: true
+    });
   }
-
 
 
 }

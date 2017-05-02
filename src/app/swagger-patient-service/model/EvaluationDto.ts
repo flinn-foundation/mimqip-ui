@@ -19,7 +19,7 @@ export interface EvaluationDto {
 
     evaluationResponses?: Array<models.EvaluationResponseDto>;
 
-    created?: Date;
+    createdTimestamp?: Date;
 
     evaluationType?: EvaluationDto.EvaluationTypeEnum;
 

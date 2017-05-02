@@ -26,7 +26,7 @@ export class EvaluationService extends EvaluationApi {
     return super.getEvaluationsByPatientId(this.patientService.getPatientId(), evaluationType.toString()).map(
       (evaluations: Array<EvaluationDto>) => {
         evaluations.forEach((evaluation) => {
-          evaluation.created = new Date(evaluation.created);
+          evaluation.createdTimestamp = new Date(evaluation.createdTimestamp);
         });
 
         return evaluations;
